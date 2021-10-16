@@ -97,7 +97,6 @@ file,ghost/master/word.dic652475e76354771be9bf6770a25b3696size=8646
 file,ghost/master/yaya.dll574de3a1212adad81ddd883f883498dcsize=1241088
 file,ghost/master/yaya.txt152d40c4da20e9dd5f0fb6703c7e2885size=1984
 file,ghost/master/yaya_config.txt70d3d059099f5b281ef5800d0adc248esize=3427
-file,install.txt84a614cf73d3be6ebc524ab6bb8c57c8size=675
 file,readme.txtf3c314aa33359d733ec6f071986699bbsize=3201
 file,shell/halloween/descript.txt794ca966793acd13b79d2c477682011asize=5427
 file,shell/halloween/list animations.txtd1f7babe9b8c9fc4a6b63b492932e693size=849
