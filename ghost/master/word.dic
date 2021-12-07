@@ -15,6 +15,128 @@ lsto
 	"\f[italic,false]\i[2002]"
 }
 
+randompose
+{
+	"\0%(azpose)%(arms)"
+	--
+	if oncomputer ==  1 && alreadyeat < 2
+	{
+		"\i[14]"
+		--
+		"\i[30]\i[31]"
+		"\i[32]\i[33]"
+		"\i[34]"
+		"\i[35]"
+		"\i[37]"
+		"\i[38]\i[39]"
+		--
+		"\i[49]"
+		"\i[48]"
+		"\i[46]"
+		if azfeel >= 1
+		{
+			"\i[50]"
+			"\i[45]"
+		}
+		elseif azfeel == 0
+		{
+			"\i[45]"
+			"\i[40]"
+		}
+		else
+		{
+			"\i[40]"
+		}
+	}
+	elseif isdrawing == 1 && alreadyeat < 2
+	{
+		"\i[14]"
+		--
+		"\i[30]\i[31]"
+		"\i[32]\i[33]"
+		"\i[36]\i[37]"
+		"\i[38]\i[39]"
+		"\i[35]"
+		"\i[33]"
+		--
+		"\i[49]"
+		"\i[48]"
+		"\i[46]"
+		if azfeel >= 1
+		{
+			"\i[50]"
+			"\i[45]"
+		}
+		elseif azfeel == 0
+		{
+			"\i[45]"
+			"\i[40]"
+		}
+		else
+		{
+			"\i[40]"
+		}
+	}
+	else
+	{
+		"\i[11]"
+		"\i[18]"
+		if azfeel > 2
+		{
+			"\i[16]"
+		}
+		--
+		"\i[30]\i[31]"
+		"\i[38]\i[39]"
+		--
+		"%(smile)"
+	}
+	--
+	if dayslot == "6month 4day"
+	{
+		"\i[120]"
+	}
+}
+
+
+headfront
+{
+	if nowshell != "Old shell"
+	{
+		if issat
+		{
+			"\0\s[15]"
+		}
+		else
+		{
+			"\0\s[10]"
+		}
+	}
+	else
+	{
+		"%(azpose)"
+	}
+}
+
+headturned
+{
+	if nowshell != "Old shell"
+	{
+		if issat
+		{
+			"\0\s[18]"
+		}
+		else
+		{
+			"\0\s[13]"
+		}
+	}
+	else
+	{
+		"%(azpose)"
+	}
+}
+
 arms
 {
 	if alreadyeat < 2 || timeslot != "lunch"
@@ -39,7 +161,6 @@ arms
 			"\i[90]"
 			"\i[91]"
 		}
-		
 	}
 }
 
@@ -87,21 +208,35 @@ smileface
 {
 	"\i[45]"
 	--
+	"%(smileeyes)"
+}
+smileeyes
+{
 	"\i[18]"
 	--
+	smileeyebrows
+}
+smileeyebrows
+{
 	"\i[30]\i[31]"
 	"\i[38]\i[39]"
-	--
-	"\i[18]"
 }
 
 perplexeface
 {
-	"\i[18]"
+	"%(perplexeeyes)"
 	--
 	"\i[49]"
 	"\i[48]"
+}
+perplexeeyes
+{
+	"\i[18]"
 	--
+	perplexeeyebrows
+}
+perplexeeyebrows
+{
 	{
 		"\i[34]"
 		--
@@ -122,37 +257,58 @@ perplexeface
 
 worriedface
 {
-	"\i[11]"
-	"\i[18]"
-	--
-	"\i[34]\i[35]"
-	"\i[32]\i[33]"
+	"%(worriedeyes)"
 	--
 	"\i[40]"
 	"\i[49]"
 }
+worriedeyes
+{
+	"\i[11]"
+	"\i[18]"
+	--
+	worriedeyebrows
+}
+worriedeyebrows
+{
+	"\i[34]\i[35]"
+	"\i[32]\i[33]"
+}
 
 happyface
 {
-	"\i[16]"
-	"\i[10]"
-	--
-	"\i[38]\i[39]"
+	"%(happyeyes)"
 	--
 	"\i[50]"
 	"\i[51]"
 }
+happyeyes
+{
+	"\i[16]"
+	"\i[10]"
+	--
+	happyeyebrows
+}
+happyeyebrows
+{
+	"\i[38]\i[39]"
+}
+
 
 angryface
+{
+	"%(angryeyes)"
+	--
+	"\i[40]"
+	"\i[52]"
+}
+angryeyes
 {
 	"\i[13]"
 	"\i[18]"
 	--
 	"\i[32]\i[33]"
 	"\i[36]\i[37]"
-	--
-	"\i[40]"
-	"\i[52]"
 }
 
 wonderingface
@@ -180,6 +336,17 @@ wonderingface
 	"\i[47]"
 }
 
+sadface
+{
+	"\i[18]"
+	"\i[13]"
+	--
+	"\i[32]\i[33]"
+	--
+	"\i[40]"
+	"\i[52]"
+}
+
 explainarms
 {
 	{
@@ -193,6 +360,61 @@ explainarms
 		--
 		"\i[70]"
 		"\i[71]"
+	}
+}
+
+behindheadarms
+{
+	{
+		"\i[73]"
+		--
+		"\i[90]"
+		"\i[93]"
+	}
+	{
+		"\i[93]"
+		--
+		"\i[70]"
+		"\i[73]"
+	}
+}
+
+wonderingarms
+{
+	"\i[79]\i[91]"
+}
+
+eventsanimations
+{
+	if holdobsidian == 1
+	{
+		"\i[67]"
+	}
+	elseif oncomputer
+	{
+		"\i[168]"
+	}
+	elseif isdrawing
+	{
+		"\i[169]"
+	}
+	--
+	if issat != 1
+	{
+		
+		if oncomputer == 1
+		{
+			"\i[60]"
+		}
+		elseif isdrawing == 1
+		{
+			"\i[62]"
+		}
+	}
+	--
+	if dayslot == "6month 4day"
+	{
+		"\i[120]"
 	}
 }
 

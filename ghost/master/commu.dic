@@ -63,11 +63,6 @@ OnCommunicate
 				{
 					nbconv++
 				}
-				else
-				{
-					truc = reference1[0]
-					retruc =conversation[2]
-				}
 				conversation[1] = "%(reference0)"
 				conversation[2] = "%(reference1)"
 				speech = TOLOWER(SPLIT("%(reference1)","\e")[0])

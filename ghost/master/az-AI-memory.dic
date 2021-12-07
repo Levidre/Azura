@@ -1,0 +1,36 @@
+CheckLogical
+{
+	
+}
+
+StoreInMemory
+{
+	_sentence = _argv
+	
+	_inmemoryindex = SearchInMemory(_sentene)
+	
+	GETSECCOUNT()
+	if _inmemoryindex == -1
+	{
+		aimemory ,= _sentence
+	}
+	else
+	{
+		
+	}
+	
+}
+
+SearchInMemory
+{
+	_sentence = _argv
+	
+	-1
+}
+
+AreAdjectiveCompatibles
+{
+	_adj1 = SPLIT(_argv[0],",")
+	_adj2 = SPLIT(_argv[1],",")
+	
+}

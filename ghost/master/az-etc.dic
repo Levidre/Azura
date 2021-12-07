@@ -560,7 +560,7 @@ OnMouseDragStart
 	{
 		if asleep == 1
 		{
-			"\0\s[14]%(smile)\i[83]\i[86]\i[15]* Mmh...\e"
+			"\0\s[14]%(smile)\i[81]\i[86]\i[15]* Mmh...\e"
 		}
 		else
 		{

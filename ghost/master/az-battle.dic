@@ -3,17 +3,17 @@
 
  Select.enterfight
  {
-	if nowshell == "Pyjama shell"
+	/*if nowshell == "Pyjama shell"
 	{
 		battleshell = 1
 		"\![enter,passivemode]* You want to fight me ? \0\w7\![change,shell,Normal shell]Ok, \w5I'm ready to fight.\n"
 	}
 	else
-	{
-		"\![enter,passivemode]* You want to fight me ? \0\s[11]\i[32]\i[33]\i[45]\i[18]\i[83]\i[86]\w7Ok, \w5I'm ready to fight.\n"
-	}
+	{*/
+		"\![enter,passivemode]* You want to fight me ? \0\s[11]\i[32]\i[33]\i[45]\i[18]\i[81]\i[86]\w7Ok, \w5I'm ready to fight.\n"
+	//}
 	--
-	"\n[half]\f[italic,true]The HP would be shown in percent.\f[italic,false]\n"
+	"\n[half]\f[italic,true]\i[2001]The HP would be shown in percent.\f[italic,false]\n"
 	--
 	//Set up the variables for the battle.
 	inbattle = 1

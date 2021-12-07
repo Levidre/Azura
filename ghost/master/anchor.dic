@@ -37,7 +37,7 @@ OnTranslate
 		_talk = REPLACE(_talk,"\i[78]","")
 		_talk = REPLACE(_talk,"\i[79]","")
 		_talk = REPLACE(_talk,"\i[90]","")
-		_talk = REPLACE(_talk,"\i[83]","")
+		_talk = REPLACE(_talk,"\i[81]","")
 		_talk = REPLACE(_talk,"\i[86]","")
 		_talk = REPLACE(_talk,"\i[91]","")
 		_talk = REPLACE(_talk,"\i[92]","")
@@ -47,19 +47,28 @@ OnTranslate
 		_talk = REPLACE(_talk,"\i[96]","")
 		_talk = REPLACE(_talk,"\i[97]","")
 		_talk = REPLACE(_talk,"\i[98]","")
+		if alreadyeat >= 2  || holdobsidian != 0
+		{
+			_talk = RE_REPLACE(_talk,"\\(s)\[[.][.]\]","")
+		}
+	}
+	elseif oncomputer == 1 || isdrawing == 1
+	{
+		_talk = REPLACE(_talk,"\i[71]","\i[70]")
+		_talk = REPLACE(_talk,"\i[91]","\i[90]")
 	}
 	elseif "\s[14]" _in_ _talk
 	{
-		_talk = REPLACE(_talk,"\i[70]","\i[83]")
-		_talk = REPLACE(_talk,"\i[71]","\i[83]")
-		_talk = REPLACE(_talk,"\i[72]","\i[83]")
-		_talk = REPLACE(_talk,"\i[73]","\i[83]")
-		_talk = REPLACE(_talk,"\i[74]","\i[83]")
-		_talk = REPLACE(_talk,"\i[75]","\i[83]")
-		_talk = REPLACE(_talk,"\i[76]","\i[83]")
-		_talk = REPLACE(_talk,"\i[77]","\i[83]")
-		_talk = REPLACE(_talk,"\i[78]","\i[83]")
-		_talk = REPLACE(_talk,"\i[79]","\i[83]")
+		_talk = REPLACE(_talk,"\i[70]","\i[81]")
+		_talk = REPLACE(_talk,"\i[71]","\i[81]")
+		_talk = REPLACE(_talk,"\i[72]","\i[81]")
+		_talk = REPLACE(_talk,"\i[73]","\i[81]")
+		_talk = REPLACE(_talk,"\i[74]","\i[81]")
+		_talk = REPLACE(_talk,"\i[75]","\i[81]")
+		_talk = REPLACE(_talk,"\i[76]","\i[81]")
+		_talk = REPLACE(_talk,"\i[77]","\i[81]")
+		_talk = REPLACE(_talk,"\i[78]","\i[81]")
+		_talk = REPLACE(_talk,"\i[79]","\i[81]")
 		_talk = REPLACE(_talk,"\i[90]","\i[86]")
 		_talk = REPLACE(_talk,"\i[91]","\i[86]")
 		_talk = REPLACE(_talk,"\i[92]","\i[86]")
@@ -69,6 +78,14 @@ OnTranslate
 		_talk = REPLACE(_talk,"\i[96]","\i[86]")
 		_talk = REPLACE(_talk,"\i[97]","\i[86]")
 		_talk = REPLACE(_talk,"\i[98]","\i[86]")
+	}
+	
+	_t = RE_GREP(_talk,"\\(s)\[..\]")
+	_poses = RE_GETSTR()
+	//_talk = ARRAYSIZE(_poses) + "plop" +_talk
+	foreach _poses ; _pose
+	{
+		_talk = REPLACE(_talk, _pose, _pose + eventsanimations)
 	}
 	
    _talk

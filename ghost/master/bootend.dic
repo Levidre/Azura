@@ -110,6 +110,9 @@ OnFirstBoot
 		alreadybackup = 0
 		moodchange = 0
 		metminidev = 0
+		
+		aimemory = IARRAY
+		
 		azpose = "\0\s[10]%(smile)"
 		if reference0 == 0 //Don't touch this line.
 		{
@@ -1133,7 +1136,7 @@ OnShellChanged
 		}
 		elseif battleshell == 1
 		{
-			"\0\s[11]\i[32]\i[33]\i[45]\i[18]\i[83]\i[86]Ok, \w5I'm ready to fight."
+			"\0\s[11]\i[32]\i[33]\i[45]\i[18]\i[81]\i[86]Ok, \w5I'm ready to fight."
 			--
 			UserTurn
 		}

@@ -711,16 +711,15 @@ surface10
 	6pattern1,500,1,overlay,0,0	
 	
 	//Arm on the side
-	83interval,never
-	83pattern0,1066,0,overlay,0,0
-	83pattern1,0,0,stop,71
-	83pattern2,0,0,stop,70
-	83pattern3,0,0,stop,79
-	83pattern4,0,0,stop,60
-	83pattern5,0,0,stop,62
-	83pattern6,0,0,stop,72
-	83pattern7,0,0,stop,73
-	83pattern8,1066,1,overlay,0,0
+	81interval,never
+	81pattern1,0,0,stop,71
+	81pattern2,0,0,stop,70
+	81pattern3,0,0,stop,79
+	81pattern4,0,0,stop,60
+	81pattern5,0,0,stop,62
+	81pattern6,0,0,stop,72
+	81pattern7,0,0,stop,73
+	81pattern8,1066,1,overlay,0,0
 }	
 
 //Battle pose
@@ -738,16 +737,16 @@ surface11
 	6pattern1,501,1,overlay,0,0
 	
 	//Arm on the side
-	83interval,never
-	83pattern0,1067,0,overlay,0,0
-	83pattern1,0,0,stop,71
-	83pattern2,0,0,stop,70
-	83pattern3,0,0,stop,79
-	83pattern4,0,0,stop,60
-	83pattern5,0,0,stop,62
-	83pattern6,0,0,stop,72
-	83pattern7,0,0,stop,73
-	83pattern8,1067,1,overlay,0,0
+	81interval,never
+	81pattern0,1067,0,overlay,0,0
+	81pattern1,0,0,stop,71
+	81pattern2,0,0,stop,70
+	81pattern3,0,0,stop,79
+	81pattern4,0,0,stop,60
+	81pattern5,0,0,stop,62
+	81pattern6,0,0,stop,72
+	81pattern7,0,0,stop,73
+	81pattern8,1067,1,overlay,0,0
 	
 	
 }
@@ -780,16 +779,16 @@ surface12
 	67pattern3,0,0,stop,61
 	
 	//Arm on the side
-	83interval,never
-	83pattern0,1066,0,overlay,0,0
-	83pattern1,0,0,stop,71
-	83pattern2,0,0,stop,70
-	83pattern3,0,0,stop,79
-	83pattern4,0,0,stop,60
-	83pattern5,0,0,stop,62
-	83pattern6,0,0,stop,72
-	83pattern7,0,0,stop,73
-	83pattern8,1066,1,overlay,0,0	
+	81interval,never
+	81pattern0,1066,0,overlay,0,0
+	81pattern1,0,0,stop,71
+	81pattern2,0,0,stop,70
+	81pattern3,0,0,stop,79
+	81pattern4,0,0,stop,60
+	81pattern5,0,0,stop,62
+	81pattern6,0,0,stop,72
+	81pattern7,0,0,stop,73
+	81pattern8,1066,1,overlay,0,0	
 	
 	
 	//Obsidian's tail
@@ -896,7 +895,7 @@ surface13
 	
 	//look to the left, opened
 	11interval,never
-	11pattern0,1107,0,overlay,0,0
+	11pattern0,1100,0,overlay,0,0
 	11pattern1,0,0,stop,10
 	11pattern2,0,0,stop,16
 	11pattern3,0,0,stop,12
@@ -904,7 +903,7 @@ surface13
 	11pattern5,0,0,stop,14
 	11pattern6,0,0,stop,15
 	11pattern7,0,0,stop,18
-	11pattern8,1107,1,overlay,0,0
+	11pattern8,1100,1,overlay,0,0
 	
 	//look to the left, suspicious
 	12interval,never
@@ -969,8 +968,8 @@ surface13
 	
 	//Control eyes interval
 	18interval,runonce
-	18pattern0,1100,0,overlay,0,0
-	18pattern1,1100,1,overlay,0,0
+	18pattern0,1107,0,overlay,0,0
+	18pattern1,1107,1,overlay,0,0
 	18pattern2,0,0,stop,16
 	18pattern3,0,0,stop,10
 	18pattern4,0,0,stop,11
@@ -1205,26 +1204,18 @@ surface13
 	//Behind the head
 	73interval,never
 	73pattern0,619,0,overlay,0,0
-	73pattern1,0,0,stop,71
-	73pattern2,0,0,stop,70
-	73pattern3,0,0,stop,79
-	73pattern4,0,0,stop,60
-	73pattern5,0,0,stop,62
-	73pattern6,0,0,stop,83
-	73pattern7,0,0,stop,72
-	73pattern8,619,1,overlay,0,0
+	73pattern1,0,0,start,82
+	73pattern2,0,0,stop,79
+	73pattern3,0,0,stop,81
+	73pattern4,619,1,overlay,0,0
 	
 	//Arm on the side
-	83interval,never
-	83pattern0,1066,0,overlay,0,0
-	83pattern1,0,0,stop,71
-	83pattern2,0,0,stop,70
-	83pattern3,0,0,stop,79
-	83pattern4,0,0,stop,60
-	83pattern5,0,0,stop,62
-	83pattern6,0,0,stop,72
-	83pattern7,0,0,stop,73
-	83pattern8,1066,1,overlay,0,0
+	81interval,never
+	81pattern0,1066,0,overlay,0,0
+	81pattern1,0,0,start,82
+	81pattern2,0,0,stop,79
+	81pattern3,0,0,stop,73
+	81pattern4,1066,1,overlay,0,0
 }
 
 //Picked up
@@ -1255,16 +1246,16 @@ surface14
 	67pattern3,0,0,stop,61
 	
 	//Arm on the side
-	83interval,never
-	83pattern0,1066,0,overlay,0,0
-	83pattern1,0,0,stop,71
-	83pattern2,0,0,stop,70
-	83pattern3,0,0,stop,79
-	83pattern4,0,0,stop,60
-	83pattern5,0,0,stop,62
-	83pattern6,0,0,stop,72
-	83pattern7,0,0,stop,73
-	83pattern8,1066,1,overlay,0,0
+	81interval,never
+	81pattern0,1066,0,overlay,0,0
+	81pattern1,0,0,stop,71
+	81pattern2,0,0,stop,70
+	81pattern3,0,0,stop,79
+	81pattern4,0,0,stop,60
+	81pattern5,0,0,stop,62
+	81pattern6,0,0,stop,72
+	81pattern7,0,0,stop,73
+	81pattern8,1066,1,overlay,0,0
 	
 	//Obsidian's tail
 	121interval,never
@@ -1293,7 +1284,7 @@ surface14
 }
 
 //Eyes, eyebrows and smile
-surface10-12,14
+surface.append10-12,14
 {
 	///Eyes changes
 	
@@ -1653,14 +1644,10 @@ surface10-12,14
 	//Behind the head
 	73interval,never
 	73pattern0,1050,0,overlay,0,0
-	73pattern1,0,0,stop,71
-	73pattern2,0,0,stop,70
-	73pattern3,0,0,stop,79
-	73pattern4,0,0,stop,60
-	73pattern5,0,0,stop,62
-	73pattern6,0,0,stop,83
-	73pattern7,0,0,stop,72
-	73pattern8,1050,1,overlay,0,0
+	73pattern1,0,0,start,82
+	73pattern2,0,0,stop,79
+	73pattern3,0,0,stop,81
+	73pattern4,1050,1,overlay,0,0
 }
 
 //Wings and arms
@@ -1734,19 +1721,15 @@ surface.append10-14
 	///On the computer
 	60interval,never
 	60pattern0,1046,0,overlay,0,0
-	60pattern1,1046,1,overlay,0,0
-	60pattern2,0,0,stop,70
-	60pattern3,0,0,stop,90
-	60pattern4,0,0,stop,71
-	60pattern5,0,0,stop,79
+	60pattern1,0,0,start,83
+	60pattern2,0,0,start,97
+	60pattern3,0,0,start,98
+	60pattern4,0,0,stop,70
+	60pattern5,0,0,stop,71
 	60pattern6,0,0,stop,72
-	60pattern7,0,0,stop,91
-	60pattern8,0,0,stop,92
-	60pattern9,0,0,stop,62
-	60pattern10,0,0,stop,73
-	60pattern11,0,0,stop,93
-	60pattern12,0,0,stop,63
-	60pattern13,0,0,start,61
+	60pattern7,0,0,stop,62
+	60pattern8,1046,1,overlay,0,0
+	60pattern9,0,0,start,61
 	//60pattern10,00,start,168
 	
 	
@@ -1758,19 +1741,15 @@ surface.append10-14
 	///Drawing
 	62interval,never
 	62pattern0,1048,0,overlay,0,0
-	62pattern1,1048,1,overlay,0,0
-	62pattern2,0,0,stop,70
-	62pattern3,0,0,stop,90
-	62pattern4,0,0,stop,71
-	62pattern5,0,0,stop,79
+	62pattern1,0,0,start,83
+	62pattern2,0,0,start,97
+	62pattern3,0,0,start,98
+	62pattern4,0,0,stop,70
+	62pattern5,0,0,stop,71
 	62pattern6,0,0,stop,72
-	62pattern7,0,0,stop,91
-	62pattern8,0,0,stop,92
-	62pattern9,0,0,stop,60
-	60pattern10,0,0,stop,73
-	60pattern11,0,0,stop,93
-	62pattern12,0,0,stop,61
-	62pattern13,0,0,start,63
+	62pattern7,0,0,stop,60
+	62pattern8,1048,1,overlay,0,0
+	62pattern9,0,0,start,63
 	
 	//62pattern10,00,start,169
 	
@@ -1814,50 +1793,35 @@ surface.append10-14
 	//Normal arm
 	70interval,never
 	70pattern0,1040,0,overlay,0,0
-	70pattern1,0,0,stop,71
-	70pattern2,0,0,stop,72
-	70pattern3,0,0,stop,79
-	70pattern4,0,0,stop,60
-	70pattern5,0,0,stop,62
-	70pattern6,0,0,stop,83
-	70pattern7,0,0,stop,73
-	70pattern8,1040,1,overlay,0,0
+	70pattern1,0,0,start,83
+	70pattern2,0,0,stop,71
+	70pattern3,0,0,stop,72
+	70pattern4,1040,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	71interval,never
 	71pattern0,1041,0,overlay,0,0
-	71pattern1,0,0,stop,70
-	71pattern2,0,0,stop,72
-	71pattern3,0,0,stop,79
-	71pattern4,0,0,stop,60
-	71pattern5,0,0,stop,62
-	71pattern6,0,0,stop,83
-	71pattern7,0,0,stop,73
-	71pattern8,1041,1,overlay,0,0
+	71pattern1,0,0,start,83
+	71pattern2,0,0,stop,70
+	71pattern3,0,0,stop,72
+	71pattern4,1041,1,overlay,0,0
 	
 	//Extended arm
 	72interval,never
 	72pattern0,1042,0,overlay,0,0
-	72pattern1,0,0,stop,71
-	72pattern2,0,0,stop,70
-	72pattern3,0,0,stop,79
-	72pattern4,0,0,stop,60
-	72pattern5,0,0,stop,62
-	72pattern6,0,0,stop,83
-	72pattern7,0,0,stop,73
-	72pattern8,1042,1,overlay,0,0
+	72pattern1,0,0,start,83
+	72pattern2,0,0,stop,71
+	72pattern3,0,0,stop,70
+	72pattern4,1042,1,overlay,0,0
 	
 	//Yawn
 	79interval,never
 	79pattern0,1043,0,overlay,0,0
-	79pattern1,0,0,stop,71
-	79pattern2,0,0,stop,70
-	79pattern3,0,0,stop,72
-	79pattern4,0,0,stop,60
-	79pattern5,0,0,stop,62
-	79pattern6,0,0,stop,83
-	79pattern7,0,0,stop,73
-	79pattern8,1043,1,overlay,0,0
+	79pattern1,0,0,start,82
+	79pattern2,0,0,stop,81
+	79pattern3,0,0,stop,73
+	79pattern4,1043,1,overlay,0,0
+	
 		
 	//Control right arm interval
 	84interval,never
@@ -1867,7 +1831,7 @@ surface.append10-14
 	84pattern3,0,0,stop,72
 	84pattern4,0,0,stop,60
 	84pattern5,0,0,stop,62
-	84pattern6,0,0,stop,83
+	84pattern6,0,0,stop,81
 	84pattern7,0,0,stop,73
 	
 	///Eating chocolate bar
@@ -1878,57 +1842,50 @@ surface.append10-14
 	//On the side
 	86interval,never
 	86pattern0,1096,0,overlay,0,0
-	86pattern1,0,0,stop,61
-	86pattern2,0,0,stop,92
-	86pattern3,0,0,stop,91
-	86pattern4,0,0,stop,63
-	86pattern5,0,0,stop,90
-	86pattern6,0,0,stop,93
-	86pattern7,1096,1,overlay,0,0
+	86pattern1,0,0,start,97
+	86pattern2,0,0,stop,89
+	86pattern3,0,0,stop,93
+	86pattern4,1096,1,overlay,0,0
+	
+	//Tending arm
+	89interval,never
+	89pattern0,1096,0,overlay,0,0
+	89pattern1,0,0,start,97
+	89pattern2,0,0,stop,86
+	89pattern3,0,0,stop,93
+	89pattern4,1096,1,overlay,0,0
 	
 	//Normal arm
 	90interval,never
 	90pattern0,1070,0,overlay,0,0
-	90pattern1,0,0,stop,61
+	90pattern1,0,0,start,98
 	90pattern2,0,0,stop,92
 	90pattern3,0,0,stop,91
-	90pattern4,0,0,stop,63
-	90pattern5,0,0,stop,86
-	90pattern6,0,0,stop,93
-	90pattern7,1070,1,overlay,0,0
+	90pattern4,1070,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	91interval,never
 	91pattern0,1071,0,overlay,0,0
-	91pattern1,0,0,stop,90
-	91pattern2,0,0,stop,92
-	91pattern3,0,0,stop,61
-	91pattern4,0,0,stop,63
-	91pattern5,0,0,stop,86
-	91pattern6,0,0,stop,93
-	91pattern7,1071,1,overlay,0,0
+	91pattern1,0,0,start,98
+	91pattern2,0,0,stop,90
+	91pattern3,0,0,stop,92
+	91pattern4,1071,1,overlay,0,0
 	
 	//Extended arm
 	92interval,never
 	92pattern0,1072,0,overlay,0,0
-	92pattern1,0,0,stop,90
-	92pattern2,0,0,stop,91
-	92pattern3,0,0,stop,61
-	92pattern4,0,0,stop,63
-	92pattern5,0,0,stop,86
-	92pattern6,0,0,stop,93
-	92pattern7,1072,1,overlay,0,0
+	92pattern1,0,0,start,98
+	92pattern2,0,0,stop,90
+	92pattern3,0,0,stop,91
+	92pattern4,1072,1,overlay,0,0
 	
 	//Behind the head
 	93interval,never
 	93pattern0,1080,0,overlay,0,0
-	93pattern1,0,0,stop,90
-	93pattern2,0,0,stop,91
-	93pattern3,0,0,stop,61
-	93pattern4,0,0,stop,63
-	93pattern5,0,0,stop,86
-	93pattern6,0,0,stop,92
-	93pattern7,1080,1,overlay,0,0
+	93pattern1,0,0,start,97
+	93pattern2,0,0,stop,86
+	93pattern3,0,0,stop,89
+	93pattern4,1080,1,overlay,0,0
 	
 	//48 only for sat, it's the computer
 	
@@ -2108,7 +2065,7 @@ surface.append10-14
 	150pattern9,0,0,stop,72
 	150pattern10,0,0,stop,60
 	150pattern11,0,0,stop,62
-	150pattern12,0,0,stop,83
+	150pattern12,0,0,stop,81
 	150pattern13,0,0,stop,73
 	150pattern14,0,0,stop,90
 	150pattern15,0,0,stop,92
@@ -2346,53 +2303,53 @@ surface.append10-14
 	
 	191interval,never
 	191pattern0,1068,2,overlay,0,0
-	191pattern1,0,0,stop,83
+	191pattern1,0,0,stop,81
 	191pattern2,1069,2,overlay,0,0
 	191pattern3,-1,20,overlay,0,0
-	191pattern4,0,0,start,83
+	191pattern4,0,0,start,81
 	
 	///Dodging an attack
 	192interval,never
-	192pattern1,0,-1,move,8,-12
-	192pattern2,0,-1,move,8,-12
-	192pattern3,0,-1,move,8,-12
-	192pattern4,0,-1,move,8,-12
-	192pattern5,0,-1,move,8,-12
-	192pattern6,0,-1,move,8,-12
-	192pattern7,0,-1,move,8,-12
-	192pattern8,0,-1,move,8,-12
-	192pattern9,0,-1,move,8,-12
-	192pattern10,0,-1,move,8,-12
-	192pattern11,0,-1,move,8,-12
-	192pattern12,0,-1,move,8,-12
-	192pattern13,0,-1,move,8,-12
-	192pattern14,0,-1,move,8,-12
-	192pattern15,0,-1,move,8,-12
-	192pattern16,0,-1,move,8,-12
-	192pattern17,0,-1,move,8,-12
-	192pattern18,0,-1,move,8,-12
-	192pattern19,0,-1,move,8,-12
-	192pattern20,0,-1,move,8,-12
-	192pattern21,0,-1,move,-8,12
-	192pattern22,0,-1,move,-8,12
-	192pattern23,0,-1,move,-8,12
-	192pattern24,0,-1,move,-8,12
-	192pattern25,0,-1,move,-8,12
-	192pattern26,0,-1,move,-8,12
-	192pattern27,0,-1,move,-8,12
-	192pattern28,0,-1,move,-8,12
-	192pattern29,0,-1,move,-8,12
-	192pattern30,0,-1,move,-8,12
-	192pattern31,0,-1,move,-8,12
-	192pattern32,0,-1,move,-8,12
-	192pattern33,0,-1,move,-8,12
-	192pattern34,0,-1,move,-8,12
-	192pattern35,0,-1,move,-8,12
-	192pattern36,0,-1,move,-8,12
-	192pattern37,0,-1,move,-8,12
-	192pattern38,0,-1,move,-8,12
-	192pattern39,0,-1,move,-8,12
-	192pattern40,0,-1,move,-8,12
+	192pattern1,0,0,move,8,-12
+	192pattern2,0,0,move,8,-12
+	192pattern3,0,0,move,8,-12
+	192pattern4,0,0,move,8,-12
+	192pattern5,0,0,move,8,-12
+	192pattern6,0,0,move,8,-12
+	192pattern7,0,0,move,8,-12
+	192pattern8,0,0,move,8,-12
+	192pattern9,0,0,move,8,-12
+	192pattern10,0,0,move,8,-12
+	192pattern11,0,0,move,8,-12
+	192pattern12,0,0,move,8,-12
+	192pattern13,0,0,move,8,-12
+	192pattern14,0,0,move,8,-12
+	192pattern15,0,0,move,8,-12
+	192pattern16,0,0,move,8,-12
+	192pattern17,0,0,move,8,-12
+	192pattern18,0,0,move,8,-12
+	192pattern19,0,0,move,8,-12
+	192pattern20,0,0,move,8,-12
+	192pattern21,0,0,move,-8,12
+	192pattern22,0,0,move,-8,12
+	192pattern23,0,0,move,-8,12
+	192pattern24,0,0,move,-8,12
+	192pattern25,0,0,move,-8,12
+	192pattern26,0,0,move,-8,12
+	192pattern27,0,0,move,-8,12
+	192pattern28,0,0,move,-8,12
+	192pattern29,0,0,move,-8,12
+	192pattern30,0,0,move,-8,12
+	192pattern31,0,0,move,-8,12
+	192pattern32,0,0,move,-8,12
+	192pattern33,0,0,move,-8,12
+	192pattern34,0,0,move,-8,12
+	192pattern35,0,0,move,-8,12
+	192pattern36,0,0,move,-8,12
+	192pattern37,0,0,move,-8,12
+	192pattern38,0,0,move,-8,12
+	192pattern39,0,0,move,-8,12
+	192pattern40,0,0,move,-8,12
 	192pattern41,-1,1,overlay,0,0
 	
 	
@@ -2413,16 +2370,6 @@ surface.append10-14
 	193pattern12,0,0,start,71
 	193pattern13,0,0,start,90
 	
-	///Stuffs in plus---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	
-	///To make Azura stop talking
-	2001interval,never
-	2001pattern0,0,0,stop,55
-	
-	2002interval,never
-	2002pattern0,0,0,start,55
-
 }
 
 
@@ -2517,402 +2464,6 @@ surface17
 	
 }
 
-surface.append15-17
-{
-	0interval,never
-	0pattern0,0,0,start,30
-	0pattern1,0,0,start,31
-	0pattern2,0,0,start,70
-	0pattern3,0,0,start,90
-	0pattern4,0,0,start,15
-	0pattern5,0,0,start,45
-	0pattern6,1501,0,base,0,0
-	0pattern7,1501,1,base,0,0
-	0pattern8,0,0,start,113
-	0pattern9,0,0,start,114
-	0pattern10,0,0,stop,5
-	0pattern11,0,0,stop,6
-	0pattern12,0,0,stop,30
-	0pattern13,0,0,stop,31
-	0pattern14,0,0,stop,15
-	0pattern15,0,0,stop,45
-	0pattern16,0,0,stop,70
-	0pattern17,0,0,stop,90
-	0pattern18,0,0,stop,18
-	0pattern19,1004,13,base,0,0
-	0pattern20,1003,15,base,0,0
-	0pattern21,1002,15,base,0,0
-	0pattern22,1001,13,base,0,0
-	
-	///Eyes changes
-	
-	//closed, happy
-	10interval,never
-	10pattern0,156,0,overlay,0,0
-	10pattern1,0,0,stop,16
-	10pattern2,0,0,stop,11
-	10pattern3,0,0,stop,12
-	10pattern4,0,0,stop,13
-	10pattern5,0,0,stop,14
-	10pattern6,0,0,stop,15
-	10pattern7,0,0,stop,18
-	10pattern8,156,1,overlay,0,0
-	
-	//look to the left, opened
-	11interval,never
-	11pattern0,157,0,overlay,0,0
-	11pattern1,0,0,stop,10
-	11pattern2,0,0,stop,16
-	11pattern3,0,0,stop,12
-	11pattern4,0,0,stop,13
-	11pattern5,0,0,stop,14
-	11pattern6,0,0,stop,15
-	11pattern7,0,0,stop,18
-	11pattern8,157,1,overlay,0,0
-	
-	//look to the left, suspicious
-	12interval,never
-	12pattern0,158,0,overlay,0,0
-	12pattern1,0,0,stop,10
-	12pattern2,0,0,stop,11
-	12pattern3,0,0,stop,16
-	12pattern4,0,0,stop,13
-	12pattern5,0,0,stop,14
-	12pattern6,0,0,stop,15
-	12pattern7,0,0,stop,18
-	12pattern8,158,1,overlay,0,0
-	
-	//(normal, suspicious)sad
-	13interval,never
-	13pattern0,151,0,overlay,0,0
-	13pattern1,0,0,stop,10
-	13pattern2,0,0,stop,11
-	13pattern3,0,0,stop,12
-	13pattern4,0,0,stop,16
-	13pattern5,0,0,stop,14
-	13pattern6,0,0,stop,15
-	13pattern7,0,0,stop,18
-	13pattern8,151,1,overlay,0,0
-	
-	//normal, down
-	14interval,never
-	14pattern0,159,0,overlay,0,0
-	14pattern1,0,0,stop,10
-	14pattern2,0,0,stop,11
-	14pattern3,0,0,stop,12
-	14pattern4,0,0,stop,13
-	14pattern5,0,0,stop,16
-	14pattern6,0,0,stop,15
-	14pattern7,0,0,stop,18
-	14pattern8,159,1,overlay,0,0
-	
-	//normal, closed
-	15interval,never
-	15pattern0,152,0,overlay,0,0
-	15pattern1,0,0,stop,10
-	15pattern2,0,0,stop,11
-	15pattern3,0,0,stop,12
-	15pattern4,0,0,stop,13
-	15pattern5,0,0,stop,16
-	15pattern6,0,0,stop,14
-	15pattern7,0,0,stop,18
-	15pattern8,152,1,overlay,0,0
-	
-	//opened, happy
-	16interval,never
-	16pattern0,155,0,overlay,0,0
-	16pattern1,0,0,stop,10
-	16pattern2,0,0,stop,11
-	16pattern3,0,0,stop,12
-	16pattern4,0,0,stop,13
-	16pattern5,0,0,stop,14
-	16pattern6,0,0,stop,15
-	16pattern7,0,0,stop,18
-	16pattern8,155,1,overlay,0,0
-	
-	
-	
-	//Control eyes interval
-	18interval,runonce
-	18pattern0,150,0,overlay,0,0
-	18pattern1,150,1,overlay,0,0
-	18pattern2,0,0,stop,16
-	18pattern3,0,0,stop,10
-	18pattern4,0,0,stop,11
-	18pattern5,0,0,stop,12
-	18pattern6,0,0,stop,13
-	18pattern7,0,0,stop,14
-	18pattern8,0,0,stop,15
-	
-	
-	///Blink
-	19interval,random,4
-	19pattern0,-1,10,overlay,0,0
-	19pattern1,152,5,overlayfast,0,0
-	19pattern2,151,10,overlayfast,0,0
-	19pattern3,-1,3,overlay,0,0
-	
-	///Eyebrows
-	
-	//Normal
-	30interval,runonce
-	30pattern0,350,0,overlay,0,0
-	30pattern1,0,0,stop,32
-	30pattern2,0,0,stop,34
-	30pattern3,0,0,stop,36
-	30pattern4,0,0,stop,38
-	30pattern5,350,1,overlay,0,0
-	
-	31interval,runonce
-	31pattern0,351,0,overlay,0,0
-	31pattern1,0,0,stop,33
-	31pattern2,0,0,stop,35
-	31pattern3,0,0,stop,37
-	31pattern4,0,0,stop,39
-	31pattern5,351,1,overlay,0,0
-	
-	
-	//Down
-	32interval,never
-	32pattern0,352,0,overlay,0,0
-	32pattern1,0,0,stop,30
-	32pattern2,0,0,stop,34
-	32pattern3,0,0,stop,36
-	32pattern4,0,0,stop,38
-	32pattern5,352,1,overlay,0,0
-	
-	33interval,never
-	33pattern0,353,0,overlay,0,0
-	33pattern1,0,0,stop,31
-	33pattern2,0,0,stop,35
-	33pattern3,0,0,stop,37
-	33pattern4,0,0,stop,39
-	33pattern5,353,1,overlay,0,0
-	
-	//Perplexe
-	34interval,never
-	34pattern0,354,0,overlay,0,0
-	34pattern1,0,0,stop,32
-	34pattern2,0,0,stop,30
-	34pattern3,0,0,stop,36
-	34pattern4,0,0,stop,38
-	34pattern5,354,1,overlay,0,0
-	
-	35interval,never
-	35pattern0,355,0,overlay,0,0
-	35pattern1,0,0,stop,31
-	35pattern2,0,0,stop,33
-	35pattern3,0,0,stop,37
-	35pattern4,0,0,stop,39
-	35pattern5,355,1,overlay,0,0
-	
-	
-	//Angry
-	36interval,never
-	36pattern0,356,0,overlay,0,0
-	36pattern1,0,0,stop,32
-	36pattern2,0,0,stop,34
-	36pattern3,0,0,stop,30
-	36pattern4,0,0,stop,38
-	36pattern5,356,1,overlay,0,0
-	
-	37interval,never
-	37pattern0,357,0,overlay,0,0
-	37pattern1,0,0,stop,31
-	37pattern2,0,0,stop,33
-	37pattern3,0,0,stop,35
-	37pattern4,0,0,stop,39
-	37pattern5,357,1,overlay,0,0
-	
-	//Up
-	38interval,never
-	38pattern0,358,0,overlay,0,0
-	38pattern1,0,0,stop,32
-	38pattern2,0,0,stop,34
-	38pattern3,0,0,stop,36
-	38pattern4,0,0,stop,30
-	38pattern5,358,1,overlay,0,0
-	
-	39interval,never
-	39pattern0,359,0,overlay,0,0
-	39pattern1,0,0,stop,31
-	39pattern2,0,0,stop,33
-	39pattern3,0,0,stop,35
-	39pattern4,0,0,stop,37
-	39pattern5,359,1,overlay,0,0
-	
-	///Smile
-	
-	//Smile down
-	40interval,never
-	40pattern0,254,0,overlay,0,0
-	40pattern1,254,1,overlay,0,0
-	40pattern2,0,0,stop,46
-	40pattern3,0,0,stop,45
-	40pattern4,0,0,stop,47
-	40pattern5,0,0,stop,48
-	40pattern6,0,0,stop,49
-	40pattern7,0,0,stop,50
-	40pattern8,0,0,stop,51
-	40pattern9,0,0,stop,59
-	40pattern10,0,0,stop,52
-	
-	//Normal
-	45interval,never
-	45pattern0,255,0,overlay,0,0
-	45pattern1,255,1,overlay,0,0
-	45pattern2,0,0,stop,46
-	45pattern3,0,0,stop,40
-	45pattern4,0,0,stop,47
-	45pattern5,0,0,stop,48
-	45pattern6,0,0,stop,49
-	45pattern7,0,0,stop,50
-	45pattern8,0,0,stop,51
-	45pattern9,0,0,stop,59
-	45pattern10,0,0,stop,52
-	
-	//Small smile
-	46interval,none
-	46pattern0,256,0,overlay,0,0
-	46pattern1,256,1,overlay,0,0
-	46pattern2,0,0,stop,45
-	46pattern3,0,0,stop,40
-	46pattern4,0,0,stop,47
-	46pattern5,0,0,stop,48
-	46pattern6,0,0,stop,49
-	46pattern7,0,0,stop,50
-	46pattern8,0,0,stop,51
-	46pattern9,0,0,stop,59
-	46pattern10,0,0,stop,52
-	
-	//Psychopate
-	47interval,none
-	47pattern0,257,0,overlay,0,0
-	47pattern1,257,1,overlay,0,0
-	47pattern2,0,0,stop,46
-	47pattern3,0,0,stop,40
-	47pattern4,0,0,stop,45
-	47pattern5,0,0,stop,48
-	47pattern6,0,0,stop,49
-	47pattern7,0,0,stop,50
-	47pattern8,0,0,stop,51
-	47pattern9,0,0,stop,59
-	47pattern10,0,0,stop,52
-	
-	//Round
-	48interval,none
-	48pattern0,258,0,overlay,0,0
-	48pattern1,258,1,overlay,0,0
-	48pattern2,0,0,stop,46
-	48pattern3,0,0,stop,40
-	48pattern4,0,0,stop,47
-	48pattern5,0,0,stop,45
-	48pattern6,0,0,stop,49
-	48pattern7,0,0,stop,50
-	48pattern8,0,0,stop,51
-	48pattern9,0,0,stop,59
-	48pattern10,0,0,stop,52
-	
-	//Mi-round
-	49interval,none
-	49pattern0,259,0,overlay,0,0
-	49pattern1,259,1,overlay,0,0
-	49pattern2,0,0,stop,46
-	49pattern3,0,0,stop,40
-	49pattern4,0,0,stop,47
-	49pattern5,0,0,stop,48
-	49pattern6,0,0,stop,45
-	49pattern7,0,0,stop,50
-	49pattern8,0,0,stop,51
-	49pattern9,0,0,stop,59
-	49pattern10,0,0,stop,52
-	
-	//Big smile
-	50interval,none
-	50pattern0,260,0,overlay,0,0
-	50pattern1,260,1,overlay,0,0
-	50pattern2,0,0,stop,46
-	50pattern3,0,0,stop,40
-	50pattern4,0,0,stop,47
-	50pattern5,0,0,stop,48
-	50pattern6,0,0,stop,45
-	50pattern7,0,0,stop,49
-	50pattern8,0,0,stop,51
-	50pattern9,0,0,stop,59
-	50pattern10,0,0,stop,52
-	
-	//Big smile opened
-	51interval,none
-	51pattern0,261,0,overlay,0,0
-	51pattern1,261,1,overlay,0,0
-	51pattern2,0,0,stop,46
-	51pattern3,0,0,stop,40
-	51pattern4,0,0,stop,47
-	51pattern5,0,0,stop,48
-	51pattern6,0,0,stop,45
-	51pattern7,0,0,stop,49
-	51pattern8,0,0,stop,50
-	51pattern9,0,0,stop,59
-	51pattern10,0,0,stop,52
-	
-	//Sad
-	52interval,none
-	52pattern0,263,0,overlay,0,0
-	52pattern1,263,1,overlay,0,0
-	52pattern2,0,0,stop,46
-	52pattern3,0,0,stop,40
-	52pattern4,0,0,stop,47
-	52pattern5,0,0,stop,48
-	52pattern6,0,0,stop,45
-	52pattern7,0,0,stop,49
-	52pattern8,0,0,stop,50
-	52pattern9,0,0,stop,59
-	52pattern10,0,0,stop,51
-	
-	//Speak
-	55interval,talk,4
-	55pattern0,0,0,alternativestart,[56.57.58]
-	
-	56interval,never
-	56pattern0,251,14,overlay,0,0
-	56pattern1,-1,10,overlay,0,0
-
-	57interval,never
-	57pattern0,252,14,overlay,0,0
-	57pattern1,-1,10,overlay,0,0
-	
-	58interval,never
-	58pattern0,252,10,overlay,0,0
-	58pattern1,251,13,overlay,0,0
-	58pattern2,-1,10,overlay,0,0
-	
-	
-	//Tongue
-	59interval,none
-	59pattern0,262,0,overlay,0,0
-	59pattern1,262,1,overlay,0,0
-	59pattern2,0,0,stop,46
-	59pattern3,0,0,stop,40
-	59pattern4,0,0,stop,47
-	59pattern5,0,0,stop,48
-	59pattern6,0,0,stop,45
-	59pattern7,0,0,stop,49
-	59pattern8,0,0,stop,51
-	59pattern9,0,0,stop,50
-	59pattern10,0,0,stop,52
-	
-	//Behind the head
-	73interval,never
-	73pattern0,1550,0,overlay,0,0
-	73pattern1,0,0,stop,71
-	73pattern2,0,0,stop,70
-	73pattern3,0,0,stop,72
-	73pattern4,0,0,stop,60
-	73pattern5,0,0,stop,62
-	73pattern6,0,0,stop,79
-	73pattern7,1550,1,overlay,0,0
-}
-
 //Head to the right
 surface18
 {
@@ -2952,7 +2503,7 @@ surface18
 	
 	//closed, happy
 	10interval,never
-	10pattern0,1156,0,overlay,0,0
+	10pattern0,1106,0,overlay,-5,103
 	10pattern1,0,0,stop,16
 	10pattern2,0,0,stop,11
 	10pattern3,0,0,stop,12
@@ -2960,11 +2511,11 @@ surface18
 	10pattern5,0,0,stop,14
 	10pattern6,0,0,stop,15
 	10pattern7,0,0,stop,18
-	10pattern8,1156,1,overlay,0,0
+	10pattern8,1106,1,overlay,-5,103
 	
 	//look to the left, opened
 	11interval,never
-	11pattern0,1157,0,overlay,0,0
+	11pattern0,1100,0,overlay,-5,103
 	11pattern1,0,0,stop,10
 	11pattern2,0,0,stop,16
 	11pattern3,0,0,stop,12
@@ -2972,11 +2523,11 @@ surface18
 	11pattern5,0,0,stop,14
 	11pattern6,0,0,stop,15
 	11pattern7,0,0,stop,18
-	11pattern8,1157,1,overlay,0,0
+	11pattern8,1100,1,overlay,-5,103
 	
 	//look to the left, suspicious
 	12interval,never
-	12pattern0,1158,0,overlay,0,0
+	12pattern0,1108,0,overlay,-5,103
 	12pattern1,0,0,stop,10
 	12pattern2,0,0,stop,11
 	12pattern3,0,0,stop,16
@@ -2984,11 +2535,11 @@ surface18
 	12pattern5,0,0,stop,14
 	12pattern6,0,0,stop,15
 	12pattern7,0,0,stop,18
-	12pattern8,1158,1,overlay,0,0
+	12pattern8,1108,1,overlay,-5,103
 	
 	//(normal, suspicious)sad
 	13interval,never
-	13pattern0,1151,0,overlay,0,0
+	13pattern0,1101,0,overlay,-5,103
 	13pattern1,0,0,stop,10
 	13pattern2,0,0,stop,11
 	13pattern3,0,0,stop,12
@@ -2996,11 +2547,11 @@ surface18
 	13pattern5,0,0,stop,14
 	13pattern6,0,0,stop,15
 	13pattern7,0,0,stop,18
-	13pattern8,1151,1,overlay,0,0
+	13pattern8,1101,1,overlay,-5,103
 	
 	//normal, down
 	14interval,never
-	14pattern0,1159,0,overlay,0,0
+	14pattern0,1109,0,overlay,-5,103
 	14pattern1,0,0,stop,10
 	14pattern2,0,0,stop,11
 	14pattern3,0,0,stop,12
@@ -3008,11 +2559,11 @@ surface18
 	14pattern5,0,0,stop,16
 	14pattern6,0,0,stop,15
 	14pattern7,0,0,stop,18
-	14pattern8,1159,1,overlay,0,0
+	14pattern8,1109,1,overlay,-5,103
 	
 	//normal, closed
 	15interval,never
-	15pattern0,1152,0,overlay,0,0
+	15pattern0,1102,0,overlay,-5,103
 	15pattern1,0,0,stop,10
 	15pattern2,0,0,stop,11
 	15pattern3,0,0,stop,12
@@ -3020,11 +2571,11 @@ surface18
 	15pattern5,0,0,stop,16
 	15pattern6,0,0,stop,14
 	15pattern7,0,0,stop,18
-	15pattern8,1152,1,overlay,0,0
+	15pattern8,1102,1,overlay,-5,103
 	
 	//opened, happy
 	16interval,never
-	16pattern0,1155,0,overlay,0,0
+	16pattern0,1105,0,overlay,-5,103
 	16pattern1,0,0,stop,10
 	16pattern2,0,0,stop,11
 	16pattern3,0,0,stop,12
@@ -3032,14 +2583,13 @@ surface18
 	16pattern5,0,0,stop,14
 	16pattern6,0,0,stop,15
 	16pattern7,0,0,stop,18
-	16pattern8,1155,1,overlay,0,0
-	
+	16pattern8,1105,1,overlay,-5,103
 	
 	
 	//Control eyes interval
 	18interval,runonce
-	18pattern0,1150,0,overlay,0,0
-	18pattern1,1150,1,overlay,0,0
+	18pattern0,1107,0,overlay,-5,103
+	18pattern1,1107,1,overlay,-5,103
 	18pattern2,0,0,stop,16
 	18pattern3,0,0,stop,10
 	18pattern4,0,0,stop,11
@@ -3050,71 +2600,71 @@ surface18
 	
 	///Blink
 	19interval,random,4
-	19pattern0,-1,10,overlay,0,0
-	19pattern1,1152,5,overlayfast,0,0
-	19pattern2,1151,10,overlayfast,0,0
-	19pattern3,-1,3,overlay,0,0
+	19pattern0,-1,10,overlay,-5,103
+	19pattern1,1102,5,overlayfast,0,0
+	19pattern2,1101,10,overlayfast,0,0
+	19pattern3,-1,3,overlay,-5,103
 	
 	///Eyebrows
 	
 	//Normal
 	
 	31interval,runonce
-	31pattern0,1351,0,overlay,0,0
+	31pattern0,1301,0,overlay,-5,103
 	31pattern1,0,0,stop,33
 	31pattern2,0,0,stop,35
 	31pattern3,0,0,stop,37
 	31pattern4,0,0,stop,39
-	31pattern5,1351,1,overlay,0,0
+	31pattern5,1301,1,overlay,-5,103
 	
 	
 	//Down
 	
 	33interval,never
-	33pattern0,1353,0,overlay,0,0
+	33pattern0,1303,0,overlay,-5,103
 	33pattern1,0,0,stop,31
 	33pattern2,0,0,stop,35
 	33pattern3,0,0,stop,37
 	33pattern4,0,0,stop,39
-	33pattern5,1353,1,overlay,0,0
+	33pattern5,1303,1,overlay,-5,103
 	
 	//Perplexe
 	
 	35interval,never
-	35pattern0,1355,0,overlay,0,0
+	35pattern0,1305,0,overlay,-5,103
 	35pattern1,0,0,stop,31
 	35pattern2,0,0,stop,33
 	35pattern3,0,0,stop,37
 	35pattern4,0,0,stop,39
-	35pattern5,1355,1,overlay,0,0
+	35pattern5,1305,1,overlay,-5,103
 	
 	
 	//Angry
 	
 	37interval,never
-	37pattern0,1357,0,overlay,0,0
+	37pattern0,1307,0,overlay,-5,103
 	37pattern1,0,0,stop,31
 	37pattern2,0,0,stop,33
 	37pattern3,0,0,stop,35
 	37pattern4,0,0,stop,39
-	37pattern5,1357,1,overlay,0,0
+	37pattern5,1307,1,overlay,-5,103
 	
 	//Up
 	
 	39interval,never
-	39pattern0,1359,0,overlay,0,0
+	39pattern0,1309,0,overlay,-5,103
 	39pattern1,0,0,stop,31
 	39pattern2,0,0,stop,33
 	39pattern3,0,0,stop,35
 	39pattern4,0,0,stop,37
-	39pattern5,1359,1,overlay,0,0
+	39pattern5,1309,1,overlay,-5,103
 	
 	///Smile
 	
 	//Smile down
 	40interval,never
-	40pattern0,1254,0,overlay,0,0
-	40pattern1,1254,1,overlay,0,0
+	40pattern0,1204,0,overlay,-5,103
+	40pattern1,1204,1,overlay,-5,103
 	40pattern2,0,0,stop,46
 	40pattern3,0,0,stop,45
 	40pattern4,0,0,stop,47
@@ -3127,8 +2677,8 @@ surface18
 	
 	//Normal
 	45interval,never
-	45pattern0,1255,0,overlay,0,0
-	45pattern1,1255,1,overlay,0,0
+	45pattern0,1205,0,overlay,-5,103
+	45pattern1,1205,1,overlay,-5,103
 	45pattern2,0,0,stop,46
 	45pattern3,0,0,stop,40
 	45pattern4,0,0,stop,47
@@ -3141,8 +2691,8 @@ surface18
 	
 	//Small smile
 	46interval,none
-	46pattern0,1256,0,overlay,0,0
-	46pattern1,1256,1,overlay,0,0
+	46pattern0,1206,0,overlay,-5,103
+	46pattern1,1206,1,overlay,-5,103
 	46pattern2,0,0,stop,45
 	46pattern3,0,0,stop,40
 	46pattern4,0,0,stop,47
@@ -3155,8 +2705,8 @@ surface18
 	
 	//Psychopate
 	47interval,none
-	47pattern0,1257,0,overlay,0,0
-	47pattern1,1257,1,overlay,0,0
+	47pattern0,1207,0,overlay,-5,103
+	47pattern1,1207,1,overlay,-5,103
 	47pattern2,0,0,stop,46
 	47pattern3,0,0,stop,40
 	47pattern4,0,0,stop,45
@@ -3169,8 +2719,8 @@ surface18
 	
 	//Round
 	48interval,none
-	48pattern0,1258,0,overlay,0,0
-	48pattern1,1258,1,overlay,0,0
+	48pattern0,1208,0,overlay,-5,103
+	48pattern1,1208,1,overlay,-5,103
 	48pattern2,0,0,stop,46
 	48pattern3,0,0,stop,40
 	48pattern4,0,0,stop,47
@@ -3183,8 +2733,8 @@ surface18
 	
 	//Mi-round
 	49interval,none
-	49pattern0,1259,0,overlay,0,0
-	49pattern1,1259,1,overlay,0,0
+	49pattern0,1209,0,overlay,-5,103
+	49pattern1,1209,1,overlay,-5,103
 	49pattern2,0,0,stop,46
 	49pattern3,0,0,stop,40
 	49pattern4,0,0,stop,47
@@ -3197,8 +2747,8 @@ surface18
 	
 	//Big smile
 	50interval,none
-	50pattern0,1260,0,overlay,0,0
-	50pattern1,1260,1,overlay,0,0
+	50pattern0,1210,0,overlay,-5,103
+	50pattern1,1210,1,overlay,-5,103
 	50pattern2,0,0,stop,46
 	50pattern3,0,0,stop,40
 	50pattern4,0,0,stop,47
@@ -3211,8 +2761,8 @@ surface18
 	
 	//Big smile open
 	51interval,none
-	51pattern0,1261,0,overlay,0,0
-	51pattern1,1261,1,overlay,0,0
+	51pattern0,1211,0,overlay,-5,103
+	51pattern1,1211,1,overlay,-5,103
 	51pattern2,0,0,stop,46
 	51pattern3,0,0,stop,40
 	51pattern4,0,0,stop,47
@@ -3225,8 +2775,8 @@ surface18
 	
 	//Sad
 	52interval,none
-	52pattern0,1263,0,overlay,0,0
-	52pattern1,1263,1,overlay,0,0
+	52pattern0,1213,0,overlay,-5,103
+	52pattern1,1213,1,overlay,-5,103
 	52pattern2,0,0,stop,46
 	52pattern3,0,0,stop,40
 	52pattern4,0,0,stop,47
@@ -3242,23 +2792,23 @@ surface18
 	55pattern0,0,0,alternativestart,[56.57.58]
 	
 	56interval,never
-	56pattern0,1251,14,overlay,0,0
-	56pattern1,-1,10,overlay,0,0
+	56pattern0,1201,14,overlay,-5,103
+	56pattern1,-1,10,overlay,-5,103
 
 	57interval,never
-	57pattern0,1252,14,overlay,0,0
-	57pattern1,-1,10,overlay,0,0
+	57pattern0,1202,14,overlay,-5,103
+	57pattern1,-1,10,overlay,-5,103
 	
 	58interval,never
-	58pattern0,1252,10,overlay,0,0
-	58pattern1,1251,13,overlay,0,0
-	58pattern2,-1,10,overlay,0,0
+	58pattern0,1202,10,overlay,-5,103
+	58pattern1,1201,13,overlay,-5,103
+	58pattern2,-1,10,overlay,-5,103
 	
 	
 	//Tongue
 	59interval,none
-	59pattern0,1262,0,overlay,0,0
-	59pattern1,1262,1,overlay,0,0
+	59pattern0,1212,0,overlay,-5,103
+	59pattern1,1212,1,overlay,-5,103
 	59pattern2,0,0,stop,46
 	59pattern3,0,0,stop,40
 	59pattern4,0,0,stop,47
@@ -3274,16 +2824,410 @@ surface18
 	//Behind the head
 	73interval,never
 	73pattern0,620,0,overlay,0,0
-	73pattern1,0,0,stop,71
-	73pattern2,0,0,stop,70
-	73pattern3,0,0,stop,79
-	73pattern4,0,0,stop,60
-	73pattern5,0,0,stop,62
-	//73pattern6,0,0,stop,83
-	73pattern7,0,0,stop,72
-	73pattern8,620,1,overlay,0,0
+	73pattern1,0,0,start,82
+	73pattern2,0,0,stop,79
+	73pattern3,0,0,stop,81
+	73pattern4,620,1,overlay,0,0
 }
 
+//Eyes, eyebrows and smile
+surface.append15-17
+{
+	///Eyes changes
+	
+	//closed, happy
+	10interval,never
+	10pattern0,106,0,overlay,-5,103
+	10pattern1,0,0,stop,16
+	10pattern2,0,0,stop,11
+	10pattern3,0,0,stop,12
+	10pattern4,0,0,stop,13
+	10pattern5,0,0,stop,14
+	10pattern6,0,0,stop,15
+	10pattern7,0,0,stop,18
+	10pattern8,106,1,overlay,-5,103
+	
+	//look to the left, opened
+	11interval,never
+	11pattern0,107,0,overlay,-5,103
+	11pattern1,0,0,stop,10
+	11pattern2,0,0,stop,16
+	11pattern3,0,0,stop,12
+	11pattern4,0,0,stop,13
+	11pattern5,0,0,stop,14
+	11pattern6,0,0,stop,15
+	11pattern7,0,0,stop,18
+	11pattern8,107,1,overlay,-5,103
+	
+	//look to the left, suspicious
+	12interval,never
+	12pattern0,108,0,overlay,-5,103
+	12pattern1,0,0,stop,10
+	12pattern2,0,0,stop,11
+	12pattern3,0,0,stop,16
+	12pattern4,0,0,stop,13
+	12pattern5,0,0,stop,14
+	12pattern6,0,0,stop,15
+	12pattern7,0,0,stop,18
+	12pattern8,108,1,overlay,-5,103
+	
+	//(normal, suspicious)sad
+	13interval,never
+	13pattern0,101,0,overlay,-5,103
+	13pattern1,0,0,stop,10
+	13pattern2,0,0,stop,11
+	13pattern3,0,0,stop,12
+	13pattern4,0,0,stop,16
+	13pattern5,0,0,stop,14
+	13pattern6,0,0,stop,15
+	13pattern7,0,0,stop,18
+	13pattern8,101,1,overlay,-5,103
+	
+	//normal, down
+	14interval,never
+	14pattern0,109,0,overlay,-5,103
+	14pattern1,0,0,stop,10
+	14pattern2,0,0,stop,11
+	14pattern3,0,0,stop,12
+	14pattern4,0,0,stop,13
+	14pattern5,0,0,stop,16
+	14pattern6,0,0,stop,15
+	14pattern7,0,0,stop,18
+	14pattern8,109,1,overlay,-5,103
+	
+	//normal, closed
+	15interval,never
+	15pattern0,102,0,overlay,-5,103
+	15pattern1,0,0,stop,10
+	15pattern2,0,0,stop,11
+	15pattern3,0,0,stop,12
+	15pattern4,0,0,stop,13
+	15pattern5,0,0,stop,16
+	15pattern6,0,0,stop,14
+	15pattern7,0,0,stop,18
+	15pattern8,102,1,overlay,-5,103
+	
+	//opened, happy
+	16interval,never
+	16pattern0,105,0,overlay,-5,103
+	16pattern1,0,0,stop,10
+	16pattern2,0,0,stop,11
+	16pattern3,0,0,stop,12
+	16pattern4,0,0,stop,13
+	16pattern5,0,0,stop,14
+	16pattern6,0,0,stop,15
+	16pattern7,0,0,stop,18
+	16pattern8,105,1,overlay,-5,103
+	
+	
+	//Control eyes interval
+	18interval,runonce
+	18pattern0,100,0,overlay,-5,103
+	18pattern1,100,1,overlay,-5,103
+	18pattern2,0,0,stop,16
+	18pattern3,0,0,stop,10
+	18pattern4,0,0,stop,11
+	18pattern5,0,0,stop,12
+	18pattern6,0,0,stop,13
+	18pattern7,0,0,stop,14
+	18pattern8,0,0,stop,15
+	
+	///Blink
+	19interval,random,4
+	19pattern0,-1,10,overlay,-5,103
+	19pattern1,102,5,overlayfast,0,0
+	19pattern2,101,10,overlayfast,0,0
+	19pattern3,-1,3,overlay,-5,103
+	
+	///Eyebrows
+	
+	//Normal
+	30interval,runonce
+	30pattern0,300,0,overlay,-5,103
+	30pattern1,0,0,stop,32
+	30pattern2,0,0,stop,34
+	30pattern3,0,0,stop,36
+	30pattern4,0,0,stop,38
+	30pattern5,300,1,overlay,-5,103
+	
+	31interval,runonce
+	31pattern0,301,0,overlay,-5,103
+	31pattern1,0,0,stop,33
+	31pattern2,0,0,stop,35
+	31pattern3,0,0,stop,37
+	31pattern4,0,0,stop,39
+	31pattern5,301,1,overlay,-5,103
+	
+	
+	//Down
+	32interval,never
+	32pattern0,302,0,overlay,-5,103
+	32pattern1,0,0,stop,30
+	32pattern2,0,0,stop,34
+	32pattern3,0,0,stop,36
+	32pattern4,0,0,stop,38
+	32pattern5,302,1,overlay,-5,103
+	
+	33interval,never
+	33pattern0,303,0,overlay,-5,103
+	33pattern1,0,0,stop,31
+	33pattern2,0,0,stop,35
+	33pattern3,0,0,stop,37
+	33pattern4,0,0,stop,39
+	33pattern5,303,1,overlay,-5,103
+	
+	//Perplexe
+	34interval,never
+	34pattern0,304,0,overlay,-5,103
+	34pattern1,0,0,stop,32
+	34pattern2,0,0,stop,30
+	34pattern3,0,0,stop,36
+	34pattern4,0,0,stop,38
+	34pattern5,304,1,overlay,-5,103
+	
+	35interval,never
+	35pattern0,305,0,overlay,-5,103
+	35pattern1,0,0,stop,31
+	35pattern2,0,0,stop,33
+	35pattern3,0,0,stop,37
+	35pattern4,0,0,stop,39
+	35pattern5,305,1,overlay,-5,103
+	
+	
+	//Angry
+	36interval,never
+	36pattern0,306,0,overlay,-5,103
+	36pattern1,0,0,stop,32
+	36pattern2,0,0,stop,34
+	36pattern3,0,0,stop,30
+	36pattern4,0,0,stop,38
+	36pattern5,306,1,overlay,-5,103
+	
+	37interval,never
+	37pattern0,307,0,overlay,-5,103
+	37pattern1,0,0,stop,31
+	37pattern2,0,0,stop,33
+	37pattern3,0,0,stop,35
+	37pattern4,0,0,stop,39
+	37pattern5,307,1,overlay,-5,103
+	
+	//Up
+	38interval,never
+	38pattern0,308,0,overlay,-5,103
+	38pattern1,0,0,stop,32
+	38pattern2,0,0,stop,34
+	38pattern3,0,0,stop,36
+	38pattern4,0,0,stop,30
+	38pattern5,308,1,overlay,-5,103
+	
+	39interval,never
+	39pattern0,309,0,overlay,-5,103
+	39pattern1,0,0,stop,31
+	39pattern2,0,0,stop,33
+	39pattern3,0,0,stop,35
+	39pattern4,0,0,stop,37
+	39pattern5,309,1,overlay,-5,103
+	
+	///Smile
+	
+	//Smile down
+	40interval,never
+	40pattern0,204,0,overlay,-5,103
+	40pattern1,204,1,overlay,-5,103
+	40pattern2,0,0,stop,46
+	40pattern3,0,0,stop,45
+	40pattern4,0,0,stop,47
+	40pattern5,0,0,stop,48
+	40pattern6,0,0,stop,49
+	40pattern7,0,0,stop,50
+	40pattern8,0,0,stop,51
+	40pattern9,0,0,stop,59
+	40pattern10,0,0,stop,52
+	
+	//Normal
+	45interval,never
+	45pattern0,205,0,overlay,-5,103
+	45pattern1,205,1,overlay,-5,103
+	45pattern2,0,0,stop,46
+	45pattern3,0,0,stop,40
+	45pattern4,0,0,stop,47
+	45pattern5,0,0,stop,48
+	45pattern6,0,0,stop,49
+	45pattern7,0,0,stop,50
+	45pattern8,0,0,stop,51
+	45pattern9,0,0,stop,59
+	45pattern10,0,0,stop,52
+	
+	//Small smile
+	46interval,none
+	46pattern0,206,0,overlay,-5,103
+	46pattern1,206,1,overlay,-5,103
+	46pattern2,0,0,stop,45
+	46pattern3,0,0,stop,40
+	46pattern4,0,0,stop,47
+	46pattern5,0,0,stop,48
+	46pattern6,0,0,stop,49
+	46pattern7,0,0,stop,50
+	46pattern8,0,0,stop,51
+	46pattern9,0,0,stop,59
+	46pattern10,0,0,stop,52
+	
+	//Psychopate
+	47interval,none
+	47pattern0,207,0,overlay,-5,103
+	47pattern1,207,1,overlay,-5,103
+	47pattern2,0,0,stop,46
+	47pattern3,0,0,stop,40
+	47pattern4,0,0,stop,45
+	47pattern5,0,0,stop,48
+	47pattern6,0,0,stop,49
+	47pattern7,0,0,stop,50
+	47pattern8,0,0,stop,51
+	47pattern9,0,0,stop,59
+	47pattern10,0,0,stop,52
+	
+	//Round
+	48interval,none
+	48pattern0,208,0,overlay,-5,103
+	48pattern1,208,1,overlay,-5,103
+	48pattern2,0,0,stop,46
+	48pattern3,0,0,stop,40
+	48pattern4,0,0,stop,47
+	48pattern5,0,0,stop,45
+	48pattern6,0,0,stop,49
+	48pattern7,0,0,stop,50
+	48pattern8,0,0,stop,51
+	48pattern9,0,0,stop,59
+	48pattern10,0,0,stop,52
+	
+	//Mi-round
+	49interval,none
+	49pattern0,209,0,overlay,-5,103
+	49pattern1,209,1,overlay,-5,103
+	49pattern2,0,0,stop,46
+	49pattern3,0,0,stop,40
+	49pattern4,0,0,stop,47
+	49pattern5,0,0,stop,48
+	49pattern6,0,0,stop,45
+	49pattern7,0,0,stop,50
+	49pattern8,0,0,stop,51
+	49pattern9,0,0,stop,59
+	49pattern10,0,0,stop,52
+	
+	//Big smile
+	50interval,none
+	50pattern0,210,0,overlay,-5,103
+	50pattern1,210,1,overlay,-5,103
+	50pattern2,0,0,stop,46
+	50pattern3,0,0,stop,40
+	50pattern4,0,0,stop,47
+	50pattern5,0,0,stop,48
+	50pattern6,0,0,stop,45
+	50pattern7,0,0,stop,49
+	50pattern8,0,0,stop,51
+	50pattern9,0,0,stop,59
+	50pattern10,0,0,stop,52
+	
+	//Big smile open
+	51interval,none
+	51pattern0,211,0,overlay,-5,103
+	51pattern1,211,1,overlay,-5,103
+	51pattern2,0,0,stop,46
+	51pattern3,0,0,stop,40
+	51pattern4,0,0,stop,47
+	51pattern5,0,0,stop,48
+	51pattern6,0,0,stop,45
+	51pattern7,0,0,stop,49
+	51pattern8,0,0,stop,50
+	51pattern9,0,0,stop,59
+	51pattern10,0,0,stop,52
+	
+	//Sad
+	52interval,none
+	52pattern0,213,0,overlay,-5,103
+	52pattern1,213,1,overlay,-5,103
+	52pattern2,0,0,stop,46
+	52pattern3,0,0,stop,40
+	52pattern4,0,0,stop,47
+	52pattern5,0,0,stop,48
+	52pattern6,0,0,stop,45
+	52pattern7,0,0,stop,49
+	52pattern8,0,0,stop,50
+	52pattern9,0,0,stop,59
+	52pattern10,0,0,stop,51
+	
+	//Speak
+	55interval,talk,4
+	55pattern0,0,0,alternativestart,[56.57.58]
+	
+	56interval,never
+	56pattern0,201,14,overlay,-5,103
+	56pattern1,-1,10,overlay,-5,103
+
+	57interval,never
+	57pattern0,202,14,overlay,-5,103
+	57pattern1,-1,10,overlay,-5,103
+	
+	58interval,never
+	58pattern0,202,10,overlay,-5,103
+	58pattern1,201,13,overlay,-5,103
+	58pattern2,-1,10,overlay,-5,103
+	
+	
+	//Tongue
+	59interval,none
+	59pattern0,212,0,overlay,-5,103
+	59pattern1,212,1,overlay,-5,103
+	59pattern2,0,0,stop,46
+	59pattern3,0,0,stop,40
+	59pattern4,0,0,stop,47
+	59pattern5,0,0,stop,48
+	59pattern6,0,0,stop,45
+	59pattern7,0,0,stop,49
+	59pattern8,0,0,stop,51
+	59pattern9,0,0,stop,50
+	59pattern10,0,0,stop,52
+}
+
+//Pose change and different arm
+surface.append15-17
+{
+	0interval,never
+	0pattern0,0,0,start,30
+	0pattern1,0,0,start,31
+	0pattern2,0,0,start,70
+	0pattern3,0,0,start,90
+	0pattern4,0,0,start,15
+	0pattern5,0,0,start,45
+	0pattern6,1501,0,base,0,0
+	0pattern7,1501,1,base,0,0
+	0pattern8,0,0,start,113
+	0pattern9,0,0,start,114
+	0pattern10,0,0,stop,5
+	0pattern11,0,0,stop,6
+	0pattern12,0,0,stop,30
+	0pattern13,0,0,stop,31
+	0pattern14,0,0,stop,15
+	0pattern15,0,0,stop,45
+	0pattern16,0,0,stop,70
+	0pattern17,0,0,stop,90
+	0pattern18,0,0,stop,18
+	0pattern19,1004,13,base,0,0
+	0pattern20,1003,15,base,0,0
+	0pattern21,1002,15,base,0,0
+	0pattern22,1001,13,base,0,0
+	
+	
+	//Behind the head
+	73interval,never
+	73pattern0,1550,0,overlay,0,0
+	73pattern1,0,0,start,82
+	73pattern2,0,0,stop,81
+	73pattern3,0,0,stop,79
+	73pattern4,1550,1,overlay,0,0
+}
+
+//Arms
 surface.append15-18
 {	
 	//Wing right, wing left
@@ -3298,23 +3242,20 @@ surface.append15-18
 	
 	
 	///On the computer
+	
+	///On the computer
 	60interval,never
 	60pattern0,1546,0,overlay,0,0
-	60pattern1,1546,1,overlay,0,0
-	60pattern2,0,0,stop,70
-	60pattern3,0,0,stop,90
-	60pattern4,0,0,stop,71
-	60pattern5,0,0,stop,79
+	60pattern1,0,0,start,83
+	60pattern2,0,0,start,97
+	60pattern3,0,0,start,98
+	60pattern4,0,0,stop,70
+	60pattern5,0,0,stop,71
 	60pattern6,0,0,stop,72
-	60pattern7,0,0,stop,91
-	60pattern8,0,0,stop,92
-	60pattern9,0,0,stop,62
-	60pattern10,0,0,stop,73
-	60pattern11,0,0,stop,93
-	60pattern12,0,0,stop,63
-	60pattern13,0,0,start,61
-	60pattern14,0,0,start,168
-	
+	60pattern7,0,0,stop,62
+	60pattern8,1546,1,overlay,0,0
+	60pattern9,0,0,start,61
+	60pattern10,0,0,start,168	
 	
 	61interval,random,3
 	61pattern0,1576,0,overlay,0,0
@@ -3324,20 +3265,16 @@ surface.append15-18
 	///Drawing
 	62interval,never
 	62pattern0,1548,0,overlay,0,0
-	62pattern1,1548,1,overlay,0,0
-	62pattern2,0,0,stop,70
-	62pattern3,0,0,stop,90
-	62pattern4,0,0,stop,71
-	62pattern5,0,0,stop,79
+	62pattern1,0,0,start,83
+	62pattern2,0,0,start,97
+	62pattern3,0,0,start,98
+	62pattern4,0,0,stop,70
+	62pattern5,0,0,stop,71
 	62pattern6,0,0,stop,72
-	62pattern7,0,0,stop,91
-	62pattern8,0,0,stop,92
-	62pattern9,0,0,stop,61
-	60pattern10,0,0,stop,73
-	60pattern11,0,0,stop,93
-	62pattern12,0,0,stop,60
-	62pattern13,0,0,start,63
-	62pattern14,0,0,start,169
+	62pattern7,0,0,stop,60
+	62pattern8,1548,1,overlay,0,0
+	62pattern9,0,0,start,63
+	62pattern10,0,0,start,169
 	
 
 	63interval,never
@@ -3383,46 +3320,42 @@ surface.append15-18
 	//Normal arm
 	70interval,never
 	70pattern0,1540,0,overlay,0,0
-	70pattern1,0,0,stop,71
-	70pattern2,0,0,stop,72
-	70pattern3,0,0,stop,79
-	70pattern4,0,0,stop,60
-	70pattern5,0,0,stop,62
-	70pattern6,0,0,stop,73
-	70pattern7,1540,1,overlay,0,0
+	70pattern1,0,0,start,83
+	70pattern2,0,0,stop,71
+	70pattern3,0,0,stop,72
+	70pattern4,1540,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	71interval,never
 	71pattern0,1541,0,overlay,0,0
-	71pattern1,0,0,stop,70
-	71pattern2,0,0,stop,72
-	71pattern3,0,0,stop,79
-	71pattern4,0,0,stop,60
-	71pattern5,0,0,stop,62
-	71pattern6,0,0,stop,73
-	71pattern7,1541,1,overlay,0,0
+	71pattern1,0,0,start,83
+	71pattern2,0,0,stop,70
+	71pattern3,0,0,stop,72
+	71pattern4,1541,1,overlay,0,0
 	
 	//Extended arm
 	72interval,never
 	72pattern0,1542,0,overlay,0,0
-	72pattern1,0,0,stop,71
-	72pattern2,0,0,stop,70
-	72pattern3,0,0,stop,79
-	72pattern4,0,0,stop,60
-	72pattern5,0,0,stop,62
-	72pattern6,0,0,stop,73
-	72pattern7,1542,1,overlay,0,0
+	72pattern1,0,0,start,83
+	72pattern2,0,0,stop,71
+	72pattern3,0,0,stop,70
+	72pattern4,1542,1,overlay,0,0
 	
 	//Yawn
 	79interval,never
 	79pattern0,1543,0,overlay,0,0
-	79pattern1,0,0,stop,71
-	79pattern2,0,0,stop,70
-	79pattern3,0,0,stop,72
-	79pattern4,0,0,stop,60
-	79pattern5,0,0,stop,62
-	79pattern6,0,0,stop,73
-	79pattern7,1543,1,overlay,0,0
+	79pattern1,0,0,start,82
+	79pattern2,0,0,stop,73
+	79pattern3,0,0,stop,81
+	79pattern4,1543,1,overlay,0,0
+	
+	//Arm on the side
+	81interval,never
+	81pattern0,1540,0,overlay,0,0
+	81pattern1,0,0,start,82
+	81pattern2,0,0,stop,79
+	81pattern3,0,0,stop,73
+	81pattern4,1540,1,overlay,0,0
 	
 	//Control right arm interval
 	84interval,never
@@ -3433,50 +3366,60 @@ surface.append15-18
 	84pattern4,0,0,stop,60
 	84pattern5,0,0,stop,62
 	84pattern6,0,0,stop,73
+	84pattern7,0,0,stop,81
 	
 	///Eating chocolate bar
 	
 	///All left arm positions
 	
+	
+	//On the side
+	86interval,never
+	86pattern0,1570,0,overlay,0,0
+	86pattern1,0,0,start,97
+	86pattern2,0,0,stop,86
+	86pattern3,0,0,stop,93
+	86pattern4,1570,1,overlay,0,0
+	
+	//Tending arm
+	89interval,never
+	89pattern0,1098,0,overlay,-5,103
+	89pattern1,0,0,start,97
+	89pattern2,0,0,stop,93
+	89pattern3,0,0,stop,86
+	89pattern4,1098,1,overlay,-5,103
+	
 	//Normal arm
 	90interval,never
 	90pattern0,1570,0,overlay,0,0
-	90pattern1,0,0,stop,61
+	90pattern1,0,0,start,98
 	90pattern2,0,0,stop,92
 	90pattern3,0,0,stop,91
-	90pattern4,0,0,stop,63
-	90pattern5,0,0,stop,93
-	90pattern6,1570,1,overlay,0,0
+	90pattern7,1570,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	91interval,never
 	91pattern0,1571,0,overlay,0,0
-	91pattern1,0,0,stop,90
-	91pattern2,0,0,stop,92
-	91pattern3,0,0,stop,63
-	91pattern4,0,0,stop,61
-	91pattern5,0,0,stop,93
-	91pattern6,1571,1,overlay,0,0
+	91pattern1,0,0,start,98
+	91pattern2,0,0,stop,90
+	91pattern3,0,0,stop,92
+	91pattern4,1571,1,overlay,0,0
 	
 	//Extended arm
 	92interval,never
 	92pattern0,1572,0,overlay,0,0
-	92pattern1,0,0,stop,90
-	92pattern2,0,0,stop,91
-	92pattern3,0,0,stop,63
-	92pattern4,0,0,stop,61
-	92pattern5,0,0,stop,93
-	92pattern6,1572,1,overlay,0,0
+	92pattern1,0,0,start,98
+	92pattern2,0,0,stop,90
+	92pattern3,0,0,stop,91
+	92pattern4,1572,1,overlay,0,0
 	
 	//Behind the head
 	93interval,never
 	93pattern0,1580,0,overlay,0,0
-	93pattern1,0,0,stop,90
-	93pattern2,0,0,stop,91
-	93pattern3,0,0,stop,63
-	93pattern4,0,0,stop,61
-	93pattern5,0,0,stop,92
-	93pattern6,1580,1,overlay,0,0
+	93pattern1,0,0,start,97
+	93pattern2,0,0,stop,89
+	93pattern6,0,0,stop,86
+	93pattern7,1580,1,overlay,0,0
 	
 	//48 only for sat, it's the computer
 	
@@ -3488,6 +3431,7 @@ surface.append15-18
 	99pattern3,0,0,stop,63
 	99pattern4,0,0,stop,61
 	99pattern5,0,0,stop,93
+	99pattern6,0,0,stop,86
 	
 	100interval,runonce
 	100pattern0,853,0,overlay,0,0
@@ -3751,16 +3695,9 @@ surface.append15-18
 	193pattern6,0,0,stop,161
 	193pattern7,0,0,stop,162
 	193pattern8,0,0,start,70
-	193pattern9,0,0,start,90
-	
-	///To make Azura stop talking
-	2001interval,never
-	2001pattern0,0,0,stop,55
-	
-	2002interval,never
-	2002pattern0,0,0,start,55
-	
+	193pattern9,0,0,start,90	
 }
+
 
 //Sleeping pose, normal
 surface19
@@ -3820,6 +3757,42 @@ surface19
 	
 	
 }
+
+surface.append10-20
+{
+	82interval,never
+	82pattern0,0,0,stop,70
+	82pattern1,0,0,stop,71
+	82pattern2,0,0,stop,72
+	82pattern3,0,0,stop,60
+	82pattern4,0,0,stop,62
+	
+	83interval,never
+	83pattern0,0,0,stop,73
+	83pattern1,0,0,stop,79
+	83pattern2,0,0,stop,81
+	
+	97interval,never
+	97pattern0,0,0,stop,90
+	97pattern1,0,0,stop,91
+	97pattern2,0,0,stop,92
+	97pattern3,0,0,stop,61
+	97pattern4,0,0,stop,63
+	
+	
+	98interval,never
+	98pattern0,0,0,stop,93
+	98pattern1,0,0,stop,89
+	98pattern2,0,0,stop,86
+	
+	///To make Azura stop talking
+	2001interval,never
+	2001pattern0,0,0,stop,55
+	
+	2002interval,never
+	2002pattern0,0,0,start,55
+}
+
 
 surface24
 {

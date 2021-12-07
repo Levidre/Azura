@@ -214,99 +214,6 @@ RandomTalk //: nonoverlap
 	}
 }
 
-OnStartCom
-{
-	"%(lsto)"
-	--
-	res_reference0 = ghostexlist[index]
-	conversation = "started"
-	if ghostexlist[index] == "MVSans"
-	{
-		"* Hello.\e"
-		"* Howdy.\e"
-	}
-	elseif "flowey" _in_ TOLOWER(ghostexlist[index])
-	{
-		"* Howdy Flowey.\e"
-	}
-	elseif ghostexlist[index] == "Gaster"
-	{
-		"* Hello Dr. Gaster.\e"
-	}
-	elseif ghostexlist[index] ==  "Ralsei"
-	{
-		"* Hello fluffy boy.\e"
-		"* Howdy fluffy boy.\e"
-	}
-	elseif ghostexlist[index] == "Jockey"
-	{
-		"* Hi.\e"
-	}
-	elseif ghostexlist[index] == "Hunter and Smoker Beta"
-	{
-		"* Hello.\e"
-	}
-	elseif ghostexlist[index] == "Wheatley"
-	{
-		"* Hi.\e"
-		"* Hello.\e"
-	}
-	elseif ghostexlist[index] == "CheeryBot"
-	{
-		"*Hello.\e"
-	}
-	elseif ghostexlist[index] == "Mettaton"
-	{
-		"* Hello,\w5 Mettaton.\e"
-		"* Howdy.\e"
-	}
-	elseif ghostexlist[index] == "Dusk"
-	{
-		if saw_dusk_dawn == 0
-		{
-			"* Hello.\e"
-		}
-		else
-		{
-			if dusk_dawn_encounter = 0
-			{
-				"* I don't think we already talked before.\w7 Who are you ?"
-			}
-			else
-			{
-				"* What are you doing ?\e"
-			}
-			
-		}
-	}
-	elseif ghostexlist[index] == "MiniDev"
-	{
-		"* Hello lil android.\e CheckOutfit0"
-		if askedmdgliches != 1 && metminidev == 1
-		{
-			"%(lsta)She is looking at MiniDev\e VarCheck"
-		}
-		
-	}
-	else
-	{
-		"* Hello.\e"
-	}
-	
-	/*if ASEARCH("Dusk",ghostexlist) != 0
-	{
-		res_reference0 = "Dusk"
-		"What are you talking about ?"
-	}*/
-}
-
-OnStartEating
-{
-	plateate = "%(reference0)"
-	alreadyeat = 2
-	oncomputer = 0
-}
-
 //The dialogues for when Azura is awake and up.
 NormalStandTalk
 {
@@ -321,28 +228,8 @@ NormalStandTalk
 	TimeDialogues
 	RelationshipDialogues	
 	AnnexDialogues
-	//Normal dialogues
-	{
-		if issat == 1
-		{
-			"\0%(lsta)Being on your computer ground doesn't seem to bother her."
-			"\0%(lsta)She looks comfortably installed."
-		}
-		
-		"\0%(lsta)It smells like almonds."
-		"\0\i[2001]\f[italic,true]She looks a little tired."
-		"\0\i[2001]\f[italic,true]\i[11]\i[38]\i[39]\i[48]She seems to be daydreaming."
-		"\0\i[18]\i[45]%(lsto)* I heard Moldsmals were good dancers. \w7\i[72]Did you know that ?"
-		"\0\i[18]\i[38]\i[31]\i[45]%(lsto)* Is the weather good where you are ?"
-		"\0\i[18]\i[38]\i[39]\i[45]%(lsto)\i[93]* That's fun how Undertale looks exactly as the real world from the inside."
-		"\0%(lsta)Her wings are taking so much place..."
-		"\0%(lsta)You wonder how large her wings are."
-		"\0\i[45]\i[18]\i[38]\i[39]\i[72]%(lsto)* Almost no humans at all are able to do magic nowaday."
-		"\0\i[19]%(lsto)* I wonder how the human knowledges about magic have been lost."
-		"\0\i[18]%(lsto)\i[38]\i[33]\i[45]* Do you have a favorite kind of place ?"
-		"\0\i[18]%(lsto)%(smileface)* How many ghosts do you have installed ?"
-		
-	}
+	NormalDialogues
+	GhostsDialogues
 	
 	--
 	"\e"
@@ -354,9 +241,9 @@ FeaturesDialogues
 	//AI related dialogues
 	if saidgfood == 1
 	{
-		"\0%(lsta)\i[36]\i[37]\i[47]She looks at you loke she was ready to eat you."
-		"\0%(lsta)\i[36]\i[37]\i[47]You have the feeling she is about to eat you."
-		"\0%(lsta)\i[36]\i[37]\i[47]She is giving you a strange look.%(lsto)\n\n[half]* Yum yum."
+		"\0%(lsta)\i[36]\i[37]\i[47]\i[18]She looks at you like she was ready to eat you."
+		"\0%(lsta)\i[36]\i[37]\i[47]\i[18]You have the feeling she is about to eat you."
+		"\0%(lsta)\i[36]\i[37]\i[47]\i[18]She is giving you a strange look.%(lsto)\n\n[half]* Yum yum."
 		"\0\i[18]\i[36]\i[37]\i[47]%(lsto)* I want to eat you.\n\n[half]%(lsta)You wonder if you should be scared."
 	}
 	if saidgfood == -1
@@ -381,18 +268,18 @@ MangaDialogues
 {
 	if lovetrashanime == 1
 	{
-		"\0\i[18]\i[38]\i[39]\i[45]%(lsto)* Here is a nice anime,\w5 %(trashanime)."
+		"\0%(headfront)%(arms)\i[18]\i[38]\i[39]\i[45]%(lsto)* Here is a nice anime,\w5 %(trashanime)."
 		"\0\i[18]\i[39]\i[30]\i[45]%(lsto)\i[72]* I think you could like %(trashanime)."
-		"\0\i[18]\i[30]\i[39]\i[45]%(lsto)* Did you already watch %(trashanime) ?"
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[39]\i[45]%(lsto)* Did you already watch %(trashanime) ?"
 		if azpunched > 0
 		{
-			"\0\i[18]\i[30]\i[39]\i[45]%(lsto)* Did you watch %(trashanime) ?\w7 \i[38]\i[72]I'm sure you would love it."
+			"\0%(headfront)%(arms)\i[18]\i[30]\i[39]\i[45]%(lsto)* Did you watch %(trashanime) ?\w7 \i[38]\i[72]I'm sure you would love it."
 			"\0\i[18]\i[32]\i[33]\i[45]%(lsto)\i[71]* A good anime for you : %(trashanime).\w7\i[30]\i[31] You're mean enough to appreciate it."
 		}
 		if isplayed != 1
 		{
-			"\0%(lsta)\i[49]She is humming, you wonder what song it is.%(lsto)\n\n[half]\i[83]* It's %(trashopening) opening.\i[70]"
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)* Would you like to listen %(trashopening) opening ?"
+			"\0%(lsta)\i[49]She is humming, you wonder what song it is.%(lsto)\n\n[half]\i[81]* It's %(trashopening) opening.\i[70]"
+			"\0%(headfront)%(arms)\i[18]\i[38]\i[39]\i[45]%(lsto)* Would you like to listen %(trashopening) opening ?"
 		}
 	}
 	if loveshojo == 1
@@ -403,18 +290,18 @@ MangaDialogues
 		if azpunched > 1
 		{
 			"\0\i[30]\i[31]\i[45]%(lsto)\i[71]* I didn't think you would like shojo,\w5 \i[32]\i[33]after what you did to me."
-			"\0\i[30]\i[31]\i[45]%(lsto)* I doubt you would like a such sweet thing as %(shojoanime)."
+			"\0%(headfront)%(arms)\i[30]\i[31]\i[45]%(lsto)* I doubt you would like a such sweet thing as %(shojoanime)."
 		}
 		if isplayed != 1
 		{
 			"\0%(lsta)\i[49]She is humming, you wonder what song it is.%(lsto)\n\n[half]\i[18]* It's %(shojoopening) opening."
-			"\0\i[18]\i[30]\i[39]\i[45]%(lsto)* Would you like to listen %(shojoopening) opening ?"
+			"\0%(headfront)%(arms)\i[18]\i[30]\i[39]\i[45]%(lsto)* Would you like to listen %(shojoopening) opening ?"
 		}
 	}
 	elseif loveshojo == 0
 	{
 		"\0\i[11]%(lsta)\i[48]\i[79]She is mumbling about %(shojoanime)."
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)* I doubt you would like it,\w5 but %(shojoanime) is a nice anime."
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[31]\i[45]%(lsto)* I doubt you would like it,\w5 but %(shojoanime) is a nice anime."
 			
 	}
 	if likemanga == 1
@@ -422,18 +309,18 @@ MangaDialogues
 		
 		"\0\i[18]\i[30]\i[39]\i[45]%(lsto)* Maybe you would like %(nicemanga)."
 		"\0\i[18]\i[31]\i[38]\i[45]%(lsto)\i[72]* Did you read %(nicemanga) ?\i[70]\w7\i[39] It's pretty nice."
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)* If you want to read a nice mange,\w5 %(nicemanga) is pretty good."
-		"\0\i[18]\i[30]\i[39]\i[45]%(lsto)* What about reading %(nicemanga) ?"
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[31]\i[45]%(lsto)* If you want to read a nice mange,\w5 %(nicemanga) is pretty good."
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[39]\i[45]%(lsto)* What about reading %(nicemanga) ?"
 		if isplayed != 1
 		{
 			"\0%(lsta)\i[49]She is humming, you wonder what song it is.%(lsto)\n\n[half]* It's %(niceopening) opening."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)* Would you like to listen %(niceopening) opening ?"
+			"\0%(headfront)%(arms)\i[18]\i[38]\i[39]\i[45]%(lsto)* Would you like to listen %(niceopening) opening ?"
 		}
 	}
 	elseif likemanga==0
 	{
 		"\0%(lsta)\i[48]You hear her mumbling about a manga."
-		"\0\i[18]\i[38]\i[39]\i[45]%(lsto)* I'm rereading %(nicemanga),\w5 \i[30]\i[31]sadly you don't like mangas."
+		"\0%(headfront)%(arms)\i[18]\i[38]\i[39]\i[45]%(lsto)* I'm rereading %(nicemanga),\w5 \i[30]\i[31]sadly you don't like mangas."
 		"\0%(lsta)\i[11]\i[31]\i[48]She is speaking to herself.\w7 You catch the word %(nicemanga)."
 	}
 	if lovetrashanime=="unknown" && loveshojo=="unknown" && likemanga=="unknown"
@@ -444,11 +331,11 @@ MangaDialogues
 	}
 	else
 	{
-		"\0\i[18]\i[30]\i[39]\i[45]%(lsto)* Did you heard of %(niceanime) ?\w7 It's pretty nice."
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[39]\i[45]%(lsto)* Did you heard of %(niceanime) ?\w7 It's pretty nice."
 		"\0\i[18]\i[38]\i[31]\i[45]%(lsto)* I wonder if you would like %(niceanime)."
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)* %(niceanime) is pretty nice,\w5 you know ?"
-		"\0\i[18]\i[38]\i[31]\i[45]%(lsto)* Maybe you would like %(niceanime)."
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)* If you want to see a nice anime,\w5 %(niceanime) is pretty good."
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[31]\i[45]%(lsto)* %(niceanime) is pretty nice,\w5 you know ?"
+		"\0%(headfront)%(arms)\i[18]\i[38]\i[31]\i[45]%(lsto)* Maybe you would like %(niceanime)."
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[31]\i[45]%(lsto)* If you want to see a nice anime,\w5 %(niceanime) is pretty good."
 	}
 }
 
@@ -491,7 +378,7 @@ EventsDialogues
 	//Asking the mood
 	if ASEARCH(mood,"sad","sick","bad","angry") != -1 && passhour >= 1
 	{
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)* Do you feel better now ?\_q\n\n[half]\![*]\q[Yes,feelbetter]    \![*]\q[No,feelsame]"
+		"\0%(headfront)%(arms)\i[18]\i[30]\i[31]\i[45]%(lsto)* Do you feel better now ?\_q\n\n[half]\![*]\q[Yes,feelbetter]    \![*]\q[No,feelsame]"
 	}
 	
 	//The computer thing : open, close and normal
@@ -527,10 +414,10 @@ EventsDialogues
 		if lovetrashanime
 		{
 			"\0%(lsta)Looks like she is watching %(trashanime)."
-			"\0%(lsta)You take a peek on her computer.%(lsto)\n\n[half]* %(trashanime),\w5 it's pretty nice."
+			"\0%(lsta)You take a peek on her computer.%(lsto)\n\n[half]\i[18]* %(trashanime),\w5 it's pretty nice."
 			if isplayed != 1
 			{
-				"\0%(lsta)You hear music coming from her computer.%(lsto)\n\n[half]* I'm listening to %(trashopening) opening."
+				"\0%(lsta)You hear music coming from her computer.%(lsto)\n\n[half]\i[18]* I'm listening to %(trashopening) opening."
 			}	
 			
 		}
@@ -544,19 +431,19 @@ EventsDialogues
 			"\0%(lsta)Looks like she is watching %(shojoanime)."
 			if isplayed != 1
 			{
-				"\0%(lsta)You hear music coming from her computer.%(lsto)\n\n[half]* I'm listening to %(shojoopening) opening."
+				"\0%(lsta)You hear music coming from her computer.%(lsto)\n\n[half]\i[18]* I'm listening to %(shojoopening) opening."
 			}
 	
 		}
-		elseif loveshojo==0
+		elseif loveshojo == 0
 		{
 			"\0%(lsta)You take a peek on her computer,\w5 but she is watching %(shojoanime)."
 			"\0%(lsta)You give her a look.%(lsto)\n\n[half]\i[18]* I'm watching a shojo,\w5 you won't like it."
 			"\0%(lsta)You give her a look.%(lsto)\n\n[half]\i[18]* I'm watching %(shojoanime), \w5you won't like it."
 		}
-		if lovetrashanime=="unknown" && loveshojo=="unknown" && likemanga=="unknown"
+		if lovetrashanime == "unknown" && loveshojo == "unknown" && likemanga == "unknown"
 		{
-			"\0%(lsta)You take a peek on her computer.(lsto)\n\n[half]* %(niceanime),\w5 it's pretty nice."
+			"\0%(lsta)You take a peek on her computer.(lsto)\n\n[half]\i[18]* %(niceanime),\w5 it's pretty nice."
 			"\0%(lsta)She seems to be watching an anime."
 			"\0%(lsta)\i[49]She is singing a japanese song,\w5 maybe an opening ?"
 			"\0%(lsta)You hear noise coming from her computer. She seems to be watching something."
@@ -569,7 +456,7 @@ EventsDialogues
 		{
 			if isplayed != 1
 			{
-				"\0%(lsta)You hear music coming from her computer.%(lsto)\n\n[half]* I'm listening to %(niceopening) opening."
+				"\0%(lsta)You hear music coming from her computer.%(lsto)\n\n[half]\i[18]* I'm listening to %(niceopening) opening."
 			}
 		}
 	}
@@ -697,7 +584,9 @@ TimeDialogues
 		"\0\i[18]\i[45]%(lsto)* Aren't you tired ?"
 		"\0\i[18]\i[45]%(lsto)\i[72]* How can you stay on your computer for so long ?"
 		"\0\i[18]\i[45]%(lsto)* You should close me and your computer and have a rest."
-		"\0%(worriedface)%(lsto)* They must be worried ..."
+		"\0%(worriedface)%(lsto)* They must be worried..."
+		"\0%(worriedface)%(lsto)* Do you always stay so much time on your computer ?"
+		"\0%(worriedface)%(lsto)%(arms)* I would like to go home now."
 	}
 	elseif passhour > 5
 	{
@@ -707,6 +596,7 @@ TimeDialogues
 		"\0\i[18]\i[45]%(lsto)\i[73]* I can't really blame you for staying on your computer for that long."
 		"\0\i[18]\i[45]%(lsto)\i[72]* You should move and eat something,\w5 or taking a break."
 		"\0\i[18]\i[45]%(lsto)\i[72]* Don't you have enough of staying on your computer ?"
+		"\0%(worriedface)%(lsto)%(arms)* I would like to go home now."
 	}
 	elseif passhour > 2
 	{
@@ -760,10 +650,10 @@ RelationshipDialogues
 			
 			"\0%(lsta)It smells like trust."
 			"\0%(lsta)She considerates you as a friend."
-			"\0\i[18]\i[38]\i[39]\i[50]%(lsta)\i[18]She smiles at you."
+			"\0\i[18]\i[38]\i[39]\i[50]%(lsta)She smiles at you."
 			"\0%(lsta)\i[50]She clearly appreciates being here."
 			"\0%(lsta)She is fully relaxed."
-			"\0%(lsta)She find your desktop very friendly."
+			"\0%(lsta)She finds your desktop very friendly."
 			"\0%(lsto)\i[10]%(worriedface)* Often I wish humans were all able to build a similar friendship as ours."
 			"\0%(lsto)%(happyface)* I wish all humans were as kind as you."
 			"\0%(lsto)%(perplexeface)* If all humans were as kind as you,\w5\i[11] my job would be easier."
@@ -772,9 +662,9 @@ RelationshipDialogues
 		{
 			if lovetrashanime == 1
 			{
-				"\0\i[45]\i[18]%(lsto)* Do you know %(trashanime) ?\w7 I'm pretty sure you would like it,\w5 \i[71]\i[91]seeing as you like violence."
+				"\0%(headfront)\i[45]\i[18]%(arms)\i[30]\i[31]%(lsto)* Do you know %(trashanime) ?\w7 I'm pretty sure you would like it,\w5 \i[71]\i[91]\i[32]\i[33]seeing as you like violence."
 			}
-			"\0%(lsto)* What made you punch me when you obviously seem to appreciate me ?"
+			"\0%(headfront)%(perplexeface)%(arms)* What made you punch me when you obviously seem to appreciate me ?"
 			"\0\i[30]\i[31]\i[45]%(lsta)She relaxed."
 			"\0\i[32]\i[33]\i[50]%(lsta)\i[18]\i[73]\i[93]She gives you a strange look."
 			"\0\i[18]\i[32]\i[33]\i[52]%(lsto)\i[79]\i[93]* You must actually appreciate me despite what you did."
@@ -796,10 +686,11 @@ RelationshipDialogues
 			"\0%(lsto)\i[10]\i[38]\i[39]\i[45]* I was someone with a low self-esteem before becoming ambassador."
 			"\0%(lsta)\i[49]She is singing a soft song."
 			"\0%(lsta)\i[49]She is singing an epic song."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)* Do you want a %(treat) ?\w7 I have some of it and it's snack time.\n\n[half]\![*]\q[Of course I want,sharetreatyes]    \![*]\q[No\, thank you,sharetreatno]"
-			"\0* \i[10]\i[38]\i[39]\i[50]\i[93]I didn't think you would have loved having me around like this."
-			"\0\i[45]%(lsto)\i[79]* For how many time have I been here ?\i[90]\i[70]\i[50]\w7 So \i[83]\i[86]much\i[90]\i[70] I guess."
+			"\0%(headfront)\i[18]\i[38]\i[39]\i[45]%(arms)* Do you want a %(treat) ?\w7 I have some of it and it's snack time.\n\n[half]\![*]\q[Of course I want,sharetreatyes]    \![*]\q[No\, thank you,sharetreatno]"
+			"\0%(headfront)\i[10]\i[38]\i[39]\i[50]\i[93]\i[70]* I didn't think you would have loved having me around like this."
+			"\0\i[45]%(lsto)\i[79]* For how many time have I been here ?\i[90]\i[70]\i[50]\w7 So \i[81]\i[86]much\i[90]\i[70] I guess."
 			"\0%(lsto)%(worriedface)* All humans aren't friendly to monsters."
+			"\0%(lsto)%(headturned)%(smileeyebrows)%(smile)\i[11]%(arms)* I've some papers to fill at home."
 		}
 	}
 	elseif useraffection >= 375
@@ -817,22 +708,22 @@ RelationshipDialogues
 			"\0%(lsta)It smells like trust."
 			"\0%(lsta)She considerates you as a friend."
 			"\0%(lsta)She clearly appreciates being here."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)* Do you want a %(treat) ?\w7 I have some of it and it's snack time.\n\n[half]\![*]\q[Of course I want,sharetreatyes]    \![*]\q[No\, thank you,sharetreatno]"
+			"\0%(headfront)\i[18]\i[38]\i[39]\i[45]%(arms)* Do you want a %(treat) ?\w7 I have some of it and it's snack time.\n\n[half]\![*]\q[Of course I want,sharetreatyes]    \![*]\q[No\, thank you,sharetreatno]"
 			
-			"\0\i[18]\i[38]\i[39]%(lsta)\i[50]\i[18]She smiles at you."
-			"\0%(lsta)She find your desktop pretty friendly."
+			"\0%(headfront)\i[18]\i[38]\i[39]%(arms)%(lsta)\i[50]She smiles at you."
+			"\0%(lsta)She finds your desktop pretty friendly."
 		}
 		else
 		{
 			if lovetrashanime == 1
 			{
-				"\0\i[18]\i[38]\i[31]\i[45]%(lsto)* Do you know %(trashanime) ?\w7 I'm pretty sure you would like it,\w5\i[71]\i[91] seeing as you like violence."
+				"\0%(headfront)\i[18]\i[38]\i[31]\i[45]%(arms)%(lsto)* Do you know %(trashanime) ?\w7 I'm pretty sure you would like it,\w5\i[71]\i[91] seeing that you like violence."
 			}
-			"\0%(lsto)* What did you punch me when you obviously seem to appreciate me ?"
-			"\0%(lsta)She start to eat a %(treat), \w5then see you.%(lsto)\n\n[half]\i[18]\i[45]* Do you want some ?\n\n[half]\![*]\q[Yes,sharetreatyes]    \![*]\q[No,sharetreatno]"
+			"\0%(headfront)%(perplexeface)%(wonderingarms)* Why did you punch me when you obviously seem to appreciate me ?"
+			"\0\i[18]%(lsta)She start to eat a %(treat), \w5then see you.%(lsto)\n\n[half]\i[18]\i[45]* Do you want some ?\n\n[half]\![*]\q[Yes,sharetreatyes]    \![*]\q[No,sharetreatno]"
 			"\0%(lsta)\i[18]\i[32]\i[33]\i[49]\i[73]\i[93]She gives you a strange look."
 			"\0\i[38]\i[39]%(lsta)\i[45]She relaxed."
-			"\0\i[18]\i[30]\i[35]\i[45]%(lsto)\i[93]* I guess you must appreciate me despite what you did."
+			"\0%(headfront)\i[18]\i[30]\i[35]\i[45]\i[93]\i[70]* I guess you must appreciate me despite what you did."
 		}
 		if askedlike != 1
 		{
@@ -848,10 +739,11 @@ RelationshipDialogues
 			"\0%(lsta)She is fully used to your presence."
 			"\0%(lsta)\i[49]She is singing a soft song."
 			"\0%(lsta)\i[49]She is singing an epic song."
-			"\0\i[18]\i[30]\i[31]\i[45]%(lsto)\i[92]* Did you try butterscotch-cinnamon pie ?\i[72]\w7 It's very nice."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)\i[79]* For how many time have I been here ?\w7\i[11]\i[30]\i[31]\i[71] A lot,\w5 for sure."
+			"\0%(headfront)\i[18]\i[30]\i[31]\i[45]\i[92]\i[71]* Did you try butterscotch-cinnamon pie ?\i[72]\w7 It's very nice."
+			"\0%(headfront)\i[18]\i[38]\i[39]\i[45]%(wonderingarms)* For how many time have I been here ?\w7\i[11]\i[30]\i[31]\i[71] A lot,\w5 for sure."
 			"\0%(lsto)\i[18]%(worriedface)* All humans aren't friendly to monsters."
 			"\0%(lsto)%(worriedface)* Sometimes I wonder if being mean is a part of humans' nature."
+			"\0%(lsto)%(headturned)%(smileeyebrows)%(smile)\i[11]%(arms)* I've some papers to fill at home."
 		}
 	}
 	elseif useraffection >=  275
@@ -893,15 +785,16 @@ RelationshipDialogues
 			"\0\i[32]\i[30]\i[45]%(lsto)\i[93]* I suppose you appreciate me at least a little despite what you did."
 		}
 		{
-			"\0%(lsto)She looked about to say something for a few seconds."
-			"\0%(lsto)\i[10]\i[38]\i[39]\i[45]* Being the ambassador of the monsters helped my self-confidence."
-			"\0\i[18]\i[37]\i[38]\i[46]%(lsto)\i[11]* Looking different raises issues sometimes.\w7 People mockings mostly,\w5 and always from humans.\w7 Monsters are a lot more tolerant and kind."
+			"\0\i[18]\i[32]\i[33]%(lsto)She looked about to say something for a few seconds."
+			"\0%(headfront)\i[10]\i[38]\i[39]\i[45]%(arms)* Being the ambassador of the monsters helped my self-confidence."
+			"\0%(headturned)\i[37]\i[38]\i[46]%(arms)\i[11]* Looking different raises issues sometimes.\w7 People mockings mostly,\w5 and always from humans.\w7 Monsters are a lot more tolerant and kind."
 			"\0%(lsta)She is used to you watching her."
 			"\0%(lsta)\i[73]\i[93]She is stretching."
 			"\0%(lsta)You wonder if she likes spending time here."
 			"\0%(lsta)\i[49]She is singing a soft song."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)\i[83]* Poor Asgore,\w5he always has known only monarchie.\i[70]\i[92] \w7Democratie is stange for him."
+			"\0%(headfront)\i[18]\i[38]\i[39]\i[45]\i[81]\i[90]* Poor Asgore,\w5he always has known only monarchie.\i[70]\i[92] \w7Democratie is stange for him."
 			"\0\i[18]%(perplexeface)%(lsto)* Humans and monsters are so different."
+			"\0%(lsto)%(headturned)%(smileeyebrows)%(smile)\i[11]%(arms)* I've some papers to fill at home."
 		}
 	}
 	elseif useraffection >= 200
@@ -934,8 +827,8 @@ RelationshipDialogues
 				"\0%(lsta)She is eating a %(treat). She catch your look and end quickly her snack."
 			}
 			//"\0%(lsta)Smells like %(lsto)"
-			"\0%(lsto)* You're not the first human to be mean to me."
-			"\0%(lsta)\i[32]\i[33]\i[52]\i[70]\i[92]It's hard to get close to someone who punched you,\i[90]\w5 you know ?"
+			"\0%(sadface)%(lsto)* You're not the first human to be mean to me."
+			"\0%(headfront)\i[18]\i[32]\i[33]\i[52]\i[70]\i[92]* It's hard to get close to someone who punched you,\i[90]\w5 you know ?"
 		}
 		{
 			"\0%(lsto)She looked about to say something for a few seconds."
@@ -945,7 +838,10 @@ RelationshipDialogues
 			"\0%(lsta)You wonder if she likes spending time here."
 			"\0%(lsta)\i[49]She is singing a soft song."
 			"\0\i[2001]\f[italic,true]She seems to be used of being on a computer."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)\i[83]* Poor Asgore,\w5he always has known only monarchie. \i[70]\i[92]\w7Democratie is stange for him."
+			"\0%(headfront)\i[18]\i[38]\i[39]\i[45]\i[91]\i[81]* Poor Asgore,\w5he always has known only monarchie. \i[70]\i[92]\w7Democratie is stange for him."
+			"\0%(headturned)%(smileeyebrows)%(smile)%(arms)\i[11]* I've some papers to fill at home."
+			"\0%(headturned)%(smile)%(arms)\i[32]\i[33]\i[11]%(lsta)She mutters something about papers."
+			"\0%(headturned)%(smile)%(arms)\i[32]\i[33]\i[11]%(lsta)She mutters something about work."
 		}
 	}
 	elseif useraffection >= 150
@@ -960,7 +856,7 @@ RelationshipDialogues
 			"\0%(lsta)\i[38]\i[39]\i[50]She seems to appreciate being here."
 			"\0%(lsta)\i[18]\i[38]\i[39]\i[50]She smiles at you."
 			"\0\i[2001]\f[italic,true]\i[38]\i[39]\i[50]She seems to be happy to be here."
-			"\0%(lsto)%(smileface)* You seem to be a good person."
+			"\0%(headfront)%(arms)%(smileface)* You seem to be a good person."
 		}
 		else
 		{
@@ -968,14 +864,14 @@ RelationshipDialogues
 			{
 				"\0%(lsta)\i[30]\i[33]\i[40]You feel her hostiliy."
 				"\0%(lsta)\i[30]\i[33]\i[52]She is only tolerating your presence."
-				"\0%(lsto)%(angryface)* People like you are only making my job harder."
+				"\0%(headfront)%(arms)%(angryface)* People like you are only making my job harder."
 			}
 			else
 			{
-				"\0%(lsto)* You're not the first human to be mean to me."
+				"\0%(headfront)%(sadface)%(arms)* You're not the first human to be mean to me."
 				"\0%(lsta)\i[30]\i[33]\i[52]She doesn't seem to appreciate your presence."
 			}
-			"\0%(smileface)%(lsto)* Anything special you like to do on your computer beside punching ghosts ?"
+			"\0%(headfront)%(smileface)%(arms)* Anything special you like to do on your computer beside punching ghosts ?"
 		}
 		if askedlike != 1
 		{
@@ -989,11 +885,13 @@ RelationshipDialogues
 		"\0%(lsto)\i[10]\i[38]\i[39]\i[45]* Being the ambassador of the monsters is nice."
 		"\0%(lsto)\i[10]\i[38]\i[39]\i[45]* Being the ambassador of the monsters helped me for some things."
 		"\0%(lsta)\i[38]\i[39]\i[49]She is humming a song."
-		"\0%(lsta)\i[30]\i[31]She is eating a %(treat). She catch your look and end quickly her snack."
+		"\0%(lsta)\i[30]\i[31]She is eating a %(treat). \i[18]She catch your look and end quickly her snack."
 		"\0%(lsta)\i[18]\i[30]\i[31]\i[45]She looks at you a few seconds."
 		"\0\i[2001]\f[italic,true]She seems to be used of being on a computer."
 		"\0\i[2001]\f[italic,true]\i[12]\i[36]\i[37]\i[48]\i[79]She looks concentrated on something."
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)\i[83]* I tried to explain human politic to Asgore today,\i[70]\i[92] \w5but it's hard for him to understand our world."
+		"\0%(headfront)\i[18]\i[30]\i[31]\i[45]\i[91]\i[81]* I tried to explain human politic to Asgore today,\i[70]\i[92] \w5but it's hard for him to understand our world."
+		"\0%(headturned)%(smile)%(arms)\i[32]\i[33]\i[18]%(lsta)She mutters something about papers."
+		"\0%(headturned)%(smile)%(arms)\i[32]\i[33]\i[18]%(lsta)She mutters something about work."
 	}
 	elseif useaffection >= 100
 	{
@@ -1006,37 +904,37 @@ RelationshipDialogues
 			}
 			"\0\i[2001]\f[italic,true]\i[50]She seems to be happy to be here."
 			"\0\i[2001]\f[italic,true]\i[50]She seems to be thinking that you're not a bad person."
-			"\0\i[38]\i[39]\i[18]\i[50]%(lsto)\i[73]* You're a nice person,\w5 isn'it ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[50]\i[90]\i[73]* You're a nice person,\w5 isn'it ?"
 			
 		}
 		else
 		{
 			if azpunched >= 3
 			{
-				"\0%(lsto)* I've known worst than what you did."
+				"\0%(headfront)%(sadface)%(arms)* I've known worst than what you did."
 				"\0%(lsta)\i[30]\i[33]\i[40]You feel her hostiliy."
 				"\0%(lsta)\i[30]\i[33]\i[52]She is only tolerating your presence."
-				"\0%(smileface)%(lsto)* Anything special you like to do on your computer beside punching ghosts ?"
+				"\0%(headfront)%(smileface)%(arms)* Anything special you like to do on your computer beside punching ghosts ?"
 			}
 			else
 			{
-				"\0%(lsto)* You're not the first human to be mean to me."
+				"\0%(headfront)%(sadface)%(arms)* You're not the first human to be mean to me."
 				"\0%(lsta)\i[30]\i[33]\i[52]She doesn't seem to appreciate your presence."
 			}
-			"\0\i[2001]\f[italic,true]She ignores you."
+			"\0%(headturned)%(smileeyes)%(arms)\i[40]%(lsta)She ignores you."
 			"\0\i[2001]\f[italic,true]\i[52]She doesn't seem comfortable."
 		}
 		
 		"\0%(lsto)\i[38]\i[33]\i[18]She seems to be gauging you."
-		"\0%(lsta)\i[10]\i[38]\i[39]\i[45]* Being the ambassador of the monsters is fun."
-		"\0%(lsta)\i[10]\i[38]\i[39]\i[45]* Being the ambassador of the monsters is nice."
+		"\0%(headfront)\i[10]\i[38]\i[39]\i[45]%(arms)* Being the ambassador of the monsters is fun."
+		"\0%(headfront)\i[10]\i[38]\i[39]\i[45]%(arms)* Being the ambassador of the monsters is nice."
 		"\0%(lsta)You wonder what kind of music she likes."
 		"\0%(lsta)\i[38]\i[39]\i[49]She is humming a song."
-		"\0%(lsta)\i[30]\i[31]She is eating a %(treat). She catch your look and end quickly her snack."
+		"\0%(lsta)\i[30]\i[31]She is eating a %(treat). \i[18]She catch your look and end quickly her snack."
 		"\0%(lsta)\i[18]\i[30]\i[31]\i[45]She looks at you a few seconds."
-		"\0%(smileface)%(lsto)* Anything special you like to do on your computer ?"
-		"\0\i[2001]\f[italic,true]\i[12]\i[36]\i[37]\i[48]\i[79]She looks concentrated on something."
-		"\0\i[30]\i[31]\i[18]\i[45]%(lsto)\i[83]* I tried to explain human politic to Asgore today, \i[70]\i[92]\w5but it's hard for him to understand our world."
+		"\0%(headfront)%(smileface)%(arms)* Is there anything special you like to do on your computer ?"
+		"\0%(headturned)%(lsta)\i[12]\i[36]\i[37]\i[48]\i[79]\i[91]She looks concentrated on something."
+		"\0%(headfront)\i[30]\i[31]\i[18]\i[45]\i[90]\i[81]* I tried to explain human politic to Asgore today, \i[70]\i[92]\w5but it's hard for him to understand our world."
 	}
 	elseif useraffection >= 60
 	{
@@ -1048,113 +946,107 @@ RelationshipDialogues
 			}
 			"\0\i[2001]\f[italic,true]She seems comfortable here."
 			"\0\i[2001]\f[italic,true]\i[30]\i[31]She seems to be thinking that you're not a bad person."
-			"\0\i[31]\i[30]\i[45]%(lsto)\i[73]* It's beginning to be a good amount of time that I'm here,\w5 isn'it ?"
+			"\0%(headturned)\i[31]\i[30]\i[45]\i[11]\i[91]\i[73]* It's beginning to be a good amount of time that I'm here,\w5 isn'it ?"
 		}
 		else
 		{
-			"\0%(lsto)* You're not the first human to be mean to me."
-			"\0\i[2001]\f[italic,true]She ignores you."
+			"\0%(headfront)%(sadface)%(arms)* You're not the first human to be mean to me."
+			"\0%(headturned)%(smileeyes)\i[40]%(lsta)She ignores you."
 			"\0%(lsta)\i[52]She doesn't seem to appreciate your presence."
 		}
-		"\0%(lsta)\i[10]\i[38]\i[39]\i[45]* Being the ambassador of the monsters is fun."
+		"\0%(headfront)\i[10]\i[38]\i[39]\i[45]%(arms)* Being the ambassador of the monsters is fun."
 		"\0%(lsta)\i[49]She is humming a song."
 		"\0%(lsta)She is eating a %(treat)."
-		"\0\i[2001]\f[italic,true]\i[11]\i[46]She is looking your folders."
-		"\0\i[2001]\f[italic,true]\i[12]\i[48]\i[79]She looks concentrated on something."
+		"\0%(headturned)\i[2001]\f[italic,true]\i[11]\i[46]\i[30]\i[31]%(arms)She is looking your folders."
+		"\0%(headturned)\i[2001]\f[italic,true]\i[12]\i[48]\i[79]\i[91]She looks concentrated on something."
 		"\0\i[2001]\f[italic,true]\i[12]\i[49]She seems to like singing."
-		"\0%(smileface)%(lsto)* Anything special you like to do on your computer ?"
+		"\0%(headfront)%(smileface)%(arms)* Is there anything special you like to do on your computer ?"
 	}
 	elseif useraffection >= 40
 	{
 		if azpunched <= 0
 		{
-			"\0\i[11]\i[38]\i[39]\i[45]%(lsto)\i[72]\i[92]* It's not bad to be in somebody's computer.\w7\i[71]\i[91]"
+			"\0%(randompose)\i[11]\i[38]\i[39]\i[45]\i[72]\i[92]* It's not bad to be in somebody's computer.\w7\i[71]\i[91]"
 			"\0\i[2001]\f[italic,true]\i[38]\i[39]\i[45]She seems comfortable here."
 		}
 		else
 		{
-			"\0\i[18]\i[32]\i[33]\i[52]%(lsto)* You're a violent person,\w5 isn'it ?"
+			"\0%(headfront)\i[18]\i[32]\i[33]\i[52]%(arms)* You're a violent person,\w5 isn'it ?"
 			"\0\i[2001]\f[italic,true]\i[30]\i[33]\i[45]She seems distant."
-			"\0\i[2001]\f[italic,true]She ignores you."
+			"\0%(headturned)%(smileeyes)\i[40]%(lsta)She ignores you."
 		}
 		"\0%(lsta)\i[18]\i[30]\i[31]\i[45]She glances at you."
 		"\0%(lsta)\i[30]\i[31]She is eating a %(treat)."
-		"\0\i[2001]\f[italic,true]\i[11]\i[46]She is looking your folders."
-		"\0\i[2001]\f[italic,true]\i[12]\i[32]\i[33]\i[48]\i[79]She looks concentrated on something."
+		"\0%(headturned)\i[2001]\f[italic,true]\i[11]\i[46]%(arms)\i[30]\i[31]She is looking your folders."
+		"\0%(headturned)\i[2001]\f[italic,true]\i[12]\i[32]\i[33]\i[48]\i[79]\i[90]She looks concentrated on something."
 		"\0\i[2001]\f[italic,true]\i[38]\i[39]\i[49]Is she singing ?"
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)\i[72]* What do you usually do on your computer ?"
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)\i[73]\i[93]* Do you like ukagakas ?"
-		"\0%(smileface)%(lsto)* Anything special you like to do on your computer ?"
+		"\0%(headfront)\i[18]\i[30]\i[31]\i[45]\i[90]\i[72]* What do you usually do on your computer ?"
+		"\0%(headfront)\i[18]\i[30]\i[31]\i[45]\i[73]\i[93]* Do you like ukagakas ?"
+		"\0%(headfront)%(smileface)%(arms)* Is there anything special you like to do on your computer ?"
 	}
 	elseif useraffection >= 20
 	{
 		if azpunched <= 0
 		{
-			"\0\i[38]\i[39]\i[50]%(lsto)\i[93]* It doesn't seem bad here."
-			"\0\i[18]\i[38]\i[39]\i[45]%(lsto)\i[93]* Being in a computer is quite new for me."
-			"\0\i[2001]\f[italic,true]\i[38]\i[39]\i[50]She seems to not being aware of you."
+			"\0%(headturned)\i[11]\i[38]\i[39]\i[50]%(lsto)%(behindheadarms)* It doesn't seem bad here."
+			"\0%(headfront)\i[18]\i[38]\i[39]\i[45]\i[71]\i[93]* Being in a computer is quite new for me."
+			"\0\i[2001]\f[italic,true]\i[38]\i[39]\i[50]She seems to not be aware of you."
 		}
 		else
 		{
-			"\0\i[32]\i[33]\i[18]\i[40]%(lsto)\i[71]\i[92]* You just encounter me and you already punched me ?\w7\i[91] I wonder how it would be after 2 days of being here."
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[40]\i[71]\i[92]* You just encountered me and you already punched me ?\w7\i[91] I wonder how it would be after 2 days of being here."
 			"\0\i[2001]\f[italic,true]\i[30]\i[33]\i[52]She seems distant."
-			"\0\i[2001]\f[italic,true]She ignores you."
+			"\0%(headturned)%(smileeyes)\i[40]%(lsta)She ignores you."
 			"\0\i[2001]\f[italic,true]She is doing as you weren't here."
 		}
 		"\0%(lsta)\i[18]\i[30]\i[31]\i[45]She glances at you."
 		"\0%(lsta)\i[11]\i[45]She glance at the things around."
-		"\0\i[2001]\f[italic,true]\i[11]\i[46]She is looking your folders."
-		"\0\i[2001]\f[italic,true]\i[11]\i[45]She began to explore her environment."
-		"\0\i[2001]\f[italic,true]\i[11]\i[45]Did she just look into the ssp folder... ?"
-		"\0\i[11]\i[38]\i[33]\i[45]%(lsto)\i[83]\i[86]* What is... \w7\i[16]\i[50]\i[70]\i[90]Oh !\i[39]\n\n[half]\i[2001]\f[italic,true]Hehe, she just found her own folder."
+		"\0%(headturned)%(smileeyebrows)%(arms)\i[11]%(smile)\i[2001]\f[italic,true]\i[46]She is looking your folders."
+		"\0%(headturned)%(smileeyebrows)%(arms)\i[11]\i[48]\i[2001]\f[italic,true]She began to explore her environment."
+		"\0%(headturned)%(smileeyebrows)%(arms)\i[11]\i[45]\i[2001]\f[italic,true]Did she just look into the ssp folder... ?"
+		"\0%(headturned)\i[11]\i[38]\i[33]\i[45]\i[81]\i[86]* What is... \w7\i[16]\i[50]\i[70]\i[90]Oh !\i[39]\n\n[half]\i[2001]\f[italic,true]Hehe, she just found her own folder."
 	}
 	else
 	{
 		if azpunched <= 0
 		{
-			"\0\i[16]\i[30]\i[31]\i[50]%(lsto)* It's nice to meet new people."
-			"\0\i[18]\i[30]\i[31]\i[45]%(lsto)\i[93]* Being in a computer is quite new for me."
+			"\0%(headfront)\i[16]\i[30]\i[31]\i[50]%(arms)* It's nice to meet new people."
+			"\0%(headturned)\i[18]\i[30]\i[31]\i[45]%(lsto)\i[93]* Being in a computer is quite new for me."
 			
 		}
 		else
 		{
-			"\0\i[18]\i[32]\i[33]\i[40]%(lsto)\i[71]\i[92]* You just encounter me and you already punched me ?\w7\i[91] I wonder how it would be after 2 days of being here."
+			"\0%(headfront)\i[18]\i[32]\i[33]\i[40]\i[71]\i[92]* You just encounter me and you already punched me ?\w7\i[91] I wonder how it would be after 2 days of being here."
 			"\0\i[2001]\f[italic,true]\i[30]\i[33]\i[52]She seems distant."
-			"\0\i[2001]\f[italic,true]She ignores you."
+			"\0%(headturned)%(smileeyes)\i[40]%(lsta)She ignores you."
 			"\0\i[2001]\f[italic,true]She is doing as you're not here."
 			
 			
 		}
-		if oncomputer != 1 && isdrawing != 1 && alreadyeat <= 1
-		{
-			//\i[68] at the beginning for both
-			"\0\i[11]\i[45]%(lsto)\i[79]* So folders and documents actually look like their representation,\w5 but bigger."
-			"\0\i[11]\i[45]%(lsto)\i[79]* Mmh,\w5 not heat, no cold."
-		}
-		else
-		{
-			"\0\i[11]\i[45]%(lsto)\i[79]* So folders and documents actually look like their representation,\w5 but bigger."
-			"\0\i[11]\i[45]%(lsto)\i[79]* Mmh,\w5 not heat, no cold."
-		}
-		"\0%(lsta)\i[11]She glance at the things around."
+		//\i[68] at the beginning for both
+		"\0%(headturned)\i[11]\i[45]\i[38]\i[39]\i[91]\i[79]* So folders and documents actually look like their representation,\w5 but bigger."
+		"\0%(headturned)\i[11]\i[45]\i[32]\i[33]\i[91]\i[79]* Mmh,\w5 not heat, no cold."
+
+		"\0%(headturned)\i[30]\i[31]%(arms)%(lsta)\i[11]She glance at the things around."
 		"\0%(lsta)\i[18]She glances at you."
 		"\0%(lsta)\i[45]\i[93]Despite her optimism, she doesn't seem fully comfortable here."
 		"\0%(lsta)You give her a look.%(lsto)\i[11]\i[34]\i[35]\i[46]\i[72]* I'm... not used at this."
-		"\0\i[2001]\f[italic,true]\i[11]\i[45]She is looking around."
-		"\0\i[18]\i[39]\i[18]\i[45]%(lsto)* I wonder if you already played Undertale and how you played."
-		"\0\i[18]\i[30]\i[31]\i[45]%(lsto)\i[93]* Being in a computer is weird, \w5you know ?"
-		"\0\i[11]\i[32]\i[33]\i[45]%(lsto)\i[73]* Huh,\w5 that's so weird."
+		"\0%(headturned)%(smileface)%(arms)\i[2001]\f[italic,true]She is looking around."
+		"\0%(headfront)%(perplexeface)%(wonderingarms)* I wonder if you already played Undertale and how you played."
+		"\0%(headfront)\i[18]\i[30]\i[31]\i[45]\i[71]\i[93]* Being in a computer is weird, \w5you know ?"
+		"\0%(headturned)\i[11]\i[32]\i[33]\i[45]\i[91]\i[73]* Huh,\w5 that's so weird."
 	}
 	
 }
 
 AnnexDialogues
 {
-	//Azura"s mood related dialogues
+	//Azura's mood related dialogues
 	if azfeel > 3
 	{
 		"\0%(lsta)She seems to be in a very good mood."
 		"\0%(lsta)She looks very happy."
+		"\0%(lsta)%(happyface)She is having a big smile."
 	}
 	elseif azfeel > 0
 	{
@@ -1171,8 +1063,8 @@ AnnexDialogues
 	}
 	elseif azfeel >= -3
 	{
-		"\0%(lsta)She doesn't seem to be a good mood."
-		"\0%(lsta)She looks sad."
+		"\0%(lsta)%(sadface)She doesn't seem to be a good mood."
+		"\0%(lsta)%(sadface)She looks sad."
 	}
 	else
 	{
@@ -1191,173 +1083,173 @@ AnnexDialogues
 		when "boss"
 		{
 			"\0%(lsta)\i[38]\i[39]\i[18]\i[45]She looks amused."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]* What kind of person are you at work ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[90]* What kind of person are you at work ?"
 		}
 		when "adult"
 		{
-			"\0%(lsto)\i[30]\i[31]\i[18]* You must be a boring person."
-			"\0%(lsto)\i[30]\i[31]\i[18]* Are you living alone ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[93]* I guess ghosts like me are bringing some joy in your life."
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]%(arms)* You must be a boring person."
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]%(arms)* Are you living alone ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[93]\i[71]* I guess ghosts like me are bringing some joy in your life."
 		}
 		when "engineer"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* What do you create ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Did you already have to manage a team ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* On what kind of projects are you working ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* What do you create ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Did you already have to manage a team ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* On what kind of projects are you working ?"
 		}
 		when "intern"
 		{
-			"\0%(lsto)\i[30]\i[31]\i[18]\i[93]* I usually don't like coffee."
-			"\0%(lsto)\i[38]\i[39]\i[18]* Are you coworker treating you well ?"
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]\i[93]\i[71]* I usually don't like coffee."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Are you coworker treating you well ?"
 		}
 		when "businessman"
 		{
-			"\0%(lsto)\i[30]\i[31]\i[18]* You must be someone very busy."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]* Try to not overwhelm yourself."
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]%(arms)* You must be someone very busy."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[90]* Try to not overwhelm yourself."
 		}
 		when "artist"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Do you like drawing ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]* Do you have a lot of inspiration lately ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* I hope you have a lot of inspiration."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you like drawing ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you have a lot of inspiration lately ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* I hope you have a lot of inspiration."
 		}
 		when "parent"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* I hope you're not too tired."
-			"\0%(lsto)\i[38]\i[39]\i[18]* How are your children ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* I hope you're not too tired."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* How are your children ?"
 		}
 		when "chaos"
 		{
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[72]\i[92]* Chaos is full of opportunities."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* I hope your life is fun."
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[72]\i[92]* Chaos is full of opportunities."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* I hope your life is fun."
 		}
 		when "alien"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[79]* I wonder what other worlds look like."
-			"\0%(lsto)\i[30]\i[31]\i[18]\i[92]* What system is your homeworld ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[92]* How advanced is you species technology ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[73]\i[93]* Do you come in peace ?"
+			"\0%(headturned)\i[38]\i[39]\i[18]\i[45]\i[79]\i[91]* I wonder what other worlds look like."
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[92]\i[70]\i[45]* What system is your homeworld ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[92]\i[71]\i[45]* How advanced is you species technology ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[73]\i[93]* Do you come in peace ?"
 		}
 		when "ghost"
 		{
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Can ghosts go through walls ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Do you prank people sometimes ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]\i[92]* I suppose you must be loving Halloween."
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Can ghosts go through walls ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Do you prank people sometimes ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[92]* I suppose you must be loving Halloween."
 		}
 		when "shapeshifter"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Being able to take any appearance must be nice."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]* What appearance did you already take ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[92]* Did you use your powers to prank someone ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Being able to take any appearance must be nice."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[91]* What appearance did you already take ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[92]\i[71]* Did you use your powers to prank someone ?"
 		}
 		when "jedi"
 		{
-			"\0%(lsto)\i[30]\i[31]\i[18]\i[45]* Will you always try to do the righ thing ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[79]* Did you already take a padawan ?"
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]%(arms)* Will you always try to do the righ thing ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[79]\i[91]* Did you already take a padawan ?"
 		}
 		when "sith"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]* Is being mean nice ?"
-			"\0%(lsto)\i[30]\i[31]\i[18]* What's your position in the dark hierarchy ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Is being mean nice ?"
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]%(arms)* What's your position in the dark hierarchy ?"
 		}
 		when "supersayen"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]\i[92]* You must be so powerful."
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[72]* Did you already save a planet ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[72]* Did you already save humanity ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[92]* You must be so powerful."
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[72]\i[90]* Did you already save a planet ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[72]\i[90]* Did you already save humanity ?"
 		}
 		when "ninja"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[92]* How are the shadows ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Do you have a clan ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[92]* What's your nindo ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[92]\i[70]* How are the shadows ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Do you have a clan ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[92]\i[71]* What's your nindo ?"
 		}
 		when "elf"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[73]\i[93]* What do you think of ecology ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Can you communicate with the nature ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Are you vegan ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[73]\i[93]* What do you think of ecology ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Can you communicate with the nature ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Are you vegan ?"
 		}
 		when "dwarf"
 		{
 			"\0%(lsta)\i[32]\i[33]\i[18]\i[50]\i[73]\i[93]She gives you a superior look."
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[50]* Do dwarf girls have a beard ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[50]\i[72]* What are your favorite weapons ? \w7Axes ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[50]%(wonderingarms)* Do dwarf girls have a beard ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[50]\i[72]\i[91]* What are your favorite weapons ? \w7Axes ?"
 		}
 		when "faery"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]* Are faeries the source of all powders ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Can you fly ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[79]* Do you have magic powers ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[91]* Are faeries the source of all powders ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(wonderingarms)* Can you fly ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[79]\i[91]* Do you have magic powers ?"
 		}
 		when "darkner"
 		{
-			"\0%(lsto)\i[30]\i[31]\i[18]\i[45]* I didn't see any fountain here."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[73]\i[93]* Is it ok for you to stay with a lightner ?"
-			"\0%(lsto)\i[38]\i[39]\i[11]\i[45]* I never saw the Dark World."
+			"\0%(headfront)\i[30]\i[31]\i[18]\i[45]%(arms)* I didn't see any fountain here."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[73]\i[93]* Is it ok for you to stay with a lightner ?"
+			"\0%(headfront)\i[38]\i[39]\i[11]\i[45]%(arms)* I never saw the Dark World."
 		}
 		when "ogre"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]\i[92]* What's your purpose in life ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[72]* What are you usually eating ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[50]\i[73]\i[93]* I hope you're not too clumsy."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[92]* What's your purpose in life ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[72]\i[91]* What are you usually eating ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[50]\i[73]\i[93]* I hope you're not too clumsy."
 		}
 		when "warrior"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[92]* What's your training ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[92]* Are you someone strong ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[72]* What are your favorite weapons ? \w7Swords ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[92]\i[71]* What's your training ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[92]\[71]* Are you someone strong ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[72]\i[91]* What are your favorite weapons ? \w7Swords ?"
 		}
 		when "hobbit"
 		{
 			"\0%(lsta)\i[32]\i[33]\i[18]\i[50]\i[73]\i[93]She gives you a superior look."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Do you take care of your feets ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Do you actually like adventures ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you take care of your feets ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you actually like adventures ?"
 		}
 		when "dragon"
 		{
 			"\0%(lsta)\i[32]\i[33]\i[18]\i[48]She looks jealous."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Are you breathing fire ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Are you immune to fire ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Do you handle well water ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Are you breathing fire ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Are you immune to fire ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you handle well water ?"
 		}
 		when "unicorn"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Do you have a mate ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Do you like... \i[32]\i[33]\f[italic,true]\i[72]\i[92]rainbows\f[italic,false] ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you have a mate ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Do you like... \i[32]\i[33]\f[italic,true]\i[72]\i[92]rainbows\f[italic,false] ?"
 		}
 		when "cat"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* How is hunting going ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]* Will you bring me one of your preys ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* How is hunting going ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[91]* Will you bring me one of your preys ?"
 		}
 		when "pokemon"
 		{
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]\i[71]\i[91]* Pika pika ?\n\n[half]%(lsta)What the hell ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Did you win a lot of battles ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]\i[71]\i[91]* Pika pika ?\n\n[half]%(lsta)What the hell ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Did you win a lot of battles ?"
 		}
 		when "spectrobe"
 		{
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* I found a nice stone lately."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[92]* What system is your homeworld ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* What rocks do you prefer ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* I found a nice stone lately."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[92]\i[70]* What system is your homeworld ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* What rocks do you prefer ?"
 		}
 		when "monster"
 		{
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Are you hidding under beds ?"
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* Are you keeping an eye on children sleep ?"
-			"\0%(lsto)\i[33]\i[32]\i[18]\i[45]* I hope you protect children sleep."
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]\i[72]* Try to not scare too many children."
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Are you hidding under beds ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Are you keeping an eye on children sleep ?"
+			"\0%(headfront)\i[33]\i[32]\i[18]\i[45]%(arms)* I hope you protect children sleep."
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]\i[72]\i[90]* Try to not scare too many children."
 		}
 		when "werewolf"
 		{
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* When is the full moon ?"
-			"\0%(lsto)\i[38]\i[39]\i[18]\i[45]* Are you an alpha ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* When is the full moon ?"
+			"\0%(headfront)\i[38]\i[39]\i[18]\i[45]%(arms)* Are you an alpha ?"
 		}
 		when "furry"
 		{
-			"\0%(lsto)\i[32]\i[33]\i[18]\i[45]* You should take care of your fur."
-			"\0%(lstp)\i[32]\i[33]\i[18]\i[45]* Can I touch your fur ?"
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* You should take care of your fur."
+			"\0%(headfront)\i[32]\i[33]\i[18]\i[45]%(arms)* Can I touch your fur ?"
 		}
 		other
 		{
@@ -1368,6 +1260,111 @@ AnnexDialogues
 		}
 	}
 }
+
+NormalDialogues
+{
+	if issat == 1
+	{
+		"\0%(lsta)Being on your computer ground doesn't seem to bother her."
+		"\0%(lsta)She looks comfortably installed."
+	}
+	
+	"\0%(lsta)It smells like almonds."
+	"\0%(lsta)She doesn't seem bored."
+	"\0%(lsta)Looks like she can keep herself occupied."
+	"\0\i[2001]\f[italic,true]She looks a little tired."
+	"\0%(headturned)\i[2001]\f[italic,true]\i[11]\i[38]\i[39]\i[48]%(arms)She seems to be daydreaming."
+	"\0%(headfront)%(smileface)%(arms)* I heard Moldsmals were good dancers. \w7\i[72]Did you know that ?"
+	"\0%(headfront)\i[18]\i[38]\i[31]\i[45]%(arms)* Is the weather good where you are ?"
+	"\0%(headturned)\i[18]\i[38]\i[39]\i[45]\i[71]\i[93]* That's fun how Undertale looks exactly as the real world from the inside."
+	"\0%(lsta)Her wings are taking so much place..."
+	"\0%(lsta)You wonder how large her wings are."
+	"\0%(headfront)\i[45]\i[18]\i[38]\i[39]\i[72]\i[90]* Almost no humans at all are able to do magic nowaday."
+	"\0%(headturned)%(wonderingface)%(arms)* I wonder how the human knowledges about magic have been lost."
+	"\0%(headfront)\i[18]%(arms)\i[38]\i[33]\i[45]* Do you have a favorite kind of place ?"
+	"\0%(headfront)%(wonderingface)%(arms)* How many ghosts do you have installed ?"
+	
+}
+
+GhostsDialogues
+{
+	if "MiniDev" _in_ ghostexlist
+	{
+		"%(lsta)She gives a look to MiniDev."
+		"%(lsta)\i[50]She looks happy to see MiniDev."
+	}
+	if "Dusty" _in_ ghostexlist
+	{
+		"%(lsta)\i[50]She smiles at the cat."
+	}
+	if "Jockey" _in_ ghostexlist
+	{
+		"%(lsta)\i[50]She smiles at Jockey."
+	}
+	if "Hunter and Smoker Beta" _in_ ghostexlist
+	{
+		"%(lsta)She is watching Hunter and Smoker."
+	}
+	if "Gaster" _in_ ghostexlist
+	{
+		"%(lsta)She is quietly looking at Gaster."
+		"%(lsta)She mutters something about dumb scientists."
+	}
+	if "Nox" _in_ ghostexlist
+	{
+		"%(lsta)\i[50]She looks happy to see a dragon here."
+	}
+	if "SPAMTON!!" _in_ ghostexlist
+	{
+		"%(lsta)\i[49]She seems to find Spamton weird."
+		"%(lsta)She is waiting for the next ads."
+	}
+	if "Temmie" _in_ ghostexlist
+	{
+		"%(lsta)She is watching Temmie."
+		"%(lsta)She is waiting for Temmie next move."
+	}
+	if "Squid" _in_ ghostexlist
+	{
+		"%(lsta)\i[50]\i[16]She is quietly laughing at the giant squid without it noticing."
+	}
+	if "RYS-0825" _in_ ghostexlist
+	{
+		"%(lsta)She starts to mutter.\n\n[half]%(lsto)* Pfff,\w5 skeletons invasion..."
+	}
+	if "Among Us" _in_ ghostexlist
+	{
+		"%(lsto)%(smileface)* Oh ! \w7 A bean."
+	}
+	if "Dreamtale Sans" _in_ ghostexlist
+	{
+		"%(lsto)\i[50]* Cuuuuuuuuuute...."
+	}
+}
+
+MoodDialogues
+{
+	if mood == "sick"
+	{
+		"%(lsta)%(worriedface)She looks worrier."
+		"%(lsto)%(worriedface)You should rest."
+	}
+	elseif mood == "sad"
+	{
+		
+	}
+	elseif mood == "tired"
+	{}
+	elseif mood == "lonely"
+	{}
+	elseif mood == "angry"
+	{}
+	elseif mood == "hungry"
+	{}
+	elseif mood == "fine"
+	{}
+}
+
 
 //Dialogues for when Azura is asleep.
 SleepingTalk : nonoverlap
@@ -1681,6 +1678,99 @@ PostHalloweenTalk
 	"\e"
 }
 
+OnStartCom
+{
+	"%(lsto)"
+	--
+	res_reference0 = ghostexlist[index]
+	conversation = "started"
+	if ghostexlist[index] == "MVSans"
+	{
+		"* Hello.\e"
+		"* Howdy.\e"
+	}
+	elseif "flowey" _in_ TOLOWER(ghostexlist[index])
+	{
+		"* Howdy Flowey.\e"
+	}
+	elseif ghostexlist[index] == "Gaster"
+	{
+		"* Hello Dr. Gaster.\e"
+	}
+	elseif ghostexlist[index] ==  "Ralsei"
+	{
+		"* Hello fluffy boy.\e"
+		"* Howdy fluffy boy.\e"
+	}
+	elseif ghostexlist[index] == "Jockey"
+	{
+		"* Hi.\e"
+	}
+	elseif ghostexlist[index] == "Hunter and Smoker Beta"
+	{
+		"* Hello.\e"
+	}
+	elseif ghostexlist[index] == "Wheatley"
+	{
+		"* Hi.\e"
+		"* Hello.\e"
+	}
+	elseif ghostexlist[index] == "CheeryBot"
+	{
+		"*Hello.\e"
+	}
+	elseif ghostexlist[index] == "Mettaton"
+	{
+		"* Hello,\w5 Mettaton.\e"
+		"* Howdy.\e"
+	}
+	elseif ghostexlist[index] == "Dusk"
+	{
+		if saw_dusk_dawn == 0
+		{
+			"* Hello.\e"
+		}
+		else
+		{
+			if dusk_dawn_encounter = 0
+			{
+				"* I don't think we already talked before.\w7 Who are you ?"
+			}
+			else
+			{
+				"* What are you doing ?\e"
+			}
+			
+		}
+	}
+	elseif ghostexlist[index] == "MiniDev"
+	{
+		"* Hello lil android.\e CheckOutfit0"
+		if askedmdgliches != 1 && metminidev == 1
+		{
+			"%(lsta)She is looking at MiniDev\e VarCheck"
+		}
+		
+	}
+	else
+	{
+		"* Hello.\e"
+	}
+	
+	/*if ASEARCH("Dusk",ghostexlist) != 0
+	{
+		res_reference0 = "Dusk"
+		"What are you talking about ?"
+	}*/
+}
+
+OnStartEating
+{
+	plateate = "%(reference0)"
+	alreadyeat = 2
+	oncomputer = 0
+}
+
 
 ///Changing pose functions----------------------------------------------------------------------------------------------------------------------------
 
@@ -1935,7 +2025,7 @@ RecognizeSong
 	if "barbie girl" _in_ TOLOWER(songplayed)
 	{
 		"\0\i[38]\i[39]%(lsta)She DOES know this song. And she seems to like it."
-		"\0%(lsto)* I like Aqua."
+		"\0%(smileface)%(lsto)* I like Aqua."
 	}
 	if "gimme gimme" _in_ TOLOWER(songplayed) || "a man after midnight" _in_ TOLOWER(songplayed)
 	{
@@ -2032,126 +2122,7 @@ OnMinuteChange
 	OnCheckStatus
 	if communicate == 1
 	{
-		if oncomputer ==  1 && alreadyeat < 2
-		{
-			"%(arms)\i[14]\w1"
-			--
-			"\i[30]\i[31]"
-			"\i[32]\i[33]"
-			"\i[34]"
-			"\i[35]"
-			"\i[37]"
-			"\i[38]\i[39]"
-			--
-			"\i[49]"
-			"\i[48]"
-			"\i[46]"
-			if azfeel >= 1
-			{
-				"\i[50]"
-				"\i[45]"
-			}
-			elseif azfeel == 0
-			{
-				"\i[45]"
-				"\i[40]"
-			}
-			else
-			{
-				"\i[40]"
-			}
-		}
-		elseif isdrawing == 1 && alreadyeat < 2
-		{
-			"\0%(arms)\i[14]"
-			--
-			"\i[30]\i[31]"
-			"\i[32]\i[33]"
-			"\i[36]\i[37]"
-			"\i[38]\i[39]"
-			"\i[35]"
-			"\i[33]"
-			--
-			"\i[49]"
-			"\i[48]"
-			"\i[46]"
-			if azfeel >= 1
-			{
-				"\i[50]"
-				"\i[45]"
-			}
-			elseif azfeel == 0
-			{
-				"\i[45]"
-				"\i[40]"
-			}
-			else
-			{
-				"\i[40]"
-			}
-		}
-		else
-		{
-			"\i[11]"
-			"\i[18]"
-			if azfeel > 2
-			{
-				"\i[16]"
-			}
-			--
-			"\i[30]\i[31]"
-			"\i[38]\i[39]"
-			--
-			if oncomputer != 1 && isdrawing != 1 && (alreadyeat <= 1 || alreadyeat > 600) && holdobsidian != 1
-			{
-				if issat == 1
-				{
-					"\i[71]\i[91]"
-				}
-				"\i[71]"
-				"\i[91]"
-				"\i[70]\i[90]"
-				"\i[70]"
-				"\i[90]"
-			}
-			--
-			if azfeel >= 1
-			{
-				"\i[45]"
-				if azpunched <= 0
-				{
-					"\i[50]"
-				}
-				else
-				{
-					"\i[52]"
-				}
-			}
-			elseif azfeel == 0
-			{
-				
-				"\i[40]"
-				if azpunched > 0
-				{
-					"\i[52]"
-				}
-				else
-				{
-					"\i[46]"
-				}
-			}
-			else
-			{
-				if azpunched <= 0
-				{
-					"\i[40]"
-				}
-				else
-				{
-					"\i[52]"
-				}
-			}
-		}
+		"%(randompose)"
 		--
 		if minute == 0 //These check what time it is. Here, it's seeing if the minute equals zero...
 		{
@@ -2179,22 +2150,6 @@ OnMinuteChange
 				}
 				//Then replace the dialogue with what's appropriate.
 			}
-			elseif hour == 23 //if the hour is 23, aka 11 pm.
-			{
-				/*if minute == 55 //And if the minutes are at 55.
-				{
-				"\0%(lsto)* 5 minutes to midnight.\e"
-				}
-				else //if it isn't 11:55. These are meant to be examples of specific times you can check, you don't have to check for the same times. You can also always delete individual elseifs if you can't think of any time to check. Like, you could delete the elseif for hour == 23 and the subsequent checks below it, then move on to the elseif below for hour 7. This section is flexible.
-				{
-				"\0%(lsto)* It's 11 pm.\e"
-				//replace the dialogue here again as you like.
-				}*/
-			}
-			/*elseif hour == 7 && minute == 30 && weekday == 0 //Here, it's checking for a specific time on a specific day. You can add things to your time checks just like this by using the AND operator, &&. This adds up to 7:30, Sunday. If you have a favorite TV program on at some time, you could have your ghost comment on when it comes on like this.
-			{
-				//Replace with what's appropriate.
-			}*/
 			elseif hour == 16 && minute == 0//if the hour is 16, or 4 pm. You can add in time checks for whatever times you want, or change what these time checks are looking for. These are just meant to be examples of how it works.
 			{
 				if !asleep
@@ -2203,7 +2158,7 @@ OnMinuteChange
 				}
 				else
 				{
-					"\0%(lsta)* It's 4 pm.%(lsto)\e"
+					"\0%(lsto)* It's 4 pm.\e"
 				}
 				//Replace with what's appropriate.
 			}
@@ -2377,90 +2332,7 @@ EndMikireTalk
 
 OnSurfaceRestore
  {
- 	//if reference0 == 4 || reference0 == 6 //This is checking what poses they are in. This looks to see if Girl is in pose 4 or pose 6, since she is reference0.
- 	//{
- 	//"\1\s[10]You're in a sad pose.\w8\0\s[0]I'll go back to normal then.\e"
- 	//}
- 	//elseif reference1 == 14 || reference1 == 16 //This is doing the same but for Triangle, since he's reference1. It looks to see if he's in pose 14 or post 16.
- 	//{
- 	//"\0\s[0]You look sad.\w8\1\s[10]I'll go back to normal.\e"
- 	//}
- 	//else
- 	//{
-	
-	if oncomputer ==  1 && asleep != 1 && alreadyeat < 2
-	{
-		"%(azpose)\i[60]\i[14]\w1"
-		--
-		"\i[30]\i[31]"
-		"\i[32]\i[33]"
-		"\i[34]"
-		"\i[35]"
-		"\i[37]"
-		"\i[38]\i[39]"
-		--
-		"\i[49]"
-		"\i[48]"
-		"\i[46]"
-		if azfeel >= 1
-		{
-			"\i[50]"
-			"\i[45]"
-		}
-		elseif azfeel == 0
-		{
-			"\i[45]"
-			"\i[40]"
-		}
-		else
-		{
-			"\i[40]"
-		}
-	}
-	elseif isdrawing == 1 && asleep != 1 && alreadyeat < 2
-	{
-		"\0\i[62]\i[14]"
-		--
-		"\i[30]\i[31]"
-		"\i[32]\i[33]"
-		"\i[36]\i[37]"
-		"\i[38]\i[39]"
-		"\i[35]"
-		"\i[33]"
-		--
-		"\i[49]"
-		"\i[48]"
-		"\i[46]"
-		if azfeel >= 1
-		{
-			"\i[50]"
-			"\i[45]"
-		}
-		elseif azfeel == 0
-		{
-			"\i[45]"
-			"\i[40]"
-		}
-		else
-		{
-			"\i[40]"
-		}
-	}
-	elseif asleep == 1
-	{
-		"\0\i[15]"
-	}
-	else
-	{
-		"\0\i[18]"
-	}
-	--
-	"%(arms)"
-	--
-	if dayslot == "6month 4day"
-	{
-		"\i[120]"
-	}
+	"%(randompose)"
 	//}
  }
 
