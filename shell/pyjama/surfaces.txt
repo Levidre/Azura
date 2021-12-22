@@ -1796,7 +1796,9 @@ surface.append10-14
 	70pattern1,0,0,start,83
 	70pattern2,0,0,stop,71
 	70pattern3,0,0,stop,72
-	70pattern4,1040,1,overlay,0,0
+	70pattern4,0,0,stop,60
+	70pattern5,0,0,stop,62
+	70pattern6,1040,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	71interval,never
@@ -1804,7 +1806,9 @@ surface.append10-14
 	71pattern1,0,0,start,83
 	71pattern2,0,0,stop,70
 	71pattern3,0,0,stop,72
-	71pattern4,1041,1,overlay,0,0
+	71pattern4,0,0,stop,60
+	71pattern5,0,0,stop,62
+	71pattern6,1041,1,overlay,0,0
 	
 	//Extended arm
 	72interval,never
@@ -1812,7 +1816,9 @@ surface.append10-14
 	72pattern1,0,0,start,83
 	72pattern2,0,0,stop,71
 	72pattern3,0,0,stop,70
-	72pattern4,1042,1,overlay,0,0
+	72pattern4,0,0,stop,60
+	72pattern5,0,0,stop,62
+	72pattern6,1042,1,overlay,0,0
 	
 	//Yawn
 	79interval,never
@@ -1861,7 +1867,9 @@ surface.append10-14
 	90pattern1,0,0,start,98
 	90pattern2,0,0,stop,92
 	90pattern3,0,0,stop,91
-	90pattern4,1070,1,overlay,0,0
+	90pattern4,0,0,stop,61
+	90pattern5,0,0,stop,63
+	90pattern6,1070,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	91interval,never
@@ -1869,7 +1877,9 @@ surface.append10-14
 	91pattern1,0,0,start,98
 	91pattern2,0,0,stop,90
 	91pattern3,0,0,stop,92
-	91pattern4,1071,1,overlay,0,0
+	91pattern4,0,0,stop,61
+	91pattern5,0,0,stop,63
+	91pattern6,1071,1,overlay,0,0
 	
 	//Extended arm
 	92interval,never
@@ -1877,7 +1887,9 @@ surface.append10-14
 	92pattern1,0,0,start,98
 	92pattern2,0,0,stop,90
 	92pattern3,0,0,stop,91
-	92pattern4,1072,1,overlay,0,0
+	92pattern4,0,0,stop,61
+	92pattern5,0,0,stop,63
+	92pattern6,1072,1,overlay,0,0
 	
 	//Behind the head
 	93interval,never
@@ -3323,7 +3335,9 @@ surface.append15-18
 	70pattern1,0,0,start,83
 	70pattern2,0,0,stop,71
 	70pattern3,0,0,stop,72
-	70pattern4,1540,1,overlay,0,0
+	70pattern4,0,0,stop,60
+	70pattern5,0,0,stop,62
+	70pattern6,1540,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	71interval,never
@@ -3331,7 +3345,9 @@ surface.append15-18
 	71pattern1,0,0,start,83
 	71pattern2,0,0,stop,70
 	71pattern3,0,0,stop,72
-	71pattern4,1541,1,overlay,0,0
+	71pattern4,0,0,stop,60
+	71pattern5,0,0,stop,62
+	71pattern6,1541,1,overlay,0,0
 	
 	//Extended arm
 	72interval,never
@@ -3339,7 +3355,9 @@ surface.append15-18
 	72pattern1,0,0,start,83
 	72pattern2,0,0,stop,71
 	72pattern3,0,0,stop,70
-	72pattern4,1542,1,overlay,0,0
+	72pattern4,0,0,stop,60
+	72pattern5,0,0,stop,62
+	72pattern6,1542,1,overlay,0,0
 	
 	//Yawn
 	79interval,never
@@ -3395,7 +3413,9 @@ surface.append15-18
 	90pattern1,0,0,start,98
 	90pattern2,0,0,stop,92
 	90pattern3,0,0,stop,91
-	90pattern7,1570,1,overlay,0,0
+	90pattern4,0,0,stop,61
+	90pattern5,0,0,stop,63
+	90pattern6,1570,1,overlay,0,0
 	
 	//Arms on the hips (hanche)
 	91interval,never
@@ -3403,7 +3423,9 @@ surface.append15-18
 	91pattern1,0,0,start,98
 	91pattern2,0,0,stop,90
 	91pattern3,0,0,stop,92
-	91pattern4,1571,1,overlay,0,0
+	91pattern4,0,0,stop,61
+	91pattern5,0,0,stop,63
+	91pattern6,1571,1,overlay,0,0
 	
 	//Extended arm
 	92interval,never
@@ -3411,7 +3433,9 @@ surface.append15-18
 	92pattern1,0,0,start,98
 	92pattern2,0,0,stop,90
 	92pattern3,0,0,stop,91
-	92pattern4,1572,1,overlay,0,0
+	92pattern4,0,0,stop,61
+	92pattern5,0,0,stop,63
+	92pattern6,1572,1,overlay,0,0
 	
 	//Behind the head
 	93interval,never

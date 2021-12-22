@@ -2122,8 +2122,6 @@ OnMinuteChange
 	OnCheckStatus
 	if communicate == 1
 	{
-		"%(randompose)"
-		--
 		if minute == 0 //These check what time it is. Here, it's seeing if the minute equals zero...
 		{
 			if hour == 12 && minute == 0//And the hour equals 12, ie it's noon. You can change this to some other hour if you want.
@@ -2211,6 +2209,14 @@ OnMinuteChange
 					"\0\![embed,OnChangePose]\e"
 				}
 			}
+			else
+			{
+				"%(randompose)"
+			}
+		}
+		else
+		{
+			"%(randompose)"
 		}
 		--
 		if dayslot == "6month 4day"
