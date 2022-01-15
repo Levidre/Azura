@@ -8,363 +8,238 @@ AzRespond2
 	_unknownwords = IARRAY
 	_unknownverb = IARRAY
 	_respond = "* "
-	_prevnegation = "0"
-	_prevphrasetype = "0"
-	_prevtense = "0"
-	_prevmodal = "0"
-	_prevverb = "0"
-	_prevdetsubject = "0"
-	_prevadjsubject = "0"
-	_prevsubject = "0"
-	_prevfirstprep = "0"
-	_prevdetCOD = "0"
-	_prevadjCOD = "0"
-	_prevCOD = "0"
-	_prevsecondprep = "0"
-	_prevdetCOI = "0"
-	_prevadjCOI = "0"
-	_prevCOI = "0"
-	_prevotherwords = "0"
-	_prevcomplement = "0"
-	--
+	_prevsentence
 	foreach _sentencesdata ; _sentence
 	{
-		_negation = _sentence[0]
-		_phrasetype = _sentence[1]
-		_tense = _sentence[2]
-		_modal = _sentence[3]
-		_verb = _sentence[4]
-		
-		_detsubject = _sentence[5]
-		_adjsubject = IARRAY
-		_adjsubject = REPLACE(SPLIT(_sentence[6])," ",";")
-		_adjectives = SPLIT(_adjsubject," ")
-		
-		foreach _adjectives ; _adj
-		{
-			_result = DetermineWord(_adj)
-			_type = SPLIT(_result[0]," ")
-			_index = _result[1]
-			_indadj  = ASEARCH("adjectif",_type)
-			_indname = ASEARCH("name",_type)
-			if _indadj != -1
-			{
-				_adjsubject = REPLACE(_adjsubject,";"+_adj,";"+adjectiveslib[TOINT(_index[_indadj])])
-			}
-			elseif _indname != -1
-			{
-				_adjsubject += REPLACE(_adjsubject,";"+_adj,";"+nameslib[TOINT(_index[_indname])])
-			}
-			
-		}
-		_subject = _sentence[7]
-		_result = DetermineWord(_subject)
-		_type = SPLIT(_result[0]," ")
-		_index = SPLIT(_result[1]," ")
-		_indverb  = ASEARCH("verb",_type)
-		_indname = ASEARCH("name",_type)
-		_indadj = ASEARCH("adjectif",_type)
-		if _indname != -1
-		{
-			_subject = nameslib[TOINT(_index[_indname])]
-			foreach _adjsubject ; _adj
-			{
-				_word = DetermineWord(_adj[0]+_subject[0])
-				if _word[0] != "0"
-				{
-					_subject = _word
-				}
-			}
-			
-		}
-		elseif _indverb != -1
-		{
-			_subject = verbslib[TOINT(_index[_indverb])]
-		}
-		elseif _indadj != -1
-		{
-			_subject = adjectiveslib[TOINT(_index[_indadj])]
-		}
-		_complement = SPLIT(_sentence[8]," ")
-		_allCO = IARRAY
-		_CO = ""
-		_i = 9
-		_j = 0
-		while _i < ARRAYSIZE(_sentence) && _sentence[_i] != ""
-		{
-			if _j == 0
-			{
-				_CO += _sentence[_i]
-				_j++
-			}
-			elseif _j < 3
-			{
-				_CO += "," + _sentence[_i]
-				_j++
-			}
-			elseif _j == 3
-			{
-				_CO += "," + _sentence[_i]
-				_allCO ,= _CO
-				_CO = ""
-				_j = 0
-			}
-			_i++
-		}
-		
-		_i = 9
-		_foundCOD = 0
-		_foundCOI = 0
-		_detCOD = "0"
-		_prepCOD = "0"
-		_COD = "0"
-		_prepCOI = "0"
-		_detCOI = "0"
-		_COI = "0"
-		_prepCO = "0"
-		_CO = "0"
-		_newallCO = IARRAY
-		_adjCOD = ""
-		_adjCOI = ""
-		_adjCO = ""
-		foreach _allCO ; _word
-		{
-			if _foundCOD == 0 && _word[0] == "0"
-			{
-				_detCOD = _word[1]
-				_COD = _word[3]
-				_result = DetermineWord(_COD)
-				_type = SPLIT(_result[0]," ")
-				_index = SPLIT(_result[1]," ")
-				_indverb  = ASEARCH("verb",_type)
-				_indname = ASEARCH("name",_type)
-				if _indname != -1
-				{
-					_COD = nameslib[TOINT(_index[_indname])]
-				}
-				elseif _indverb != -1
-				{
-					_COD = verbslib[TOINT(_index[_indverb])]
-				}
-				_adjectives = SPLIT(_word[2]," ")
-				foreach _adjectives ; _adj
-				{
-					_result = DetermineWord(_adj)
-					_type = SPLIT(_result[0]," ")
-					_index = SPLIT(_result[1]," ")
-					_indadj  = ASEARCH("adjectif",_type)
-					_indname = ASEARCH("name",_type)
-					if _indadj != -1
-					{
-						_adjCOD += adjectiveslib[TOINT(_index[_indadj])] + ";"
-					}
-					elseif _indname != -1
-					{
-						_adjCOD += nameslib[TOINT(_index[_indname])] + ";"
-					}
-					_result = DetermineWord(_adj[0]+_COD[0])
-					if _result[0] != "0"
-					{
-						_indname = ASEARCH("name",SPLIT(_result[0]," "))
-						_COD = nameslib[TOINT((SPLIT(_result[1]," "))[_indname])]
-					}
-				}
-				_foundCOD = 1
-			}
-			elseif _foundCOI == 0 && _word[0] != "0"
-			{
-				_prepCOI = _word[0]
-				_detCOI = _word[1]
-				_COI = _word[3]
-				_result = DetermineWord(_COI)
-				_type = SPLIT(_result[0]," ")
-				_index = SPLIT(_result[1]," ")
-				_indverb  = ASEARCH("verb",_type)
-				_indname = ASEARCH("name",_type)
-				if _indname != -1
-				{
-					_COI = nameslib[TOINT(_index[_indname])]
-				}
-				elseif _indverb != -1
-				{
-					_COI = verbslib[TOINT(_index[_indverb])]
-				}
-				_adjectives = SPLIT(_word[2]," ")
-				foreach _adjectives ; _adj
-				{
-					_result = DetermineWord(_adj)
-					_type = SPLIT(_result[0]," ")
-					_index = SPLIT(_result[1]," ")
-					_indadj  = ASEARCH("adjectif",_type)
-					_indname = ASEARCH("name",_type)
-					if _indadj != -1
-					{
-						_adjCOI += adjectiveslib[TOINT(_index[_indadj])] + ";"
-					}
-					elseif _indname != -1
-					{
-						_adjCOI += nameslib[TOINT(_index[_indname])] + ";"
-					}
-					_result = DetermineWord(_adj[0]+_COI[0])
-					if _result[0] != "0"
-					{
-						_indname = ASEARCH("name",SPLIT(_result[0]," "))
-						_COI = nameslib[TOINT((SPLIT(_result[1]," "))[_indname])]
-					}
-				}
-				_foundCOI = 1
-			}
-			else
-			{
-				_prepCO = _word[0]
-				_detCO = _word[1]
-				_CO = _word[3]
-				_result = DetermineWord(_CO)
-				_type = SPLIT(_result[0]," ")
-				_index = SPLIT(_result[1]," ")
-				_indverb  = ASEARCH("verb",_type)
-				_indname = ASEARCH("name",_type)
-				if _indname != -1
-				{
-					_CO = nameslib[TOINT(_index[_indname])]
-				}
-				elseif _indverb != -1
-				{
-					_CO = verbslib[TOINT(_index[_indverb])]
-				}
-				_adjectives = SPLIT(_word[2]," ")
-				foreach _adjectives ; _adj
-				{
-					_result = DetermineWord(_adj)
-					_type = SPLIT(_result[0]," ")
-					_index = SPLIT(_result[1]," ")
-					_indadj  = ASEARCH("adjectif",_type)
-					_indname = ASEARCH("name",_type)
-					if _indadj != -1
-					{
-						_adjCO += adjectiveslib[TOINT(_index[_indadj])] + ";"
-					}
-					elseif _indname != -1
-					{
-						_adjCO += nameslib[TOINT(_index[_indname])] + ";"
-					}
-					_result = DetermineWord(_adj[0]+_COD[0])
-					if _result[0] != "0"
-					{
-						_indname = ASEARCH("name",SPLIT(_result[0]," "))
-						_CO = nameslib[TOINT((SPLIT(_result[1]," "))[_indname])]
-					}
-				}
-				_newallCO ,= (_prepCO,_detCO,_adjCO,_CO)
-			}
-			
-			_i++
-		}
-		
-		_typesubject = DetermineWord(_subject[0])[0]
-		_typeCOD = DetermineWord(_COD[0])[0]
-		_typeCOI = DetermineWord(_COI[0])[0]
-		
-		//Finding all the words in the vocabulary
-		
-		if DetermineWord("%(_subject)")[0] == "name"
-		{
-			_subject = nameslib[TOINT(DetermineWord("%(_subject)")[1])]
-		}
-		elseif DetermineWord("%(_subject)")[0] == "0"
-		{
-			unknownwords ,= "%(_subject)"
-		}
-		
-		_result = DetermineWord(_verb)
-		_type = SPLIT(_result[0]," ")
-		_index = SPLIT(_result[1]," ")
-		
-		if ASEARCH("verb",_type) != -1
-		{
-			_i = TOINT(_index[TOINT(ASEARCH("verb",_type))])
-			if _verb == "%(verbslib[_i][1])" && (_modal == "" || _modal == "0")
-			{
-				_tense = "past"
-			}
-			elseif  _modal == "" ||  _modal == "0"
-			{
-				_tense = "present"
-			}
-			_verb = verbslib[_i]
-		}
-		elseif ASEARCH("name",_type) != -1
-		{
-			_verb = nameslib[TOINT(_index[TOINT(ASEARCH("name",_type))])]
-		}
-
-		if ARRAYSIZE(_adjCOD) == 0
-		{
-			_adjCOD = "0"
-		}
-		if ARRAYSIZE(_adjCOI) == 0
-		{
-			_adjCOI = "0"
-		}
-		
 		_responseType = ""
 		
-		
-		
-		_response = AzRespondNext(_phrasetype,_negation,_tense,_complement,_verb,_detsubject,_adjsubject,_subject,_detCOD,_adjCOD,_COD,_prepCOI,_detCOI,_adjCOI,_COI,_allCO)
+		_response = AzRespondNext(_sentence)
 		if _response !_in_ _respond
 		{
-			_respond += AzRespondNext(_tense,_complement,_verb,_detsubject,_adjsubject,_subject,_detCOD,_adjCOD,_COD,_prepCOI,_detCOI,_adjCOI,_COI,_allCO)
+			_respond += AzRespondNext(_sentence)
 		}
-		
-		
-		
+		_prevsentence = _sentence
 	}
-	--
 	if _respond != "* "
 	{
 		"%(_respond)"
 	}
 }
 
-AzRespondNext
+ConvertSentenceIntoDefinitions
 {
-	_phrasetype = _argv[0]
-	_negation = _argv[1]
-	_allCO = IARRAY
-	_tense = _argv[2]
-	_complement = _argv[3]
-	_verb = _argv[4]
-	_detsubject = _argv[5]
-	_adjsubject = IARRAY
-	_adjsubject = SPLIT(_argv[6],";")
-	_subject = _argv[7]
-	_detCOD = _argv[8]
-	_adjCOD = IARRAY
-	_adjCOD = SPLIT(_argv[9],";")
-	_COD = _argv[10]
-	_prepCOI = _argv[11]
-	_detCOI = _argv[12]
-	_adjCOI = IARRAY
-	_adjCOI = SPLIT(_argv[13],";")
-	_COI = _argv[14]
-	_responseType = ""
 	
-	_i = 0
-	foreach _argv ; _word
+	_sentence = _argv
+	_negation = _sentence[0]
+	_phrasetype = _sentence[1]
+	_tense = _sentence[2]
+	_modal = _sentence[3]
+	_verb = _sentence[4]
+	_detsubject = _sentence[5]
+	_adjsubject = REPLACE(_sentence[6]," ",";")
+	_subject = _sentence[7]
+	_complement = SPLIT(_sentence[8]," ")
+	_allCO = IARRAY
+	
+	_prepCOD = ""
+	_detCOD = ""
+	_adjCOD = ""
+	_COD = ""
+	_detCOI = ""
+	_prepCOI = ""
+	_adjCOI = ""
+	_COI = ""
+
+	_adjectives = SPLIT(_adjsubject," ")
+	foreach _adjectives ; _adj
 	{
-		if _i > 14
+		_result = DetermineWord(_adj)
+		_type = SPLIT(_result[0]," ")
+		_index = _result[1]
+		_indadj  = ASEARCH("adjectif",_type)
+		_indname = ASEARCH("name",_type)
+		if _indadj != -1 ; _adjsubject = REPLACE(_adjsubject,";"+_adj,";"+adjectiveslib[TOINT(_index[_indadj])])
+		elseif _indname != -1 ; _adjsubject = REPLACE(_adjsubject,";"+_adj,";"+nameslib[TOINT(_index[_indname])])	
+	}
+
+	_result = DetermineWord(_subject)
+	_type = SPLIT(_result[0]," ")
+	_index = SPLIT(_result[1]," ")
+	_indverb  = ASEARCH("verb",_type)
+	_indname = ASEARCH("name",_type)
+	_indadj = ASEARCH("adjectif",_type)
+	if _indname != -1
+	{
+		_subject = nameslib[TOINT(_index[_indname])]
+		foreach _adjsubject ; _adj
 		{
-			_allCO ,= _word
+			_word = DetermineWord(_adj[0]+_subject[0])
+			if _word[0] != "" ; _subject = _word
+		}
+	}
+	elseif _indverb != -1 ; _subject = verbslib[TOINT(_index[_indverb])]
+	elseif _indadj != -1 ; _subject = adjectiveslib[TOINT(_index[_indadj])]
+	elseif _result[0] == "0" ; unknownwords ,= "%(_subject)"
+	
+	_j = 0
+	for _i = 9; _i < ARRAYSIZE(_sentence) && _sentence[_i] != ""; _i++
+	{
+		if _j == 0
+		{
+			_CO += _sentence[_i]
+			_j++
+		}
+		elseif _j < 3
+		{
+			_CO += "," + _sentence[_i]
+			_j++
+		}
+		elseif _j == 3
+		{
+			_CO += "," + _sentence[_i]
+			_allCO ,= _CO
+			_CO = ""
+			_j = 0
+		}
+	}
+	
+	_i = 9
+	_foundCOD = 0
+	_foundCOI = 0
+	_newallCO = IARRAY
+
+	foreach _allCO ; _word
+	{
+		if _foundCOD == 0 && _word[0] == "0"
+		{
+			_detCOD = _word[1]
+			_COD = _word[3]
+			_result = DetermineWord(_COD)
+			_type = SPLIT(_result[0]," ")
+			_index = SPLIT(_result[1]," ")
+			_indverb  = ASEARCH("verb",_type)
+			_indname = ASEARCH("name",_type)
+			if _indname != -1 ; _COD = nameslib[TOINT(_index[_indname])]
+			elseif _indverb != -1 ; _COD = verbslib[TOINT(_index[_indverb])]
+			
+			_adjectives = SPLIT(_word[2]," ")
+			foreach _adjectives ; _adj
+			{
+				_result = DetermineWord(_adj)
+				_type = SPLIT(_result[0]," ")
+				_index = SPLIT(_result[1]," ")
+				_indadj  = ASEARCH("adjectif",_type)
+				_indname = ASEARCH("name",_type)
+				if _indadj != -1 ; _adjCOD += adjectiveslib[TOINT(_index[_indadj])] + ";"
+				elseif _indname != -1 ; _adjCOD += nameslib[TOINT(_index[_indname])] + ";"
+				
+				_result = DetermineWord(_adj[0]+_COD[0])
+				if _result[0] != "0"
+				{
+					_indname = ASEARCH("name",SPLIT(_result[0]," "))
+					_COD = nameslib[TOINT((SPLIT(_result[1]," "))[_indname])]
+				}
+			}
+			_foundCOD = 1
+		}
+		elseif _foundCOI == 0 && _word[0] != "0"
+		{
+			_prepCOI = _word[0]
+			_detCOI = _word[1]
+			_COI = _word[3]
+			_result = DetermineWord(_COI)
+			_type = SPLIT(_result[0]," ")
+			_index = SPLIT(_result[1]," ")
+			_indverb  = ASEARCH("verb",_type)
+			_indname = ASEARCH("name",_type)
+			if _indname != -1 ; _COI = nameslib[TOINT(_index[_indname])]
+			elseif _indverb != -1 ; _COI = verbslib[TOINT(_index[_indverb])]
+			
+			_adjectives = SPLIT(_word[2]," ")
+			foreach _adjectives ; _adj
+			{
+				_result = DetermineWord(_adj)
+				_type = SPLIT(_result[0]," ")
+				_index = SPLIT(_result[1]," ")
+				_indadj  = ASEARCH("adjectif",_type)
+				_indname = ASEARCH("name",_type)
+				if _indadj != -1 ; _adjCOI += adjectiveslib[TOINT(_index[_indadj])] + ";"
+				elseif _indname != -1 ; _adjCOI += nameslib[TOINT(_index[_indname])] + ";"
+				
+				_result = DetermineWord(_adj[0]+_COI[0])
+				if _result[0] != "0"
+				{
+					_indname = ASEARCH("name",SPLIT(_result[0]," "))
+					_COI = nameslib[TOINT((SPLIT(_result[1]," "))[_indname])]
+				}
+			}
+			_foundCOI = 1
+		}
+		else
+		{
+			_prepCO = _word[0]
+			_detCO = _word[1]
+			_adjCO = ""
+			_CO = _word[3]
+			_result = DetermineWord(_CO)
+			_type = SPLIT(_result[0]," ")
+			_index = SPLIT(_result[1]," ")
+			_indverb  = ASEARCH("verb",_type)
+			_indname = ASEARCH("name",_type)
+			if _indname != -1 ; _CO = nameslib[TOINT(_index[_indname])]
+			elseif _indverb != -1 ; _CO = verbslib[TOINT(_index[_indverb])]
+			
+			_adjectives = SPLIT(_word[2]," ")
+			foreach _adjectives ; _adj
+			{
+				_result = DetermineWord(_adj)
+				_type = SPLIT(_result[0]," ")
+				_index = SPLIT(_result[1]," ")
+				_indadj  = ASEARCH("adjectif",_type)
+				_indname = ASEARCH("name",_type)
+				if _indadj != -1 ; _adjCO += adjectiveslib[TOINT(_index[_indadj])] + ";"
+				elseif _indname != -1 ; _adjCO += nameslib[TOINT(_index[_indname])] + ";"
+				
+				_result = DetermineWord(_adj[0]+_COD[0])
+				if _result[0] != "0"
+				{
+					_indname = ASEARCH("name",SPLIT(_result[0]," "))
+					_CO = nameslib[TOINT((SPLIT(_result[1]," "))[_indname])]
+				}
+			}
+			_newallCO ,= (_prepCO,_detCO,_adjCO,_CO)
 		}
 		_i++
 	}
+		
+	_result = DetermineWord(_verb)
+	_type = SPLIT(_result[0]," ")
+	_index = SPLIT(_result[1]," ")
+	
+	if ASEARCH("verb",_type) != -1
+	{
+		_i = TOINT(_index[TOINT(ASEARCH("verb",_type))])
+		if _verb == "%(verbslib[_i][1])" && (_modal == "" || _modal == "0") ; _tense = "preterit"
+		elseif  _modal == "" ||  _modal == "0" ; _tense = "present"
+		_verb = verbslib[_i]
+	}
+	elseif ASEARCH("name",_type) != -1 ; _verb = nameslib[TOINT(_index[TOINT(ASEARCH("name",_type))])]
+
+	(_tense, _complement, _verb, _detsubject, _adjsubject, _subject, _detCOD, _adjCOD, _COD, _prepCOI, _detCOI, _adjCOI, _COI, _newallCO)
+}
+
+AzRespondNext
+{
+	_phrasetype = _argv[1]
+	_responseType = ""
+
 	case _phrasetype
 	{
 		when "whatquestion"
 		{
 			//Will search the correspondances in the dictionnary
 			_responseType = "search"
+			SearchResponse(_sentence)
 		}
 		when "howquestion"
 		{
@@ -377,6 +252,7 @@ AzRespondNext
 		when "whichquestion"
 		{
 			_responseType = "search"
+			SearchResponse(_sentence)
 		}
 		when "whenquestion"
 		{
@@ -385,14 +261,17 @@ AzRespondNext
 		when "whoquestion"
 		{
 			_responseType = "search" 
+			SearchResponse(_sentence)
 		}
 		when "normalquestion"
 		{
 			_responseType = "confirmation"
+			SearchConfirmation(_sentence)
 		}
 		when "modalquestion"
 		{
 			_responseType = "confirmation"
+			SearchConfirmation(_sentence)
 		}
 		when "affirmation"
 		{
@@ -483,11 +362,16 @@ SearchResponse
 
 SearchConfirmation
 {
+	_sentence = ConvertSentenceIntoDefinitions(_argv)
+	_verb = _sentence[2]
+	_subject = _argv[5]
+	_adjCOD = SPLIT(_argv[7],";")
+	
 	if "avis" _in_ _verb[4]
 	{
 		if _subject[0] == "i"
 		{
-			_ressubject = "You"
+			_ressubject = "you"
 			_adjvalue = 0
 			if ARRAYSIZE(_adjCOD) != 0
 			{
@@ -497,30 +381,32 @@ SearchConfirmation
 		}
 		elseif _subject[0] == "you"
 		{
-			_ressubject = "I"
+			_ressubject = "i"
 			_adjvalue = PreferenceValue(_adjCOD)
 			_resverb = PickVerb("")
 			
 		}
 		else
 		{
+			//Memory check
 			"I don't know.\w7 "
 		}
 	}
 	else
 	{
-		/*if CheckLogical == "yes"
+		islogic = CheckLogical(_sentence)
+		if islogic == "yes"
 		{
 			ConfirmAnswerSure
 		}
-		elseif CheckLogical == "middle"
+		elseif islogic == "middle"
 		{
 			ConfirmAnswerMiddle
 		}
 		else
 		{
 			ConfirmAnswerNope
-		}*/
+		}
 	}
 }
 
@@ -642,6 +528,7 @@ PreferenceValue
 			_preference += TOINT(_word[2])
 		}
 	}
+	_preference
 }
 PreferenceDescriptionValue
 {
@@ -785,25 +672,14 @@ ANegativeThing
 DescriptionList
 {
 	_name = _argv[0]
-	_type = _argv[1]
 	_description = IARRAY
 	_description = SPLIT(_name[3]," ")
 	_list = IARRAY
 	foreach _description; _descript
 	{
-		if IsNoun(_descript) != -1
-		{
-			_list ,= nameslib[IsNoun(_descript)]
-		}
-		elseif IsAdjectif(_descript) != -1
-		{
-			_list ,= adjectiveslib[IsAdjectif(_descript)]
-		}
-		
-		elseif IsVerb(_descript) != -1
-		{
-			_list ,= verbslib[IsVerb(_descript)]
-		}
+		if (_index = IsNoun(_descript)) != -1 ; _list ,= nameslib[_index]
+		elseif (_index = IsAdjectif(_descript)) != -1 ; _list ,= adjectiveslib[_index]
+		elseif (_index = IsVerb(_descript)) != -1 ; _list ,= verbslib[_index]
 	}
 	_list
 }
@@ -815,18 +691,9 @@ ConstitutsList
 	_list = IARRAY
 	foreach _descript; _description
 	{
-		if (_index = IsAdjectif(_descript)) != -1
-		{
-			_list ,= adjectiveslib[_index]
-		}
-		elseif (_index = IsNoun(_descript)) != -1
-		{
-			_list ,= nameslib[_index]
-		}
-		elseif (_index = IsVerb(_descript)) != -1
-		{
-			_list ,= verbslib[_index]
-		}
+		if (_index = IsAdjectif(_descript)) != -1 ; _list ,= adjectiveslib[_index]
+		elseif (_index = IsNoun(_descript)) != -1 ; _list ,= nameslib[_index]
+		elseif (_index = IsVerb(_descript)) != -1 ; _list ,= verbslib[_index]
 	}
 	_list
 }
@@ -838,18 +705,9 @@ ValueOfList
 	_value = 0
 	foreach _list ; _elem
 	{
-		if (_index = IsAdjectif(_descript)) != -1
-		{
-			_value += TOINT(adjectiveslib[_index][2])
-		}
-		elseif (_index = IsNoun(_descript)) != -1
-		{
-			_value += TOINT(nameslib[_index][2]) + TOINT(nameslib[_index][5])
-		}
-		elseif (_index = IsVerb(_descript)) != -1
-		{
-			_value += TOINT(verbslib[_index][6]) + TOINT(verbslib[_index][7])
-		}	
+		if (_index = IsAdjectif(_descript)) != -1 ; _value += TOINT(adjectiveslib[_index][2])
+		elseif (_index = IsNoun(_descript)) != -1 ; _value += TOINT(nameslib[_index][2]) + TOINT(nameslib[_index][5])
+		elseif (_index = IsVerb(_descript)) != -1 ; _value += TOINT(verbslib[_index][6]) + TOINT(verbslib[_index][7])
 	}
 	_value
 }
@@ -1289,24 +1147,11 @@ PickNoun
 	_corresp = 0
 	foreach nameslib ; _name
 	{
-		if _name[2] != "none"
-		{
-			_i = 2
-		
-		}
-		else
-		{
-			_i = 5
-		}
+		if _name[2] != "none" ; _i = 2
+		else ; _i = 5
 
-		if _avis == "you"
-		{
-			_i = 2
-		}
-		elseif _avis == "i"
-		{
-			_i = 5
-		}
+		if _avis == "you" ; _i = 2
+		elseif _avis == "i" ; _i = 5
 		
 		if (_value*TOINT(_name[_i])>0 || _value == TOINT(_name[_i])) && _type _in_ _name[1] && "no"+_type !_in_ _name[1]
 		{
@@ -1362,23 +1207,12 @@ PickVerb
 	_avis = _argv[3]
 	foreach verbslib ; _verb
 	{
-		if _name[6] != "none"
-		{
-			_i = 6
+		if _name[6] != "none" ;_i = 6
+		else ; _i = 5
 		
-		}
-		else
-		{
-			_i = 5
-		}
-		if _avis == "you"
-		{
-			_i = 6
-		}
-		elseif _avis == "i"
-		{
-			_i = 5
-		}
+		if _avis == "you" ; _i = 6
+		elseif _avis == "i" ; _i = 5
+		
 		if (_value*TOINT(_verb[_i])>0 || _value == TOINT(_verb[_i])) && _type _in_ _verb[4] && "no"+_type !_in_ _verb[4]
 		{
 			_tempcorr = CorrespondanceValue(_verb,_description,"verb")
@@ -1435,141 +1269,166 @@ CorrespondanceValue
 }
 
 //Choosing the right form
-
+//Misses the _question use
 ConjugateVerb
 {
 	_verb = _argv[0]
 	_tense = _argv[1]
-	_person = _argv[3]
-	
-	
-	if _verb[4] != "unknown"
+	_person = TOINT(_argv[2])
+	_question = TOINT(_argv[3])
+	_negation = TOINT(_arv[4])
+
+	if _negation == 1
 	{
-		if _tense == "present"
+		if IsModal(_verb)
 		{
-			if ARRAYSIZE(SPLIT(_verb[0],"-")) == 1
-			{
-				if TOINT(_person) == 3
-				{
-					DeterminePluriel(_verb[0])
-				}
-				else
-				{
-					_verb[0]
-				}
-			}
-			elseif ARRAYSIZE(SPLIT(_verb[0],"-")) == 2
-			{
-				if TOINT(_person) == 3
-				{
-					SPLIT(_verb[0],"-")[1]
-				}
-				else
-				{
-					SPLIT(_verb[0],"-")[0]
-				}
-			}
-			elseif ARRAYSIZE(SPLIT(_verb[0],"-")) >= 3
-			{
-				if TOINT(_person) == 3
-				{
-					SPLIT(_verb[0],"-")[1]
-				}
-				if TOINT(_person) == 1
-				{
-					SPLIT(_verb[0],"-")[0]
-				}
-				else
-				{
-					SPLIT(_verb[0],"-")[2]
-				}
-			}
-			
+			_modal = ConjugateVerb(verbslib[IsVerb("do")], _person, _tense, _question, 0)
+			if SUBSTR(_modal,-1,1) == "n" ; _modal + "'t"
+			else ; _modal + "n't"
 		}
-		elseif _tense == "futur"
+		else
 		{
-			ConjugateVerb(verbslib[TOINT(DetermineWord("will")[1])],"present",_person) + " " + SPLIT(_verb[0],"-")[ARRAYSIZE(SPLIT(_verb[0],"-"))-1]
-		}
-		elseif _tense == "preterit"
-		{
-			if ARRAYSIZE(SPLIT(_verb[1],"-")) == 1
-			{
-				if TOINT(_person) == 3
-				{
-					DeterminePluriel(_verb[1])
-				}
-				else
-				{
-					_verb[1]
-				}
-			}
-			elseif ARRAYSIZE(SPLIT(_verb[0],"-")) == 2
-			{
-				if TOINT(_person) == 3
-				{
-					SPLIT(_verb[1],"-")[1]
-				}
-				else
-				{
-					SPLIT(_verb[1],"-")[0]
-				}
-			}
-			elseif ARRAYSIZE(SPLIT(_verb[1],"-")) >= 3
-			{
-				if TOINT(_person) == 3
-				{
-					SPLIT(_verb[1],"-")[1]
-				}
-				if TOINT(_person) == 1
-				{
-					SPLIT(_verb[1],"-")[0]
-				}
-				else
-				{
-					SPLIT(_verb[1],"-")[2]
-				}
-			}
-		}
-		elseif _tense == "continue"
-		{
-			ConjugateVerb(verbslib[TOINT(DetermineWord("be")[1])],"present",_person) + " " + _verb[3]
-		}
-		elseif _tense == "ing"
-		{
-			_verb[3]
+			_modal = ConjugateVerb(verbslib[IsVerb("do")], _person, _tense, _question, 0)
+			if SUBSTR(_modal,-1,1) == "n" ; (_modal + "'t", ConjugateVerb(_verb,"base",_person))
+			else ; (_modal + "n't", ConjugateVerb(_verb,"base",_person))
 		}
 	}
 	else
 	{
-		if _tense == "present"
+		if _verb[4] != "unknown"
 		{
-			if TOINT(_person) == 3
+			if _tense == "present"
 			{
-				DeterminePluriel(_verb[0])
+				if ARRAYSIZE(SPLIT(_verb[0],"-")) == 1
+				{
+					if _question && IsModal(_verb[0]) != 1
+					{
+						if _person == 3 ; "does,"
+						else ; "do,"
+						--
+						_verb[0]
+					}
+					else 
+					{
+						if _person == 3 ; DeterminePluriel(_verb[0])
+						else ; _verb[0]
+					}
+				}
+				elseif ARRAYSIZE(SPLIT(_verb[0],"-")) == 2
+				{
+					if _question && IsModal(_verb[0]) != 1
+					{
+						if _person == 3 ; "does,"
+						else ; "do,"
+						--
+						SPLIT(_verb[0],"-")[0]
+					}
+					else
+					{
+						if _person == 3 ; SPLIT(_verb[0],"-")[1]
+						else ; SPLIT(_verb[0],"-")[0]
+					}
+				}
+				elseif ARRAYSIZE(SPLIT(_verb[0],"-")) >= 4
+				{				
+					if _question && IsModal(_verb[0]) != 1
+					{
+						if _person == 3 ; "does,"
+						else ; "do,"
+						--
+						SPLIT(_verb[0],"-")[0]
+					}
+					else
+					{
+						if _person == 3 ; SPLIT(_verb[0],"-")[2]
+						elseif _person == 1 ; SPLIT(_verb[0],"-")[1]
+						else ; SPLIT(_verb[0],"-")[3]
+					}
+				}
+				
 			}
-			else
+			elseif _tense == "futur"
 			{
-				_verb[0]
+				"will," + ConjugateVerb(_verb,"base",3)
+			}
+			elseif _tense == "preterit"
+			{
+				if _question && IsModal(_verb[0]) != 1 ; "did," + ConjugateVerb(_verb,"base",3)
+				else 
+				{
+					if ARRAYSIZE(SPLIT(_verb[1],"-")) == 1
+					{
+						_verb[1]
+					}
+					elseif ARRAYSIZE(SPLIT(_verb[1],"-")) == 2
+					{
+						if _person == 3 || _person == 1; SPLIT(_verb[1],"-")[0] ; 
+						else ; SPLIT(_verb[1],"-")[1]
+					}
+					elseif ARRAYSIZE(SPLIT(_verb[1],"-")) >= 3
+					{
+						if _person == 3 ; SPLIT(_verb[1],"-")[1]
+						elseif _person == 1 ; SPLIT(_verb[1],"-")[0]
+						else ; SPLIT(_verb[1],"-")[2]
+					}
+				}
+			}
+			elseif _tense == "continue"
+			{
+				ConjugateVerb(verbslib[TOINT(DetermineWord("be")[1])],"base",_person) + " " + _verb[3]
+			}
+			elseif _tense == "base"
+			{
+				SPLIT(_verb[0],"-")[0]
+			}
+			elseif _tense == "ing"
+			{
+				_verb[3]
 			}
 		}
-		elseif _tense == "futur"
+		else
 		{
-			ConjugateVerb(verbslib[TOINT(DetermineWord("will")[1])],"present",_person) + " " + _verb[0]
-		}
-		elseif _tense == "preterit"
-		{
-			DeterminePast(_verb[0])
-		}
-		elseif _tense == "continue"
-		{
-			ConjugateVerb(verbslib[TOINT(DetermineWord("be")[1])],"present",_person) + " " + DetermineIng(_verb[0])
-		}
-		elseif _tense == "ing"
-		{
-			DetermineIng(_verb[0])
+			if _tense == "present"
+			{
+				if _question && IsModal(_verb[0]) != 1
+				{
+					if _person == 3 ; "does,"
+					else ; "do,"
+					--
+					_verb[0]
+				}
+				else
+				{
+					if TOINT(_person) == 3 ; DeterminePluriel(_verb[0])
+					else ; _verb[0]
+				}
+			}
+			elseif _tense == "futur"
+			{
+				"will," + ConjugateVerb(_verb,"base",3)
+			}
+			elseif _tense == "preterit"
+			{
+				if _question && IsModal(_verb[0]) != 1 ; "did," + ConjugateVerb(_verb,"base",3)
+				else ; DeterminePast(_verb[0])
+			}
+			elseif _tense == "continue"
+			{
+				ConjugateVerb(verbslib[TOINT(DetermineWord("be")[1])],"present",_person) + "," + DetermineIng(_verb[0])
+			}
+			elseif _tense == "base"
+			{
+				SPLIT(_verb[0],"-")[0]
+			}
+			elseif _tense == "ing"
+			{
+				DetermineIng(_verb[0])
+			}
 		}
 	}
 }
+GeneratePreposition
+{}
 
 DeterminePluriel
 {
@@ -1669,6 +1528,50 @@ DeterminePast
 	else
 	{
 		"%(_word)ed"
+	}
+}
+
+DeterminePerson
+{
+	_prep = _argv[0]
+	_det = _argv[1]
+	_adj = _argv[2]
+	_word = _argv[3]
+	_plural = _argv[4]
+	
+	case _word[0]
+	{
+		when "i"
+		{
+			1
+			return
+		}
+		when "you"
+		{
+			2
+			return
+		}
+		when "we"
+		{
+			5
+			return
+		}
+		when "they"
+		{
+			6
+			return
+		}
+	}
+	if _det != ""
+	{
+		if _det == "a" ; 3
+		elseif IsSingular(_word) ; 3
+		else ; 6
+	}
+	else
+	{
+		if ASEARCH(listPeopleName, _word) != -1; 3
+		else ; 6
 	}
 }
 

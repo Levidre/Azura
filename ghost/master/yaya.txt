@@ -42,6 +42,9 @@ dic, az-IA-responses-q-we.dic
 dic, az-IA-responses-q-h.dic
 dic, az-IA-responses-q-n.dic
 dic, az-IA-useful.dic
+dic, az-IA-create.dic
+dic, az-IA-memory.dic
+
 dic, az-library.dic
 dic, az-battle.dic
 dic, az-learning.dic

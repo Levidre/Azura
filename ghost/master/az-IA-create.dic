@@ -1,0 +1,106 @@
+ConfirmAnswerSure
+{
+	//Neutral not known : take the subject, nothing else, the verb and the first COD and the first COI to create the sentence
+	//Or is it the constitut that is valid that I should take ?
+}
+
+ConfirmAnswerMiddle
+{
+	_allCO = ""
+	_tense = _argv[0]
+	_complement = _argv[1]
+	_verb = _argv[2]
+	_detsubject = _argv[3]
+	_adjsubject = IARRAY
+	_adjsubject = SPLIT(_argv[4],";")
+	_subject = _argv[5]
+	_detCOD = _argv[6]
+	_adjCOD = IARRAY
+	_adjCOD = SPLIT(_argv[7],";")
+	_COD = _argv[8]
+	_prepCOI = _argv[9]
+	_detCOI = _argv[10]
+	_adjCOI = IARRAY
+	_adjCOI = SPLIT(_argv[11],";")
+	_COI = _argv[12]
+	
+	_i = 0
+	foreach _argv ; _word
+	{
+		if _i > 12
+		{
+			if _allCO == "" ; _allCO += _word
+			else ; _allCO += ";" + _word
+		}
+		_i++
+	}
+	
+	CreateSentence(_detsubject + "," + _argv[4] + "," + _subject[0], _verb, _tense, ",,really,;%(_allCO)", DeterminePerson("", _subject[0], _subject[1], _subject[2]), 1, 0)
+}
+
+ConfirmAnswerNope
+{}
+
+//prep,det,adj,noun
+CreateGN
+{
+	_response = ""
+	if _argv[0] != "" ; _response += " " + _argv[0]
+
+	_newprep = GeneratePreposition(_argv[1], _argv[3]) 
+		
+	if _newprep != "" ; _response += " " + _newprep
+	
+	if _argv[1] != "" ; _response += " " + _argv[1]
+	
+	foreach SPLIT(_argv[2],";") ; _adj
+	{
+		if _adj != "" ; _response += " " + _adj
+	}
+	
+	if _argv[3] != "" ; _response += " " + _argv[3]
+	
+	_response
+}
+
+//sentencesdata = "negation,phrasetype,tense,modal,verb,detsubject,adjsubject,subject,firstprep,detCOD,adjCOD,COD,secondprep,detCOI,adjCOI,COI,others"
+
+CreateSentence
+{
+	_subject = _argv[0]
+	_verb = _argv[1]
+	_tense = _argv[2]
+	_COs = SPLIT(_argv[3],";")
+	_subjectperson = _argv[4]
+	_question = _argv[5]
+	_negation = _argv[6]
+	_questionsupplement = _argv[7]
+	_preco = _argv[8]
+	
+	
+	_response = ""
+	_verbshaped = ConjugateVerb(_verb,_tense, _subjectperson, _question, _negation)
+	
+	if _question == 1
+	{
+		if _questionsupplement != "" ; _response += _questionsupplement
+		if _preco != "" ; _response += CreateGN(_preco) + " "
+		_response += _verbshaped[0] + CreateGN("",_subject[0],_subject[1],_subject[2])
+	}
+	else ; _response += CreateGN("",_subject[0],_subject[1],_subject[2]) + _verbshaped[0]
+	
+	for i = 1; i < ARRAYSIZE(_verbshaped); i++ 
+	{	
+		_response += " " + _verbshaped[i]
+	}
+	
+	foreach _COs ; _CO 
+	{
+		_response += CreateGN(_CO[0], _CO[1], _CO[2], _CO[3])
+	}		
+	
+	if _question == 1 ; _response += " ?\w7 "
+	else ; _response += ".\w7 "
+	
+	CapitalizeFirstLetter(_response)
+}

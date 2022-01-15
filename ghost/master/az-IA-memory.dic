@@ -1,0 +1,79 @@
+CheckLogical
+{
+	_allCO = IARRAY
+	_tense = _argv[0]
+	_complement = _argv[1]
+	_verb = _argv[2]
+	_detsubject = _argv[3]
+	_adjsubject = IARRAY
+	_adjsubject = SPLIT(_argv[4],";")
+	_subject = _argv[5]
+	_detCOD = _argv[6]
+	_adjCOD = IARRAY
+	_adjCOD = SPLIT(_argv[7],";")
+	_COD = _argv[8]
+	_prepCOI = _argv[9]
+	_detCOI = _argv[10]
+	_adjCOI = IARRAY
+	_adjCOI = SPLIT(_argv[11],";")
+	_COI = _argv[12]
+	
+	_i = 0
+	foreach _argv ; _word
+	{
+		if _i > 12
+		{
+			_allCO ,= _word
+		}
+		_i++
+	}
+	
+	_subjectcan = SPLIT(_subject[10],";")
+	_subjectcannot = SPLIT(_subject[11],";")
+	
+	if ASEARCH(_verb[0],_subjectcan) != -1 ; "yes"
+	elseif ASEARCH(_verb[0], _subjectcannot) != -1 ; "no"
+	else {
+		_description = (DescriptionList(_subject), ConstitutsList(_subject))
+		foreach _description ; _descript
+		{
+			_subjectcan = SPLIT(_descript[10],";")
+			_subjectcannot = SPLIT(_descript[11],";")
+			if ASEARCH(_verb[0], _subjectcan) != -1 && ASEARCH(_verb[0], _subjectcannot) == -1; "yes"
+			elseif ASEARCH(_verb[0], _subjectcannot) != -1 && ASEARCH(_verb[0], _subjectcan) == -1 ; "no"
+			else ; "middle"
+		}
+	}
+	
+}
+
+StoreInMemory
+{
+	_sentence = _argv
+	
+	_inmemoryindex = SearchInMemory(_sentene)
+	
+	GETSECCOUNT()
+	if _inmemoryindex == -1
+	{
+		aimemory ,= _sentence
+	}
+	else
+	{
+		
+	}
+	
+}
+
+SearchInMemory
+{
+	_sentence = _argv
+	
+	-1
+}
+
+AreAdjectiveCompatibles
+{
+	_adj1 = SPLIT(_argv[0],",")
+	_adj2 = SPLIT(_argv[1],",")
+}

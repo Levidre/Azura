@@ -533,6 +533,23 @@ IsModal
 	//"%(verbslib[_index])"
 }
 
+IsSingular
+{
+	_word = _argv[0]
+	_index = IsNoun(_word)
+	if _index  == -1
+	{
+		if ASEARCH(listPeopleName, _word) != -1 ; 1
+		elseif DetermineSing(_word) == _word ; 1
+		else ; 0
+	}
+	else
+	{
+		if nameslib[_index] == _word ; 1
+		elseif DetermineSing(_word) == _word ; 1
+		else ; 0
+	}	
+}
 //Replace only the lasrt occurence of a character chain in a word
 
 
@@ -570,7 +587,7 @@ Select.reinivoc
 CreateNameLib
 {
 	nameslib =IARRAY
-	//nom 0, type 1, az-avis 2, shape 3, constituts 4, user-avis 5, utility 6, favorites 7, interesant thing 8, comparaison 9
+	//nom 0, type 1, az-avis 2, shape or description 3, constituts 4, user-avis 5, utility 6, favorites 7, interesant thing 8, comparaison 9, can 10, cannot 11
 	
 	//motor for the objects that can move
 	//fabric = tissu   || = or    . for multiples responds    & = and
@@ -706,7 +723,7 @@ CreateAdjLib
 //Classification of the verbs, stat/mov something to somewhere or from somewhere/action(good/verygood/bad/verybad)/imagin/sense/avis/creation/hobby
 CreateVerbLib
 {
-	//0: present	1:past	2:infinitive	3:ing	4:type	5:user	6:azura	7:subject
+	//0: present	1:past	2:infinitive	3:ing	4:type	5:user	6:azura	7:subject 8:date first 9:date last
 	verbslib = IARRAY
 	verbslib[0] = "be-am-is-are,was-were,been,being,stat,none,0"
 	verbslib[1] = "go,went,gone,going,mov,none,0"
