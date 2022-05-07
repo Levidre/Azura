@@ -156,19 +156,33 @@ MenuRun
 Select.testfunction
 {
 	//_two = IARRAY
-	ChangeLastOccur("testtesttest","est","ost")
+	//SPLIT(verbslib[0][0],"-")[0]
+	//ConjugateVerb(verbslib[0],"base",3)
+	//DeterminePerson("","the","","banana")
+	//ConjugateVerb(verbslib[0],"present", 3,1)
+	_plop = "plop"
+	
+	_COD = IARRAY
+	_COD[0] = "plop"
+	
+	"plop %NounTheir(_COD[0])"
+	
+	//ConfirmAnswerMiddle("preterit","",verbslib[0],"the","","bananas","","","","","","","",",a,yellow,apple")
+	//CreateNormalQuestion(",,banana",verbslib[0],"preterit",",a,yellow,apple")
+	//ChangeLastOccur("testtesttest","est","ost")
 	//--
 	//"\nhop"
 }
 
-Ontest2function
+test2function
 {
 	_one = IARRAY
 	_one ,= "one"
 	_one ,= "one"
 	_one ,= "one"
 	_one ,= "one"
-	_one
+	//_one
+	"%(_argv)"
 }
 
 GetShells

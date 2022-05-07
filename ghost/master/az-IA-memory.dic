@@ -53,14 +53,16 @@ StoreInMemory
 	
 	_inmemoryindex = SearchInMemory(_sentene)
 	
-	GETSECCOUNT()
+	//GETSECCOUNT()
 	if _inmemoryindex == -1
 	{
 		aimemory ,= _sentence
 	}
 	else
 	{
-		
+		_newsentence = aimemory[_inmemoryindex]
+		aimemory[_inmemoryindex] = IARRAY
+		aimemory ,= FuseSentences(_newsentence, _sentence)
 	}
 	
 }
@@ -68,12 +70,180 @@ StoreInMemory
 SearchInMemory
 {
 	_sentence = _argv
-	
+	for _i = 0; _i < ARRAYSIZE(aimemory); _i++
+	{
+		if AreSentencesCompatible(aimemory[_i], _sentence)
+		{
+			_i
+			return
+		}
+	}
 	-1
 }
 
-AreAdjectiveCompatibles
+AreSentencesCompatible
 {
-	_adj1 = SPLIT(_argv[0],",")
-	_adj2 = SPLIT(_argv[1],",")
+	_sentence1 = ConvertSentenceIntoDefinitions(_argv[0])
+	_sentence2 = ConvertSentenceIntoDefinitions(_argv[1])
+	//(0 _tense,1  _complement,2 _verb,3 _detsubject,4 _adjsubject,5 _subject,6 _detCOD,7 _adjCOD,8 _COD,9 _prepCOI,10 _detCOI,11 _adjCOI,12 _COI,13+ _newallCO)
+	if AreVerbsCompatible(_sentence1[2], _sentence1[0], _sentence2[2], _sentence2[0]) != 1 || AreGNsCompatible("", _sentence1[3], _sentence1[4], _sentence1[5], "", _sentence2[3], _sentence2[4], _sentence2[5]) != 1 ; 0
+	else
+	{
+		_i1 = 13
+		_i2 = 13
+		while _i1 < ARRAYSIZE(_sentence1)
+		{
+			while _i2 < ARRAYSIZE(_sentence2)
+			{
+				if AreGNsExcluding(_sentence1[_i1], _sentence1[_i1+1], _sentence1[_i1+2], _sentence1[_i1+3], _sentence2[_i2], _sentence2[_i2+1], _sentence1[_i2+2], _sentence2[_i2+3]) == 1
+				{
+					0
+					return
+				}				
+				_i2 += 4
+			}
+			_i1 += 4
+		}
+		1
+	}
+}
+
+AreGNsExcluding
+{
+	_prep1 = _argv[0]
+	_det1 = _argv[1]
+	_adj1 = IARRAY
+	_adj1 = SPLIT(_argv[2],";")
+	_noun1 = _argv[3]
+	_prep2 = _argv[4]
+	_det2 = _argv[5]
+	_adj2 = IARRAY
+	_adj2 = SPLIT(_argv[6],";")
+	_noun2 = _argv[7]
+	
+	if _noun1[0] != _noun2[0]
+	{
+		if ArePrepositionsCompatible(_prep1, _prep2) != 1 ; 0
+		else ; 1
+	}
+	elseif ArePrepositionsCompatible(_prep1, _prep2) != 1 || AreDeterminantsCompatible(_det1, _det2) != 1 || AreAdjectivesCompatible(_adj1, _adj2) != 1 ; 1
+	else ; 0
+}
+
+AreGNsCompatible
+{
+	_prep1 = _argv[0]
+	_det1 = _argv[1]
+	_adj1 = IARRAY
+	_adj1 = SPLIT(_argv[2],";")
+	_noun1 = _argv[3]
+	_prep2 = _argv[4]
+	_det2 = _argv[5]
+	_adj2 = IARRAY
+	_adj2 = SPLIT(_argv[6],";")
+	_noun2 = _argv[7]
+	
+	if _noun1[0] != _noun2[0] ; 0
+	elseif ArePrepositionsCompatible(_prep1, _prep2) == 1 && AreDeterminantsCompatible(_det1, _det2) == 1 && AreAdjectivesCompatible(_adj1, _adj2) == 1 ; 1
+	else ; 0
+}
+
+ArePrepositionsCompatible
+{
+	_prep1 = _argv[0]
+	_prep2 = _argv[1]
+	if _prep1 == _prep2 ; 1
+	elseif ASEARCH(_prep1, "at", "of", "to") != -1 && ASEARCH(_prep2, "at", "of", "to") != -1 ; 1
+	elseif ASEARCH(_prep1, "at", "by") != -1 && ASEARCH(_prep2, "by", "at") != -1 ; 1
+	elseif ASEARCH(_prep1, "from", "of") != -1 && ASEARCH(_prep2, "from", "of") != -1 ; 1
+	elseif ASEARCH(_prep1, "in", "into", "inside") != -1 && ASEARCH(_prep2, "in", "into", "inside") != -1 ; 1
+	elseif ASEARCH(_prep1, "on", "onto") != -1 && ASEARCH(_prep2, "onto", "on") != -1 ; 1
+	elseif ASEARCH(_prep1, "left", "right","below", "above", "behind", "down", "up") != -1 && ASEARCH(_prep2, "near", "along", "among", "around", "beside") != -1 ; 1
+	elseif ASEARCH(_prep2, "near", "along", "among", "around", "beside") != -1 && ASEARCH(_prep1, "left", "right","below", "above", "behind", "down", "up") != -1 ; 1
+	elseif ASEARCH(_prep2, "near", "along", "among", "around", "beside") != -1 && ASEARCH(_prep2, "near", "along", "among", "around", "beside") != -1 ; 1
+	else ; 0
+}
+
+AreDeterminantsCompatible
+{
+	_det1 = _argv[0]
+	_det2 = _argv[1]
+	
+	if _det1 == _det2 ; 1
+	elseif ASEARCH(_det1,"a","the","") != -1 && ASEARCH(_det2,"a","the","") ; 1
+	else ; 0
+}
+
+AreAdjectivesListCompatible
+{
+	_adj1 = SPLIT(_argv[0],";")
+	_adj2 = SPLIT(_argv[1],";")
+	foreach _adj1 ; _a1
+	{
+		foreach _adj2 ; _a2
+		{
+			if AreAdjectivesCompatible(_a1, _a2) == 0
+			{
+				0
+				return
+			}
+		}
+	}
+	1
+}
+
+AreAdjectivesCompatible
+{
+	_adj1 = _argv[0]
+	_adj2 = _argv[1]
+	
+	if _adj1[1] != _adj2[1] ; 1
+	elseif _adj1[0] != _adj2[0] && _adj[1] == "color" ; 0
+	elseif ASEARCH(_adj1[0], SPLIT(_adj2[4], " ")) != -1 || ASEARCH(_adj2[0], SPLIT(_adj1[4], " ")) != -1 ; 0
+	elseif _adj1[2] == "0" && _adj2[2] == "0" ; 1
+	elseif TOINT(_adj1[2]) * TOINT(_adj2[2]) > 0 ; 1
+	else ; 0
+}
+
+AreVerbsCompatible
+{
+	_verb1 = _argv[0]
+	_negation1 = _argv[1]
+	_verb2 = _argv[2]
+	_negation2 = _argv[3]
+	_value1 = 0
+	_value2 = 0
+	
+	if _verb1[6] == "none" ; _value1 = TOINT(_verb1[5])
+	else ; _value1 = TOINT(_verb1[6])
+	
+	if _verb2[6] == "none" ; _value2 = TOINT(_verb2[5])
+	else ; _value2 = TOINT(_verb2[6])
+	
+	if _verb[4] != _verb[4] ; 0
+	elseif _verb[4] == "stat"
+	{
+		if _value1 == 0 && _value2 == 0 ; 1
+		elseif _value1 * _value2 > 0 ; 1
+		else ; 0
+	}
+	elseif _verb1[4] == "mov" || _verb1[4] == "imagin" ; 1
+	elseif ASEARCH(_verb1[4], "hobby", "creation", "sense", "action") != -1 && _verb1 == _verb2 ; 1
+	else ; 0
+}
+
+AreTensesCompatible
+{
+	_tense1 = _argv[0]
+	_tense2 = _argv[1]
+	if "present" _in_ _tense1 && "present" _in_ _tense2 ; 1
+	elseif ("past" _in_ _tense1 || "preterit" _in_ _tense1) && ("past" _in_ _tense2 || "preterit" _in_ _tense2) ; 1
+	elseif "futur" _in_ _tense1 && "futur" _in_ _tense2 ; 1
+	else ; 0
+}
+
+FuseSentences
+{
+	_sentence1 = _argv[0]
+	_sentence2 = _argv[1]
 }

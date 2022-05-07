@@ -675,7 +675,7 @@ CreateAdjLib
 {
 	adjectiveslib = IARRAY
 	//color   state = no physique    descript = physique
-	//0 : adj	1 : type	2 : value	3 : noun type to complement
+	//0 : adj	1 : type	2 : value	3 : noun type to complement, 4 : opposites
 	adjectiveslib[0] = "blue,color,0"
 	adjectiveslib[1] = "red,color,0"
 	adjectiveslib[2] = "orange,color,0"
@@ -756,7 +756,7 @@ CreateVerbLib
 	verbslib[28] = "build,built,built,building,action,none,0"
 	verbslib[29] = "create,created,created,creating,creation,none,1"
 	verbslib[30] = "sleep,slept,slept,sleeping,action,none,1"
-	verbslib[31] = "walk,walked,walked,walking,action,mov,0"
+	verbslib[31] = "walk,walked,walked,walking,mov,none,0"
 	verbslib[32] = "play,played,played,playing,hobby,none,1"
 	verbslib[33] = "dance,danced,danced,dancing,hobby,none,0"
 	verbslib[34] = "do,did,done,doing,action,none,0"

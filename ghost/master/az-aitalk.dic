@@ -2230,17 +2230,13 @@ OnMinuteChange
 //Like the above, this handles what happens every time a second goes by. Most of this you will not have to touch.
 
 OnSecondChange
- {
+{
 	if passsec == 60
  	{
 	 	passsec = 0
  		passmin = passmin + 1
 	}
- 	else
- 	{
-	 	passsec = passsec + 1
-	}
-	--
+	passsec = passsec + 1
 	if passmin == 60
 	{
 		passhour = passhour + 1
@@ -2250,7 +2246,6 @@ OnSecondChange
 		{
 			moodchange--
 		}
-		--
 		if asleep == 1
 		{
 			sleepingtime += 1
@@ -2306,7 +2301,7 @@ OnSecondChange
 			}
 		}
 	}
- }
+}
  
 
  //---- MikireTalk ---------------------------------------------------------------------

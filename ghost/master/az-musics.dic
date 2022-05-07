@@ -83,21 +83,21 @@ ProcessMusicAnchors
 	case reference0
 	{
 		//It's if the user want to change the playing mode. This will reset the playlists already read except for randomly because if the user doesn't want to quit the random mode, the player will continue to play normally.
-		when "onemu" //if the link is this value
+		when "songalone" //if the link is this value
 		{
 			"\![leave,passivemode]* One music will be played.\e"
 			playmode = reference0
 			muplayed = IARRAY
 			break
 		}
-		when "onemuloop" //if the link is this value
+		when "songloop" //if the link is this value
 		{
 			"\![leave,passivemode]* The same music will be played in loop.\e"
 			playmode = reference0
 			muplayed = IARRAY
 			break
 		}
-		when "oneplaylist" //if the link is this value
+		when "playlistalone" //if the link is this value
 		{
 			"\![leave,passivemode]* The whole playlist will be played.\e"
 			playmode = reference0
@@ -435,7 +435,7 @@ Select.changemode
 {
 	"* Which play mode do you want ?\n\n[half]\_q"
 	--
-	"\![*]\_a[onemu]\q\Play one music\_a    \n\![*]\_a[onemuloop]\q\The same music in loop\_a\n\![*]\_a[oneplaylist]\q\Read the whole playlist\_a    \n\![*]\_a[playlistloop]\q\Playlist in loop\_a\n\![*]\_a[random]\q\Play music randomly\_a"
+	"\![*]\_a[songalone]\q\Play one music\_a    \n\![*]\_a[songloop]\q\The same music in loop\_a\n\![*]\_a[playlistalone]\q\Read the whole playlist\_a    \n\![*]\_a[playlistloop]\q\Playlist in loop\_a\n\![*]\_a[random]\q\Play music randomly\_a"
 	--
 	"\n\n[half]\![*]\q[Go back,backmumenu]"
 }

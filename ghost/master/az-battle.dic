@@ -29,6 +29,8 @@
 	tempplaymode = playmode
 	playmode = "onemuloop"
 	battlestat = IARRAY
+	isdrawing = 0
+	oncomputer = 0
 	--
 	Select.playmu
 	--
@@ -1067,14 +1069,14 @@ NextTurn
  
  Select.gaveup
  {
-	if nowshell != "Old shell" && inpyjama == 1
+	/*if nowshell != "Old shell" && inpyjama == 1
 	{
 		"* Oh ?\w5 You don't want to fight anymore ?\![embed,OnChoiceSelect,playmu]\![leave,passivemode]\n"
 	}
 	else
-	{
+	{*/
 		"* Oh ?\w5 You don't want to fight anymore ?%(azpose)%(arms)\![leave,passivemode]\![embed,OnChoiceSelect,playmu]\n"
-	}
+	//}
 	--
 	if userhp >= azhp
 	{
@@ -1089,8 +1091,8 @@ NextTurn
 	isplayed = 1
 	paused = 0
 	--
-	if nowshell != "Old shell" && inpyjama == 1
+	/*if nowshell != "Old shell" && inpyjama == 1
 	{
 		"\![change,shell,Pyjama shell]"
-	}
+	}*/
  }

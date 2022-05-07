@@ -864,8 +864,8 @@ surface12
 //Head to the right
 surface13
 {
-	collision0,132,40,177,60,Head
-	collision1,132,60,177,87,Face
+	collision0,132,40,170,60,Head
+	collision1,132,60,170,87,Face
 	
 	///The body
 	element0,overlay,surface1021.png,0,0
@@ -2479,8 +2479,8 @@ surface17
 //Head to the right
 surface18
 {
-	collision0,132,40,177,60,Head
-	collision1,132,60,177,87,Face
+	collision0,127,143,166,162,Head
+	collision1,127,162,166,187,Face
 	
 	///The body
 	element0,overlay,surface1521.png,0,0
@@ -3611,55 +3611,55 @@ surface.append15-18
 	121pattern0,677,0,overlay,0,0
 	121pattern1,677,1,overlay,0,0
 	
-	// ///Eating spaghettis
-	// 150interval,never
-	// 150pattern0,0,0,stop,70
-	// 150pattern1,0,0,stop,90
-	// 150pattern2,0,0,start,151
-	// 150pattern3,0,0,start,152
-	// 150pattern4,0,0,start,153
-	// 150pattern5,0,0,start,154
-	// 150pattern6,0,0,start,157
+	///Eating spaghettis
+	150interval,never
+	150pattern0,0,0,stop,70
+	150pattern1,0,0,stop,90
+	150pattern2,0,0,start,151
+	150pattern3,0,0,start,152
+	150pattern4,0,0,start,153
+	150pattern5,0,0,start,154
+	150pattern6,0,0,start,157
 	
 	151interval,never
 	151pattern0,1544,0,overlay,0,0
 	151pattern1,1544,1,overlay,0,0
 	
-	// 152interval,never
-	// 152pattern0,1574,0,overlay,0,0
-	// 152pattern1,1574,1,overlay,0,0
+	152interval,never
+	152pattern0,1574,0,overlay,0,0
+	152pattern1,1574,1,overlay,0,0
 	
-	// //the spaghetties being eaten
-	// 153interval,never
-	// 153pattern0,650,0,overlay,0,0
-	// 153pattern1,651,100,overlay,0,0
-	// 153pattern2,650,10,overlay,0,0
-	// 153pattern3,0,0,start,153
+	//the spaghetties being eaten
+	153interval,never
+	153pattern0,600,0,overlay,-5,103
+	153pattern1,601,100,overlay,-5,103
+	153pattern2,600,10,overlay,-5,103
+	153pattern3,0,0,start,153
 	
-	// //spaghetties in the plate
-	// 154interval,never
-	// 154pattern0,652,0,overlay,0,0
-	// 154pattern1,652,1,overlay,0,0
-	// ///64pattern2,0,0,start,164
+	//spaghetties in the plate
+	154interval,never
+	154pattern0,602,0,overlay,-5,103
+	154pattern1,602,1,overlay,-5,103
+	//64pattern2,0,0,start,164
 	
-	// 155interval,never
-	// 155pattern0,653,0,overlay,0,0
-	// 155pattern1,653,1,overlay,0,0
-	// ///65pattern2,0,0,start,165
+	155interval,never
+	155pattern0,603,0,overlay,-5,103
+	155pattern1,603,1,overlay,-5,103
+	//65pattern2,0,0,start,165
 	
-	// 156interval,never
-	// 156pattern0,654,0,overlay,0,0
-	// 156pattern1,654,1,overlay,0,0
-	// ///66pattern2,0,0,start,166
+	156interval,never
+	156pattern0,604,0,overlay,-5,103
+	156pattern1,604,1,overlay,-5,103
+	//66pattern2,0,0,start,166
 	
-	// 157interval,never
-	// 157pattern0,653,6000,overlay,0,0
-	// 157pattern2,0,0,start,155
-	// 157pattern1,0,0,stop,154
-	// 157pattern3,654,4000,overlay,0,0
-	// 157pattern4,0,0,start,156
-	// 157pattern5,0,0,stop,155
-	// 157pattern6,-1,1,overlay,0,0
+	157interval,never
+	157pattern0,603,6000,overlay,-5,103
+	157pattern2,0,0,start,155
+	157pattern1,0,0,stop,154
+	157pattern3,604,4000,overlay,-5,103
+	157pattern4,0,0,start,156
+	157pattern5,0,0,stop,155
+	157pattern6,-1,1,overlay,0,0
 	
 	
 	//Pie
@@ -3777,8 +3777,7 @@ surface19
 	199pattern6,1902,100,overlay,0,0
 	199pattern7,1903,200,overlay,0,0
 	199pattern8,1902,100,overlay,0,0
-	199pattern9,-1,100,overlay,0,0
-	
+	199pattern9,-1,100,overlay,0,0	
 	
 }
 
@@ -3815,6 +3814,7 @@ surface.append10-20
 	
 	2002interval,never
 	2002pattern0,0,0,start,55
+	
 }
 
 
